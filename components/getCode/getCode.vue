@@ -1,6 +1,6 @@
 <template>
   <div class="verify">
-    <el-input type="text" auto-complete="off" placeholder="请输入验证码" v-model="code" @input="codeTrans">
+    <el-input type="text" auto-complete="off" placeholder="请输入验证码" v-model="code" @input="codeTrans" clearable>
       <i slot="prefix" class="el-icon-key"></i>
     </el-input>
     <img class="code-img"
@@ -37,6 +37,7 @@ export default {
   created() {
     getCodeApi().then(res => {
       this.codeImg = window.URL.createObjectURL(res.data)
+      // console.log(res.data)
     })
   }
 }
