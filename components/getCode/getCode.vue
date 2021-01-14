@@ -12,49 +12,11 @@
 </template>
 
 <script>
-import {getCodeApi} from "@/api/login/getCode";
+import controller from './controller/getCode.controller'
 
-export default {
-  name: "getCode",
-  data() {
-    return {
-      codeImg: '',
-      code: ''
-    }
-  },
-  methods: {
-    getCodeTest() {
-      getCodeApi().then(res => {
-        console.log(res)
-        this.codeImg = window.URL.createObjectURL(res.data)
-      })
-    },
-    codeTrans(){
-      this.$emit('code',this.code)
-      // console.log(this.code)
-    }
-  },
-  created() {
-    getCodeApi().then(res => {
-      this.codeImg = window.URL.createObjectURL(res.data)
-      // console.log(res.data)
-    })
-  }
-}
+export default controller
 </script>
 
-<style lang="scss" scoped>
-
-.verify {
-  .el-input {
-    width: 185px;
-  }
-
-  .code-img {
-    float: right;
-    width: 80px;
-    height: 40px;
-  }
-}
+<style scoped>
 
 </style>

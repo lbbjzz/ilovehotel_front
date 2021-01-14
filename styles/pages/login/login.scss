@@ -1,0 +1,30 @@
+.login {
+  height: 100%;
+
+  .loginForm {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 340px;
+    height: 400px;
+    border-radius: 6px;
+    border: 1px black;
+    box-shadow: 0 0 35px navy;
+    padding: 25px 25px 25px 25px;
+
+    .title {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .el-input {
+      .input-icon {
+        height: 39px;
+        width: 14px;
+        margin-left: 2px;
+        margin-top: 14px;
+      }
+    }
+  }
+}

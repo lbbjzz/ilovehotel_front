@@ -3,9 +3,9 @@
 </template>
 
 <script>
-export default {
-  name: "footer"
-}
+import controller from './controller/footer.controller'
+
+export default controller
 </script>
 
 <style scoped>

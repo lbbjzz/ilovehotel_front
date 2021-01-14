@@ -12,57 +12,11 @@
 </template>
 
 <script>
-export default {
-  name: "header",
-  data() {
-    return {
-      imgList: [
-        {
-          key: 1,
-          url: require('@/assets/img/common.jpg')
-        },
-        {
-          key: 2,
-          url: require('@/assets/img/better.jpg')
-        },
-        {
-          key: 3,
-          url: require('@/assets/img/best.jpg')
-        }
-      ]
-    }
-  }
-}
+import  controller from './controller/header.controller'
+
+export default controller
 </script>
 
-<style lang="scss" scoped>
-.head {
-  width: 100%;
+<style scoped>
 
-  .nav {
-    height: 80px;
-    background-color: deepskyblue;
-  }
-
-  .el-carousel {
-    background-color: skyblue;
-
-    .el-carousel__item h3 {
-      color: #475669;
-      font-size: 14px;
-      opacity: 0.75;
-      line-height: 200px;
-      margin: 0;
-      text-align: center;
-    }
-
-    .el-carousel__item:nth-child(2n) {
-      background-color: #99a9bf;
-    }
-
-    .el-carousel__item:nth-child(2n+1) {
-      background-color: #d3dce6;
-    }
-  }
-}
 </style>

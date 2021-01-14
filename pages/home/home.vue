@@ -3,9 +3,9 @@
 </template>
 
 <script>
-export default {
-  name: "home"
-}
+import controller from './controller/home.controller'
+
+export default controller
 </script>
 
 <style scoped>

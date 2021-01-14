@@ -12,7 +12,7 @@
           <i slot="prefix" class="el-icon-lock input-icon"></i>
         </el-input>
       </el-form-item>
-      <el-form-item>
+      <el-form-item prop="code">
         <get-code @code="getCodeInput"></get-code>
       </el-form-item>
       <el-form-item style="margin-top: 18px">
@@ -30,98 +30,11 @@
 </template>
 
 <script>
-import getCode from "~/components/getCode/getCode";
-import {login} from "@/api/login/login";
-import {getCodeApi} from "@/api/login/getCode";
+import controller from './controller/login.controller'
 
-export default {
-  name: "Login",
-  components: {
-    getCode
-  },
-  data() {
-    return {
-      code: '',
-      codeImg: '',
-      form: {
-        username: '',
-        password: '',
-      },
-      rules: {
-        username: [
-          {
-            required: true,
-            message: "请输入用户名！",
-            trigger: 'blur'
-          }
-        ],
-        password: [
-          {
-            required: true,
-            message: "请输入密码！",
-            trigger: 'blur'
-          },
-        ],
-        code: [
-          {
-            required: true,
-            message: "请输入验证码！",
-            trigger: 'blur'
-          }
-        ]
-      }
-    }
-  },
-  methods: {
-    onLogin() {
-      console.log(this.form, 'loginForm_log')
-      console.log(this.code, 'getCodeTrans')
-      login(this.form.username, this.form.password, this.code).then(res => {
-        console.log(res, 'login_log')
-      })
-    },
-    toRegister() {
-    },
-    getCodeInput(code) {
-      // console.log(code, 'code')
-      this.code = code
-    }
-  },
-  created() {
-  }
-}
+export default controller
+
 </script>
 
-<style lang="scss" scoped>
-.login {
-  height: 100%;
-
-  .loginForm {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 340px;
-    height: 400px;
-    border-radius: 6px;
-    border: 1px black;
-    box-shadow: 0 0 35px navy;
-    padding: 25px 25px 25px 25px;
-
-    .title {
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .el-input {
-      .input-icon {
-        height: 39px;
-        width: 14px;
-        margin-left: 2px;
-        margin-top: 14px;
-      }
-    }
-  }
-}
-
+<style scoped>
 </style>
