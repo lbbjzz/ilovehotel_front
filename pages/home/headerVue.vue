@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import  controller from './controller/header.controller'
+import  controller from './controller/headerVue.controller'
 
 export default controller
 </script>

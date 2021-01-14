@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import controller from './controller/footer.controller'
+import controller from './controller/footerVue.controller'
 
 export default controller
 </script>

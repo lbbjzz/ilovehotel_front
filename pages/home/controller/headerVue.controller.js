@@ -1,4 +1,4 @@
-import '@/styles/pages/home/header.scss'
+import '@/styles/pages/home/headerVue.scss'
 
 export default {
   name: "header",

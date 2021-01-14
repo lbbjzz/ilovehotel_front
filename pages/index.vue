@@ -1,17 +1,17 @@
 <template>
-    <Header></Header>
+   <header-vue></header-vue>
 
 <!--    <home></home>-->
-<!--    <footer></footer>-->
+<!--    <footerVue></footerVue>-->
 </template>
 <script>
 
-import Footer from "@/pages/home/footer"
-import Header from "@/pages/home/header";
-import Home from "@/pages/home/home";
+import footerVue from "@/pages/home/footerVue"
+import headerVue from "@/pages/home/headerVue";
+import home from "@/pages/home/home";
 
 export default {
-  components: {Footer, Header, Home},
+  components: {headerVue ,footerVue ,home},
   data() {
     return {}
   }

@@ -42,8 +42,8 @@ export default {
   },
   methods: {
     onLogin() {
-      console.log(this.form, 'loginForm_log')
-      console.log(this.code, 'getCodeTrans')
+      // console.log(this.form, 'loginForm_log')
+      // console.log(this.code, 'getCodeTrans')
       login(this.form.username, this.form.password, this.code).then(res => {
         console.log(res, 'login_log')
       })
