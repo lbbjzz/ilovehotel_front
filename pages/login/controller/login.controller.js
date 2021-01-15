@@ -11,6 +11,8 @@ export default {
     return {
       code: '',
       codeImg: '',
+      pwdType: 'password',
+      iconType: 'iconfont icon-browse',
       form: {
         username: '',
         password: '',
@@ -41,6 +43,10 @@ export default {
     }
   },
   methods: {
+    showPwd() {
+      this.pwdType === 'password' ? this.pwdType = 'text' : this.pwdType = 'password';
+      this.iconType === 'iconfont icon-browse' ? this.iconType = 'iconfont icon-Notvisible1' : this.iconType = 'iconfont icon-browse'
+    },
     onLogin() {
       // console.log(this.form, 'loginForm_log')
       // console.log(this.code, 'getCodeTrans')

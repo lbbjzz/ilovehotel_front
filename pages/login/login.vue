@@ -8,8 +8,9 @@
         </el-input>
       </el-form-item>
       <el-form-item prop="password">
-        <el-input type="password" v-model="form.password" auto-complete="off" placeholder="请输入密码" clearable>
+        <el-input :type="pwdType" v-model="form.password" auto-complete="off" placeholder="请输入密码" clearable>
           <i slot="prefix" class="el-icon-lock input-icon"></i>
+          <i slot="suffix" v-if="this.form.password!==''" :class="iconType" @click="showPwd"></i>
         </el-input>
       </el-form-item>
       <el-form-item prop="code">
