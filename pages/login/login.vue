@@ -37,5 +37,3 @@ export default controller
 
 </script>
 
-<style scoped>
-</style>

@@ -7,15 +7,15 @@ export default {
       imgList: [
         {
           key: 1,
-          url: require('@/assets/img/common.jpg')
+          url: require('@/static/img/common.jpg')
         },
         {
           key: 2,
-          url: require('@/assets/img/better.jpg')
+          url: require('@/static/img/better.jpg')
         },
         {
           key: 3,
-          url: require('@/assets/img/best.jpg')
+          url: require('@/static/img/best.jpg')
         }
       ]
     }
