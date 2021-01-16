@@ -1,7 +1,10 @@
 <template>
   <div class="login">
     <el-form class="loginForm" ref="loginForm" :model="form" :rules="rules">
-      <h3 class="title">欢迎您，尊敬的iLoveHotel会员！</h3>
+<!--      <h3 class="title">欢迎您，尊敬的iLoveHotel会员！</h3>-->
+      <img class="logo-img"
+           src="/img/logo.png"
+      />
       <el-form-item prop="username">
         <el-input type="text" v-model="form.username" auto-complete="off" placeholder="请输入用户名" clearable>
           <i slot="prefix" class="el-icon-user input-icon"></i>
