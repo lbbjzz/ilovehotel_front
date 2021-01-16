@@ -8,7 +8,9 @@
   background-image: url('/img/login_bgi.jpg');
 
   .loginForm {
-    background-image: url('/img/common.jpg');
+    background-size: cover;
+    background-color: #f6f8fa;
+    // background-image: url('/img/login_form.jpg');
     position: absolute;
     top: 40%;
     left: 50%;
@@ -17,12 +19,13 @@
     height: 400px;
     border-radius: 6px;
     border: 1px black;
-    box-shadow: 0 0 35px navy;
+    // box-shadow: 0 0 35px navy;
     padding: 25px 25px 25px 25px;
 
     .title {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       text-align: center;
+      font-family: Apple;
     }
 
     .el-input {
@@ -33,5 +36,53 @@
         margin-top: 14px;
       }
     }
+
+    //.el-button--login.is-active,
+    //.el-button--login:active {
+    //  background: #33FF00;
+    //  border-color: #33FF00;
+    //  color: #fff;
+    //}
+
+    .el-button--login:focus,
+    .el-button--login:hover {
+      background: green;
+      border-color: green;
+      color: #fff;
+    }
+
+    .el-button--login {
+      color: #FFF;
+      background-color: #2c974b;
+      border-color: #2c974b;
+    }
+
+    .sign{
+      font-family: '微软雅黑 Light';
+    }
+
+    .in{
+      font-family: '微软雅黑 Light';
+    }
+
+    .forgetPwd {
+      font-family: "Copperplate Gothic Light";
+      float: left;
+      color: #0397e6;
+      font-size: 13px;
+      margin-left: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .register {
+      font-family: "Copperplate Gothic Light";
+      float: right;
+      color: #0397e6;
+      font-size: 13px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
   }
 }

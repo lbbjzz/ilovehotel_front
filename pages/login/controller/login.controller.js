@@ -31,13 +31,6 @@ export default {
             message: "请输入密码！",
             trigger: 'blur'
           },
-        ],
-        code: [
-          {
-            required: true,
-            message: "请输入验证码！",
-            trigger: 'blur'
-          }
         ]
       }
     }
@@ -47,15 +40,35 @@ export default {
       this.pwdType === 'password' ? this.pwdType = 'text' : this.pwdType = 'password';
       this.iconType === 'iconfont icon-browse' ? this.iconType = 'iconfont icon-Notvisible1' : this.iconType = 'iconfont icon-browse'
     },
+
     onLogin() {
-      // console.log(this.form, 'loginForm_log')
-      // console.log(this.code, 'getCodeTrans')
-      login(this.form.username, this.form.password, this.code).then(res => {
-        console.log(res, 'login_log')
+      console.log(this.form, 'loginForm_log')
+      console.log(this.code, 'getCodeTrans')
+      this.$refs.loginForm.validate(async val => {
+        if (!val) return
+        if (this.code === '') {
+          this.$message({
+            message: '请输入验证码！',
+            type: 'error'
+          })
+        } else {
+          login(this.form.username, this.form.password, this.code).then(res => {
+            console.log(res, 'login_log')
+            res.data.code === 200 ? this.$router.push({path: '/'}) : this.$message({
+              message: '登陆失败',
+              type: 'error'
+            })
+          })
+        }
       })
     },
-    toRegister() {
+
+    forgetPwd(){
+
     },
+    toRegister() {
+    }
+    ,
     getCodeInput(code) {
       // console.log(code, 'code')
       this.code = code

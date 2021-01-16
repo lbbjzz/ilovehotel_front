@@ -17,15 +17,17 @@
         <get-code @code="getCodeInput"></get-code>
       </el-form-item>
       <el-form-item style="margin-top: 18px">
-        <el-button style="width: 100%" type="primary" @click="onLogin">
-          登录
+        <el-button style="width: 100%;margin-top: 10px" type="login" @click="onLogin">
+          <p>
+            <span class="sign">登</span>
+            <span class="in">录</span>
+          </p>
         </el-button>
       </el-form-item>
-      <el-form-item>
-        <el-button style="width: 100%" type="primary" @click="toRegister">
-          注册
-        </el-button>
-      </el-form-item>
+      <p style="margin-top: 36px">
+        <span class="forgetPwd" @click="forgetPwd">忘记密码？</span>
+        <span class="register" @click="toRegister">前去注册 ></span>
+      </p>
     </el-form>
   </div>
 </template>
