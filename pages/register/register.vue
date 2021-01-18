@@ -21,7 +21,7 @@
           <i slot="suffix" v-if="this.form.password!==''" :class="iconType" @click="showPwd"></i>
         </el-input>
       </el-form-item>
-      <el-form-item prop="password">
+      <el-form-item prop="rePassword">
         <el-input :type="pwdType" v-model="form.rePassword" auto-complete="off" placeholder="请确认密码！" clearable>
           <i slot="prefix" class="el-icon-lock input-icon"></i>
           <i slot="suffix" v-if="this.form.rePassword!==''" :class="iconType" @click="showPwd"></i>
