@@ -29,7 +29,7 @@
       </el-form-item>
       <p style="margin-top: 36px">
         <span class="forgetPwd" @click="forgetPwd">忘记密码？</span>
-        <span class="register" @click="toRegister">前去注册 ></span>
+        <span class="toRegister" @click="toRegister">前去注册 ></span>
       </p>
     </el-form>
   </div>

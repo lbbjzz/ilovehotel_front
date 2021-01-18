@@ -57,15 +57,17 @@
       border-color: #2c974b;
     }
 
-    .sign{
+    .sign {
       font-family: '微软雅黑 Light';
     }
 
-    .in{
+    .in {
       font-family: '微软雅黑 Light';
     }
 
     .forgetPwd {
+      width: 70px;
+      height: 20px;
       font-family: "Copperplate Gothic Light";
       float: left;
       color: #0397e6;
@@ -75,7 +77,9 @@
       font-weight: bold;
     }
 
-    .register {
+    .toRegister {
+      width: 70px;
+      height: 20px;
       font-family: "Copperplate Gothic Light";
       float: right;
       color: #0397e6;
@@ -84,7 +88,7 @@
       font-weight: bold;
     }
 
-    .logo-img{
+    .logo-img {
       width: 200px;
       height: 200px;
       margin-top: -100px;

@@ -1,0 +1,33 @@
+.register {
+  height: 100%;
+  display: flex;
+  margin: 0 auto;
+  min-height: 100vh;
+  justify-content: center;
+  background-size: cover;
+  background-image: url('/img/login_bgi.jpg');
+
+  .registerForm {
+    font-family: "微软雅黑 Light";
+    background-size: cover;
+    background-color: #f6f8fa;
+    // background-image: url('/img/login_form.jpg');
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 340px;
+    height: 520px;
+    border-radius: 6px;
+    border: 1px black;
+    // box-shadow: 0 0 35px navy;
+    padding: 25px 25px 25px 25px;
+
+    .logo-img {
+      width: 200px;
+      height: 200px;
+      margin-top: -100px;
+      margin-left: 50px;
+    }
+  }
+}

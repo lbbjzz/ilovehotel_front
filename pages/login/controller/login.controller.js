@@ -63,10 +63,13 @@ export default {
       })
     },
 
-    forgetPwd(){
+    forgetPwd() {
 
     },
     toRegister() {
+      this.$router.push({
+        name: 'register-register'
+      })
     }
     ,
     getCodeInput(code) {
