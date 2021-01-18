@@ -31,7 +31,7 @@
         <get-code @code="getCodeInput"></get-code>
       </el-form-item>
       <el-form-item style="margin-top: 18px">
-        <el-button style="width: 100%;margin-top: 10px" type="login" @click="toRegister">
+        <el-button style="width: 100%;margin-top: 10px" type="primary" @click="toRegister">
           <p>
             <span class="registerAccount">注册</span>
           </p>

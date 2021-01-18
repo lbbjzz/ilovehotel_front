@@ -1,5 +1,5 @@
 import '@/styles/components/getCode/getCode.scss'
-import {getCodeApi} from "@/api/login/getCode";
+import {getCodeApi} from "@/api/getCode/getCode";
 
 export default {
   name: "getCode",
