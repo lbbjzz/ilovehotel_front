@@ -39,7 +39,7 @@ export default {
   },
 
   server: {
-    port: 520
+    port: 5200
   }
 
 }
