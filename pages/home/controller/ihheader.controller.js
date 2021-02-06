@@ -1,7 +1,6 @@
-import '@/styles/pages/home/headerVue.scss'
+import '@/styles/pages/home/ihheader.scss'
 
 export default {
-  name: "header",
   data() {
     return {
       imgList: [

@@ -1,6 +1,6 @@
 <template>
-  <div class="head">
-    <div class="nav">
+  <div class="ih-head">
+    <div class="ih-nav">
       <nuxt-link to="/login/Login">登录</nuxt-link>
     </div>
     <el-carousel :interval="4000" type="card" height="500px" autoplay interval="3000" loop>
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import  controller from './controller/headerVue.controller'
+import  controller from './controller/ihheader.controller'
 
 export default controller
 </script>
