@@ -16,12 +16,33 @@
       <el-form-item style="margin-top: 18px">
         <el-button style="width: 100%;margin-top: 10px" type="primary" @click="getEmailCode">
           <p>
+            <span class="registerAccount">发送验证码</span>
+          </p>
+        </el-button>
+      </el-form-item>
+    </el-form>
+    <el-form class="registerForm" ref="emailCodeForm" :model="emailCodeForm" :rules="codeRules" v-if="step2">
+      <img class="logo-img"
+           src="/img/logo.png"
+      />
+      <el-form-item prop="emailCode">
+        <el-input type="text" v-model="emailCodeForm.emailCode" auto-complete="off" placeholder="请输入邮箱验证码" maxlength="4"
+                  clearable>
+          <i slot="prefix" class="el-icon-key"></i>
+        </el-input>
+      </el-form-item>
+      <el-form-item style="margin-top: 18px">
+        <el-button style="width: 100%;margin-top: 10px" type="primary" @click="emailVerify">
+          <p>
             <span class="registerAccount">验证邮箱</span>
           </p>
         </el-button>
       </el-form-item>
     </el-form>
     <el-form class="registerForm" ref="registerForm" :model="form" :rules="rules" v-if="step3">
+      <img class="logo-img"
+           src="/img/logo.png"
+      />
         <el-form-item prop="username">
           <el-input type="text" v-model="form.username" auto-complete="off" placeholder="请输入用户名(小于10位字符)" maxlength="10"
                     clearable>
