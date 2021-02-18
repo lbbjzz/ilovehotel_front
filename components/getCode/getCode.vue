@@ -5,7 +5,7 @@
     </el-input>
     <img class="code-img"
          title="点击刷新"
-         :src="codeImg"
+         :src="this.newCode || codeImg"
          @click="getCodeTest"
     />
   </div>

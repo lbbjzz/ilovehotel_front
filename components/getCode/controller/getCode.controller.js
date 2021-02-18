@@ -3,6 +3,7 @@ import {getCodeApi} from "@/api/getCode/getCode";
 
 export default {
   name: "getCode",
+  props:['newCode'],
   data() {
     return {
       codeImg: '',

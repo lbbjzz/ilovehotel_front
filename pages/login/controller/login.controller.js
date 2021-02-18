@@ -1,6 +1,7 @@
 import '@/styles/pages/login/login.scss'
 import getCode from "~/components/getCode/getCode";
 import {login} from "@/api/login/login";
+import {getCodeApi} from "~/api/getCode/getCode";
 
 export default {
   name: "Login",
@@ -9,8 +10,8 @@ export default {
   },
   data() {
     return {
-      code: '',
       codeImg: '',
+      code: '',
       pwdType: 'password',
       iconType: 'iconfont icon-browse',
       form: {
@@ -54,10 +55,20 @@ export default {
         } else {
           login(this.form.username, this.form.password, this.code).then(res => {
             console.log(res, 'login_log')
-            res.data.code === 200 ? this.$router.push({path: '/'}) : this.$message({
-              message: '登陆失败',
-              type: 'error'
-            })
+            if (res.data.code === 80301) {
+              this.$message({
+                message: '验证码错误！',
+                type: 'error'
+              })
+              getCodeApi().then(res => {
+                this.codeImg = window.URL.createObjectURL(res.data)
+              })
+            } else {
+              res.data.code === 80200 ? this.$router.push({path: '/'}) : this.$message({
+                message: '用户名或密码错误！',
+                type: 'error'
+              })
+            }
           })
         }
       })
