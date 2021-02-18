@@ -1,7 +1,7 @@
 import '@/styles/pages/login/login.scss'
-import getCode from "~/components/getCode/getCode";
+import getCode from "~/components/get-code/get-code";
 import {login} from "@/api/login/login";
-import {getCodeApi} from "~/api/getCode/getCode";
+import {getCodeApi} from "~/api/get-code/get-code";
 
 export default {
   name: "Login",

@@ -1,6 +1,6 @@
 import '@/styles/pages/register/register.scss'
 import {getEmailCode, emailCodeVerify, register} from "~/api/register/register";
-import {getCodeApi} from "~/api/getCode/getCode";
+import {getCodeApi} from "~/api/get-code/get-code";
 
 
 export default {
