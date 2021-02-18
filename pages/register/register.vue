@@ -20,6 +20,10 @@
           </p>
         </el-button>
       </el-form-item>
+      <p style="margin-top: 36px">
+        <span class="forgetPwd" @click="forgetPwd">忘记密码？</span>
+        <span class="toRegister" @click="toLogin">登录 ></span>
+      </p>
     </el-form>
     <el-form class="registerForm" ref="emailCodeForm" :model="emailCodeForm" :rules="codeRules" v-if="step2">
       <img class="logo-img"
@@ -63,7 +67,7 @@
           </el-input>
         </el-form-item>
         <el-form-item style="margin-top: 18px">
-          <el-button style="width: 100%;margin-top: 10px" type="primary" @click="toRegister">
+          <el-button style="width: 100%;margin-top: 10px" type="primary" @click="register">
             <p>
               <span class="registerAccount">注册</span>
             </p>

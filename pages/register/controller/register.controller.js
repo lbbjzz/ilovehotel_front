@@ -1,5 +1,5 @@
 import '@/styles/pages/register/register.scss'
-import {getEmailCode, emailCodeVerify} from "~/api/register/register";
+import {getEmailCode, emailCodeVerify, register} from "~/api/register/register";
 import {getCodeApi} from "~/api/getCode/getCode";
 
 
@@ -137,17 +137,30 @@ export default {
       })
     },
 
-    toRegister() {
+    register() {
       this.$refs.registerForm.validate(async val => {
         if (!val) return
-        this.form.password !== this.form.rePassword ? this.$message({
-          type: 'error',
-          message: '两次输入的密码不一致'
-        }) : this.$message({
-          type: 'success',
-          message: '成功'
-        })
+        if (this.form.password !== this.form.rePassword) {
+          this.$message({
+            type: 'error',
+            message: '两次输入的密码不一致'
+          })
+        } else {
+          register(this.form.username, this.form.password ,this.emailForm.email).then(res => {
+            console.log(res, 'register');
+          })
+        }
       })
-    }
+    },
+
+    toLogin(){
+      this.$router.push({
+        name: 'login-login'
+      })
+    },
+
+    forgetPwd() {
+
+    },
   }
 }

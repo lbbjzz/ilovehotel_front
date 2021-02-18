@@ -1,14 +1,14 @@
 import {request} from "@/api/request";
 
 //注册
-export function register(email, username, password) {
+export function register(username, password, email) {
   return request({
     url: '/hotelsystem/user/add',
     method: 'post',
     params: {
-      "email": email,
       "username": username,
       "password": password,
+      "email": email,
     }
   })
 }
