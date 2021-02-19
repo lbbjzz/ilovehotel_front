@@ -1,0 +1,56 @@
+.reset-pwd {
+  height: 100%;
+  display: flex;
+  margin: 0 auto;
+  min-height: 100vh;
+  justify-content: center;
+  background-size: cover;
+  background-image: url('/img/login_bgi.jpg');
+
+  .resetForm {
+    font-family: "微软雅黑 Light";
+    background-size: cover;
+    background-color: #f6f8fa;
+    // background-image: url('/img/login_form.jpg');
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 340px;
+    //height: 520px;
+    border-radius: 6px;
+    border: 1px black;
+    // box-shadow: 0 0 35px navy;
+    padding: 25px 25px 25px 25px;
+
+    .forgetPwd {
+      width: 70px;
+      height: 20px;
+      font-family: "Copperplate Gothic Light";
+      float: left;
+      color: #0397e6;
+      font-size: 13px;
+      margin-left: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .toRegister {
+      width: 40px;
+      height: 20px;
+      font-family: "Copperplate Gothic Light";
+      float: right;
+      color: #0397e6;
+      font-size: 13px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .logo-img {
+      width: 200px;
+      height: 200px;
+      margin-top: -100px;
+      margin-left: 50px;
+    }
+  }
+}

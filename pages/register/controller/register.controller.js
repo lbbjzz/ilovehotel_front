@@ -146,21 +146,23 @@ export default {
             message: '两次输入的密码不一致'
           })
         } else {
-          register(this.form.username, this.form.password ,this.emailForm.email).then(res => {
+          register(this.form.username, this.form.password, this.emailForm.email).then(res => {
             console.log(res, 'register');
           })
         }
       })
     },
 
-    toLogin(){
+    toLogin() {
       this.$router.push({
         name: 'login-login'
       })
     },
 
     forgetPwd() {
-
+      this.$router.push({
+        name: 'reset-pwd-reset-pwd'
+      })
     },
   }
 }

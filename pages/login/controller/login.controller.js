@@ -64,10 +64,17 @@ export default {
                 this.codeImg = window.URL.createObjectURL(res.data)
               })
             } else {
-              res.data.code === 80200 ? this.$router.push({path: '/'}) : this.$message({
-                message: '用户名或密码错误！',
-                type: 'error'
-              })
+              if (res.data.code === 80200) {
+                this.$router.push({path: '/'})
+              } else {
+                this.$message({
+                  message: '用户名或密码错误！',
+                  type: 'error'
+                })
+                getCodeApi().then(res => {
+                  this.codeImg = window.URL.createObjectURL(res.data)
+                })
+              }
             }
           })
         }
@@ -75,14 +82,15 @@ export default {
     },
 
     forgetPwd() {
-
+      this.$router.push({
+        name: 'reset-pwd-reset-pwd'
+      })
     },
     toRegister() {
       this.$router.push({
         name: 'register-register'
       })
-    }
-    ,
+    },
     getCodeInput(code) {
       // console.log(code, 'code')
       this.code = code
