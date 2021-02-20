@@ -1,18 +1,24 @@
 import '@/styles/pages/reset-pwd/reset-pwd.scss'
 import {emailCodeVerify, getEmailCode} from "@/api/register/register";
 import {getCodeApi} from "@/api/get-code/get-code";
+import {resetPwd} from "@/api/reset-pwd/reset-pwd";
 
 export default {
   data() {
     return {
       step1: true,
       step2: false,
+      step3: false,
       codeImg: '',
       emailForm: {
         email: ''
       },
       emailCodeForm: {
         emailCode: ''
+      },
+      form: {
+        password: '',
+        rePassword: '',
       },
       emailRules: {
         email: [
@@ -33,9 +39,35 @@ export default {
           }
         ]
       },
+      rules: {
+        password: [
+          {
+            min: 8,
+            required: true,
+            message: "请输入密码！",
+            trigger: 'blur'
+          },
+        ],
+        rePassword: [
+          {
+            min: 8,
+            required: true,
+            message: "请确认密码！",
+            trigger: 'blur'
+          },
+        ]
+      },
+      pwdType: 'password',
+      iconType: 'iconfont icon-browse',
+      code: ''
     }
   },
   methods: {
+    showPwd() {
+      this.pwdType === 'password' ? this.pwdType = 'text' : this.pwdType = 'password';
+      this.iconType === 'iconfont icon-browse' ? this.iconType = 'iconfont icon-Notvisible1' : this.iconType = 'iconfont icon-browse'
+    },
+
     getCodeInput(code) {
       this.code = code
     },
@@ -80,21 +112,28 @@ export default {
     },
 
     emailVerify() {
-      emailCodeVerify(this.emailCodeForm.emailCode, this.emailForm.email).then(res => {
-        if (res.data.code === 80703) {
-          this.$message({
-            message: '验证码错误，请重新输入！',
-            type: 'error'
-          })
-        } else {
-          this.$message({
-            message: '验证成功',
-            type: 'success'
-          })
-          this.step2 = false
-          this.step3 = true
-        }
+      this.$refs.emailCodeForm.validate(async val => {
+        if (!val) return
+        emailCodeVerify(this.emailCodeForm.emailCode, this.emailForm.email).then(res => {
+          if (res.data.code === 80703) {
+            this.$message({
+              message: '验证码错误，请重新输入！',
+              type: 'error'
+            })
+          } else {
+            this.$message({
+              message: '验证成功',
+              type: 'success'
+            })
+            this.step2 = false
+            this.step3 = true
+          }
+        })
       })
+    },
+
+    resetPwd() {
+
     },
 
     toLogin() {

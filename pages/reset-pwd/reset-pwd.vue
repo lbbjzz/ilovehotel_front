@@ -43,6 +43,31 @@
         </el-button>
       </el-form-item>
     </el-form>
+    <el-form class="resetForm" ref="resetForm" :model="form" :rules="rules" v-if="step3">
+      <img class="logo-img"
+           src="/img/logo.png"
+      />
+      <el-form-item prop="password">
+        <el-input :type="pwdType" v-model="form.password" auto-complete="off" placeholder="请输入密码(8~14位字符)"
+                  maxlength="14" clearable>
+          <i slot="prefix" class="el-icon-lock input-icon"></i>
+          <i slot="suffix" v-if="this.form.password!==''" :class="iconType" @click="showPwd"></i>
+        </el-input>
+      </el-form-item>
+      <el-form-item prop="rePassword">
+        <el-input :type="pwdType" v-model="form.rePassword" auto-complete="off" placeholder="请再次输入密码" clearable>
+          <i slot="prefix" class="el-icon-lock input-icon"></i>
+          <i slot="suffix" v-if="this.form.rePassword!==''" :class="iconType" @click="showPwd"></i>
+        </el-input>
+      </el-form-item>
+      <el-form-item style="margin-top: 18px">
+        <el-button style="width: 100%;margin-top: 10px" type="primary" @click="resetPwd">
+          <p>
+            <span class="registerAccount">修改密码</span>
+          </p>
+        </el-button>
+      </el-form-item>
+    </el-form>
   </div>
 </template>
 

@@ -107,6 +107,11 @@ export default {
                 })
                 this.step1 = false
                 this.step2 = true
+              } else if (res.data.code === 80701) {
+                this.$message({
+                  message: '该邮箱已注册，请前往登录',
+                  type: 'error'
+                })
               } else if (res.data.code === 80702) {
                 this.$message({
                   message: '邮件已发送',
@@ -120,20 +125,23 @@ export default {
     },
 
     emailVerify() {
-      emailCodeVerify(this.emailCodeForm.emailCode, this.emailForm.email).then(res => {
-        if (res.data.code === 80703) {
-          this.$message({
-            message: '验证码错误，请重新输入！',
-            type: 'error'
-          })
-        } else {
-          this.$message({
-            message: '验证成功',
-            type: 'success'
-          })
-          this.step2 = false
-          this.step3 = true
-        }
+      this.$refs.emailCodeForm.validate(async val => {
+        if (!val) return
+        emailCodeVerify(this.emailCodeForm.emailCode, this.emailForm.email).then(res => {
+          if (res.data.code === 80703) {
+            this.$message({
+              message: '验证码错误，请重新输入！',
+              type: 'error'
+            })
+          } else {
+            this.$message({
+              message: '验证成功',
+              type: 'success'
+            })
+            this.step2 = false
+            this.step3 = true
+          }
+        })
       })
     },
 
