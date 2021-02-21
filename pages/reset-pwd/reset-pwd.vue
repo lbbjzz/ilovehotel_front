@@ -4,6 +4,7 @@
       <!--      <h3 class="title">欢迎您，尊敬的iLoveHotel会员！</h3>-->
       <img class="logo-img"
            src="/img/logo.png"
+           @click="toHome"
       />
       <h3>忘记密码</h3>
       <el-form-item prop="email">
@@ -30,6 +31,7 @@
     <el-form class="resetForm" ref="emailCodeForm" :model="emailCodeForm" :rules="codeRules" v-if="step2">
       <img class="logo-img"
            src="/img/logo.png"
+           @click="toHome"
       />
       <h3>忘记密码</h3>
       <el-form-item prop="emailCode">
@@ -54,6 +56,7 @@
     <el-form class="resetForm" ref="resetForm" :model="form" :rules="rules" v-if="step3">
       <img class="logo-img"
            src="/img/logo.png"
+           @click="toHome"
       />
       <h3>忘记密码</h3>
       <el-form-item prop="password">

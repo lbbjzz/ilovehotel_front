@@ -174,6 +174,10 @@ export default {
       })
     },
 
+    toHome() {
+      this.$router.push({path: '/'})
+    },
+
     toLogin() {
       this.$router.push({
         name: 'login-login'

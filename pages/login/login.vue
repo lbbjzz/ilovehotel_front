@@ -4,6 +4,7 @@
       <!--      <h3 class="title">欢迎您，尊敬的iLoveHotel会员！</h3>-->
       <img class="logo-img"
            src="/img/logo.png"
+           @click="toHome"
       />
       <h3>登录</h3>
       <el-form-item prop="username">
