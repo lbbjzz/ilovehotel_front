@@ -7,12 +7,13 @@
       />
       <h3>注册</h3>
       <el-form-item prop="email">
-        <el-input type="email" v-model="emailForm.email" auto-complete="off" placeholder="请输入邮箱" clearable>
+        <el-input type="email" v-model="emailForm.email" auto-complete="off" placeholder="请输入邮箱"
+                  @keyup.enter.native="getEmailCode" clearable>
           <i slot="prefix" class="el-icon-message input-icon"></i>
         </el-input>
       </el-form-item>
       <el-form-item prop="code">
-        <get-code @code="getCodeInput" :newCode="codeImg"></get-code>
+        <get-code @code="getCodeInput" :newCode="codeImg" @keyup.enter.native="getEmailCode"></get-code>
       </el-form-item>
       <el-form-item style="margin-top: 18px">
         <el-button style="width: 100%;margin-top: 10px" type="primary" @click="getEmailCode">
@@ -32,7 +33,8 @@
       />
       <h3>注册</h3>
       <el-form-item prop="emailCode">
-        <el-input type="text" v-model="emailCodeForm.emailCode" auto-complete="off" placeholder="请输入邮箱验证码" maxlength="4"
+        <el-input type="text" v-model="emailCodeForm.emailCode" auto-complete="off" placeholder="请输入邮箱验证码"
+                  @keyup.enter.native="emailVerify" maxlength="4"
                   clearable>
           <i slot="prefix" class="el-icon-key"></i>
         </el-input>
@@ -55,20 +57,21 @@
       />
       <h3>注册</h3>
       <el-form-item prop="username">
-        <el-input type="text" v-model="form.username" auto-complete="off" placeholder="请输入用户名(小于10位字符)" maxlength="10"
-                  clearable>
+        <el-input type="text" v-model="form.username" auto-complete="off" placeholder="请输入用户名(小于10位字符)"
+                  @keyup.enter.native="register" maxlength="10" clearable>
           <i slot="prefix" class="el-icon-user input-icon"></i>
         </el-input>
       </el-form-item>
       <el-form-item prop="password">
         <el-input :type="pwdType" v-model="form.password" auto-complete="off" placeholder="请输入密码(8~14位字符)"
-                  maxlength="14" clearable>
+                  @keyup.enter.native="register" maxlength="14" clearable>
           <i slot="prefix" class="el-icon-lock input-icon"></i>
           <i slot="suffix" v-if="this.form.password!==''" :class="iconType" @click="showPwd"></i>
         </el-input>
       </el-form-item>
       <el-form-item prop="rePassword">
-        <el-input :type="pwdType" v-model="form.rePassword" auto-complete="off" placeholder="请再次输入密码" clearable>
+        <el-input :type="pwdType" v-model="form.rePassword" auto-complete="off" placeholder="请再次输入密码"
+                  @keyup.enter.native="register" clearable>
           <i slot="prefix" class="el-icon-lock input-icon"></i>
           <i slot="suffix" v-if="this.form.rePassword!==''" :class="iconType" @click="showPwd"></i>
         </el-input>

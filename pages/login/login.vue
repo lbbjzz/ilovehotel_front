@@ -7,19 +7,21 @@
       />
       <h3>登录</h3>
       <el-form-item prop="username">
-        <el-input type="text" v-model="form.username" auto-complete="off" placeholder="请输入用户名" maxlength="10" clearable>
+        <el-input type="text" v-model="form.username" auto-complete="off" placeholder="请输入用户名"
+                  @keyup.enter.native="onLogin" maxlength="10" clearable>
           <i slot="prefix" class="el-icon-user input-icon"></i>
         </el-input>
       </el-form-item>
       <el-form-item prop="password">
-        <el-input :type="pwdType" v-model="form.password" auto-complete="off" placeholder="请输入密码" maxlength="14"
+        <el-input :type="pwdType" v-model="form.password" auto-complete="off" placeholder="请输入密码"
+                  @keyup.enter.native="onLogin" maxlength="14"
                   clearable>
           <i slot="prefix" class="el-icon-lock input-icon"></i>
           <i slot="suffix" v-if="this.form.password!==''" :class="iconType" @click="showPwd"></i>
         </el-input>
       </el-form-item>
       <el-form-item prop="code">
-        <get-code @code="getCodeInput" :newCode="codeImg"></get-code>
+        <get-code @code="getCodeInput" :newCode="codeImg" @keyup.enter.native="onLogin"></get-code>
       </el-form-item>
       <el-form-item style="margin-top: 18px">
         <el-button style="width: 100%;margin-top: 10px" type="login" @click="onLogin">
