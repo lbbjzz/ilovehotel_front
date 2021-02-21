@@ -8,6 +8,11 @@
   background-image: url('/img/login_bgi.jpg');
 
   .registerForm {
+    h3 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
     font-family: "微软雅黑 Light";
     background-size: cover;
     background-color: #f6f8fa;

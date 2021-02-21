@@ -43,8 +43,8 @@ export default {
     },
 
     onLogin() {
-      console.log(this.form, 'loginForm_log')
-      console.log(this.code, 'getCodeTrans')
+      // console.log(this.form, 'loginForm_log')
+      // console.log(this.code, 'getCodeTrans')
       this.$refs.loginForm.validate(async val => {
         if (!val) return
         if (this.code === '') {
@@ -65,7 +65,11 @@ export default {
               })
             } else {
               if (res.data.code === 80200) {
-                this.$router.push({path: '/'})
+                this.$message({
+                  message: '登录成功',
+                  type: 'success'
+                })
+                setTimeout(this.toHome, 1000)
               } else {
                 this.$message({
                   message: '用户名或密码错误！',
@@ -79,6 +83,10 @@ export default {
           })
         }
       })
+    },
+
+    toHome() {
+      this.$router.push({path: '/'})
     },
 
     forgetPwd() {

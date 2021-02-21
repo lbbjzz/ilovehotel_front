@@ -8,6 +8,11 @@
   background-image: url('/img/login_bgi.jpg');
 
   .loginForm {
+    h3 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
     background-size: cover;
     background-color: #f6f8fa;
     // background-image: url('/img/login_form.jpg');
@@ -16,7 +21,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 340px;
-    height: 450px;
+    // height: 450px;
     border-radius: 6px;
     border: 1px black;
     // box-shadow: 0 0 35px navy;

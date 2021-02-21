@@ -5,6 +5,7 @@
       <img class="logo-img"
            src="/img/logo.png"
       />
+      <h3>忘记密码</h3>
       <el-form-item prop="email">
         <el-input type="email" v-model="emailForm.email" auto-complete="off" placeholder="请输入邮箱" clearable>
           <i slot="prefix" class="el-icon-message input-icon"></i>
@@ -29,6 +30,7 @@
       <img class="logo-img"
            src="/img/logo.png"
       />
+      <h3>忘记密码</h3>
       <el-form-item prop="emailCode">
         <el-input type="text" v-model="emailCodeForm.emailCode" auto-complete="off" placeholder="请输入邮箱验证码" maxlength="4"
                   clearable>
@@ -42,11 +44,16 @@
           </p>
         </el-button>
       </el-form-item>
+      <p style="margin-top: 36px">
+        <span class="forgetPwd" @click="toRegister">前去注册</span>
+        <span class="toRegister" @click="toLogin">登录 ></span>
+      </p>
     </el-form>
     <el-form class="resetForm" ref="resetForm" :model="form" :rules="rules" v-if="step3">
       <img class="logo-img"
            src="/img/logo.png"
       />
+      <h3>忘记密码</h3>
       <el-form-item prop="password">
         <el-input :type="pwdType" v-model="form.password" auto-complete="off" placeholder="请输入密码(8~14位字符)"
                   maxlength="14" clearable>
@@ -67,12 +74,17 @@
           </p>
         </el-button>
       </el-form-item>
+      <p style="margin-top: 36px">
+        <span class="forgetPwd" @click="toRegister">前去注册</span>
+        <span class="toRegister" @click="toLogin">登录 ></span>
+      </p>
     </el-form>
   </div>
 </template>
 
 <script>
 import controller from './controller/reset-pwd.controller'
+
 export default controller
 </script>
 

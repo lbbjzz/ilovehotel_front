@@ -1,7 +1,6 @@
 import '@/styles/pages/reset-pwd/reset-pwd.scss'
-import {emailCodeVerify, getEmailCode} from "@/api/register/register";
 import {getCodeApi} from "@/api/get-code/get-code";
-import {resetPwd} from "@/api/reset-pwd/reset-pwd";
+import {getEmailCode, emailCodeVerify, resetPwd} from "@/api/reset-pwd/reset-pwd";
 
 export default {
   data() {
@@ -91,6 +90,11 @@ export default {
               getCodeApi().then(res => {
                 this.codeImg = window.URL.createObjectURL(res.data)
               })
+            } else if (res.data.code === 81513) {
+              this.$message({
+                message: '当前邮箱未注册！',
+                type: 'error'
+              })
             } else {
               if (res.data.code === 80200) {
                 this.$message({
@@ -104,6 +108,8 @@ export default {
                   message: '邮件已发送',
                   type: 'success'
                 })
+                this.step1 = false
+                this.step2 = true
               }
             }
           })
@@ -133,7 +139,25 @@ export default {
     },
 
     resetPwd() {
-
+      this.$refs.resetForm.validate(async val => {
+        if (!val) return
+        if (this.form.password !== this.form.rePassword) {
+          this.$message({
+            type: 'error',
+            message: '两次输入的密码不一致'
+          })
+        } else {
+          resetPwd(this.emailForm.email, this.form.password).then(res => {
+            if (res.data.code === 80200) {
+              this.$message({
+                type: 'success',
+                message: '修改成功,请登录'
+              })
+              setTimeout(this.toLogin, 2000)
+            }
+          })
+        }
+      })
     },
 
     toLogin() {

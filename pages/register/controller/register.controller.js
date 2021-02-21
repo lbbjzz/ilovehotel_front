@@ -2,7 +2,6 @@ import '@/styles/pages/register/register.scss'
 import {getEmailCode, emailCodeVerify, register} from "~/api/register/register";
 import {getCodeApi} from "~/api/get-code/get-code";
 
-
 export default {
   data() {
     return {
@@ -107,7 +106,7 @@ export default {
                 })
                 this.step1 = false
                 this.step2 = true
-              } else if (res.data.code === 80701) {
+              } else if (res.data.code === 81509) {
                 this.$message({
                   message: '该邮箱已注册，请前往登录',
                   type: 'error'
@@ -117,6 +116,8 @@ export default {
                   message: '邮件已发送',
                   type: 'success'
                 })
+                this.step1 = false
+                this.step2 = true
               }
             }
           })
@@ -156,6 +157,18 @@ export default {
         } else {
           register(this.form.username, this.form.password, this.emailForm.email).then(res => {
             console.log(res, 'register');
+            if (res.data.code === 81507) {
+              this.$message({
+                type: 'error',
+                message: '用户名已存在'
+              })
+            } else if (res.data.code === 80200) {
+              this.$message({
+                type: 'success',
+                message: '注册成功，请登录'
+              })
+              setTimeout(this.toLogin, 2000)
+            }
           })
         }
       })
