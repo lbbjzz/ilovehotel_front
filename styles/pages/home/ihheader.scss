@@ -4,6 +4,17 @@
   .ih-nav {
     height: 80px;
     background-color: deepskyblue;
+
+    .log-in {
+      p {
+        //float: right;
+        font-size: 15px;
+      }
+
+      p:hover {
+        cursor: pointer;
+      }
+    }
   }
 
   .el-carousel {

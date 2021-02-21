@@ -2,6 +2,7 @@ import '@/styles/pages/login/login.scss'
 import getCode from "~/components/get-code/get-code";
 import {login} from "@/api/login/login";
 import {getCodeApi} from "~/api/get-code/get-code";
+import {mapGetters} from "vuex";
 
 export default {
   name: "Login",
@@ -36,6 +37,9 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapGetters(['isLogin']),
+  },
   methods: {
     showPwd() {
       this.pwdType === 'password' ? this.pwdType = 'text' : this.pwdType = 'password';
@@ -69,6 +73,7 @@ export default {
                   message: '登录成功',
                   type: 'success'
                 })
+                this.loginSuccess(res.data.data)
                 setTimeout(this.toHome, 1000)
               } else {
                 this.$message({
@@ -102,6 +107,11 @@ export default {
     getCodeInput(code) {
       // console.log(code, 'code')
       this.code = code
+    },
+
+    //Vuex
+    loginSuccess(loginData) {
+      this.$store.commit('login', loginData)
     }
   },
   created() {

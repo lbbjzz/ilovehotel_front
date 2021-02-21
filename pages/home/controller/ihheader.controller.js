@@ -1,4 +1,5 @@
 import '@/styles/pages/home/ihheader.scss'
+import {mapGetters} from "vuex";
 
 export default {
   data() {
@@ -18,5 +19,17 @@ export default {
         }
       ]
     }
+  },
+  computed: {
+    ...mapGetters(['isLogin']),
+    ...mapGetters(['avatar'])
+  },
+  methods: {
+    toLogin() {
+      this.$router.push({
+        name: 'login-login'
+      })
+    },
+
   }
 }
