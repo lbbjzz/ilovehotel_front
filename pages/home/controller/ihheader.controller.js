@@ -52,6 +52,11 @@ export default {
             message: '注销成功'
           })
           location.reload()
+        } else {
+          this.$message({
+            type: 'error',
+            message: '发生位置错误，请稍后重试！'
+          })
         }
       })
     }
