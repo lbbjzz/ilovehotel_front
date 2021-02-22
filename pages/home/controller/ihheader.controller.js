@@ -1,11 +1,13 @@
 import '@/styles/pages/home/ihheader.scss'
 import {mapGetters} from "vuex";
+import {logout} from "@/api/home/ihheader";
 
 export default {
   data() {
     return {
       isLogin: false,
-      avatar: '',
+      username: '',
+      avatar: 'https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png',
       imgList: [
         {
           key: 1,
@@ -25,10 +27,9 @@ export default {
   mounted() {
     if (localStorage.getItem('loginData')) {
       this.isLogin = true
-    } else {
-      this.isLogin = false
+      this.avatar = JSON.parse(localStorage.getItem('loginData')).avatar
+      this.username = JSON.parse(localStorage.getItem('loginData')).username
     }
-    this.avatar = JSON.parse(localStorage.getItem('loginData')).avatar
   },
   computed: {
     // ...mapGetters(['isLogin']),
@@ -41,5 +42,10 @@ export default {
       })
     },
 
+    logoutM() {
+      logout().then(res => {
+        console.log(res)
+      })
+    }
   }
 }

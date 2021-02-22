@@ -31,12 +31,12 @@ const store = () => {
     },
     actions: {
       nuxtServerInit({commit}, {req}) {
-        let cookie = req.headers.cookie;
-
-        // 将cookie转成json对象（自己实现该方法）
-        let token = cookie.slice(19, cookie.indexOf(';'))
-        console.log(token, 'cookie')
-        commit('setToken', token);
+        // let cookie = req.headers.cookie;
+        //
+        // // 将cookie转成json对象（自己实现该方法）
+        // let token = cookie.slice(19, cookie.indexOf(';'))
+        // console.log(token, 'cookie')
+        // commit('setToken', token);
       }
     }
   })

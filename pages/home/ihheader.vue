@@ -4,7 +4,18 @@
       <!--      <nuxt-link to="/login/Login">登录</nuxt-link>-->
       <div class="log-in">
         <p @click="toLogin" v-if="!isLogin">登录</p>
-        <el-avatar icon="el-icon-user-solid" :src="avatar" v-if="isLogin"></el-avatar>
+        <div class="avatar" v-if="isLogin">
+          <el-popover
+            placement="bottom"
+            trigger="hover">
+            <div class="user-info">
+              <p class="user-info-title">{{ username }}会员,欢迎您!</p>
+              <p class="user-info-profile">个人信息</p>
+              <p class="user-info-logout" @click="logoutM">注销</p>
+            </div>
+            <el-avatar icon="el-icon-user-solid" :src="avatar" slot="reference"></el-avatar>
+          </el-popover>
+        </div>
       </div>
     </div>
     <el-carousel :interval="4000" type="card" height="500px" autoplay interval="3000" loop>

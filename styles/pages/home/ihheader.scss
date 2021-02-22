@@ -6,13 +6,24 @@
     background-color: deepskyblue;
 
     .log-in {
+      float: right;
+      margin-top: 8px;
+      margin-right: 20px;
+
       p {
-        //float: right;
         font-size: 15px;
       }
 
       p:hover {
         cursor: pointer;
+      }
+
+      .el-avatar:hover {
+        cursor: pointer;
+      }
+
+      .avatar {
+
       }
     }
   }
@@ -35,6 +46,45 @@
 
     .el-carousel__item:nth-child(2n+1) {
       background-color: #d3dce6;
+    }
+  }
+}
+
+.el-popper {
+  .user-info {
+    .user-info-title {
+      width: 100%;
+      font-family: 宋体;
+      color: #4b4f51;
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .user-info-profile {
+      //text-align: center;
+      width: 100%;
+      margin-top: 20px;
+      font-size: 13px;
+      margin-left: 10px;
+    }
+
+    .user-info-profile:hover {
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .user-info-logout {
+      //text-align: center;
+      width: 100%;
+      margin-top: 20px;
+      font-size: 13px;
+      margin-left: 10px;
+    }
+
+    .user-info-logout:hover {
+      cursor: pointer;
+      font-size: 15px;
     }
   }
 }
