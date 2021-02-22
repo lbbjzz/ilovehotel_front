@@ -9,9 +9,17 @@
             placement="bottom"
             trigger="hover">
             <div class="user-info">
-              <p class="user-info-title">{{ username }}会员,欢迎您!</p>
-              <p class="user-info-profile">个人信息</p>
-              <p class="user-info-logout" @click="logoutM">注销</p>
+              <div class="user-info-title">
+                {{ username }}会员,欢迎您!
+              </div>
+              <div class="user-info-profile">
+                <i class="el-icon-user-solid"></i>
+                个人信息
+              </div>
+              <div class="user-info-logout" @click="logoutM">
+                <i class="el-icon-switch-button"></i>
+                注销
+              </div>
             </div>
             <el-avatar icon="el-icon-user-solid" :src="avatar" slot="reference"></el-avatar>
           </el-popover>

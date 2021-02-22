@@ -44,7 +44,15 @@ export default {
 
     logoutM() {
       logout().then(res => {
-        console.log(res)
+        // console.log(res)
+        if (res.data.code === 80200) {
+          localStorage.removeItem('loginData')
+          this.$message({
+            type: 'success',
+            message: '注销成功'
+          })
+          location.reload()
+        }
       })
     }
   }

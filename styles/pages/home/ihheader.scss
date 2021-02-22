@@ -51,9 +51,16 @@
 }
 
 .el-popper {
+  padding: 0;
+  margin: 0 auto;
+
   .user-info {
+    width: 100%;
+
     .user-info-title {
       width: 100%;
+      margin-top: 10px;
+      height: 35px;
       font-family: 宋体;
       color: #4b4f51;
       font-size: 14px;
@@ -64,27 +71,31 @@
     .user-info-profile {
       //text-align: center;
       width: 100%;
-      margin-top: 20px;
+      height: 35px;
+      padding-left: 20px;
+      padding-top: 10px;
       font-size: 13px;
-      margin-left: 10px;
     }
 
     .user-info-profile:hover {
       cursor: pointer;
-      font-size: 15px;
+      //font-size: 15px;
+      background-color: #f0f0f5;
     }
 
     .user-info-logout {
       //text-align: center;
       width: 100%;
-      margin-top: 20px;
+      height: 35px;
+      padding-left: 20px;
+      padding-top: 10px;
       font-size: 13px;
-      margin-left: 10px;
     }
 
     .user-info-logout:hover {
       cursor: pointer;
-      font-size: 15px;
+      //font-size: 15px;
+      background-color: #f0f0f5;
     }
   }
 }
