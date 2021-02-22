@@ -1,8 +1,8 @@
 <template>
-   <ih-header></ih-header>
+  <ih-header></ih-header>
 
-<!--    <home></home>-->
-<!--    <ih-footer></ih-footer>-->
+  <!--    <home></home>-->
+  <!--    <ih-footer></ih-footer>-->
 </template>
 <script>
 
@@ -11,10 +11,10 @@ import ihHeader from "@/pages/home/ihheader";
 import home from "@/pages/home/home";
 
 export default {
-  components: {ihHeader ,ihFooter ,home},
+  components: {ihHeader, ihFooter, home},
   data() {
     return {}
-  }
+  },
 }
 </script>
 

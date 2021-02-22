@@ -58,7 +58,7 @@ export default {
           })
         } else {
           login(this.form.username, this.form.password, this.code).then(res => {
-            console.log(res, 'login_log')
+            // console.log(res, 'login_log')
             if (res.data.code === 80301) {
               this.$message({
                 message: '验证码错误！',
@@ -67,23 +67,21 @@ export default {
               getCodeApi().then(res => {
                 this.codeImg = window.URL.createObjectURL(res.data)
               })
+            } else if (res.data.code === 80200) {
+              this.$message({
+                message: '登录成功',
+                type: 'success'
+              })
+              this.loginSuccess(res.data.data)
+              setTimeout(this.toHome, 1000)
             } else {
-              if (res.data.code === 80200) {
-                this.$message({
-                  message: '登录成功',
-                  type: 'success'
-                })
-                this.loginSuccess(res.data.data)
-                setTimeout(this.toHome, 1000)
-              } else {
-                this.$message({
-                  message: '用户名或密码错误！',
-                  type: 'error'
-                })
-                getCodeApi().then(res => {
-                  this.codeImg = window.URL.createObjectURL(res.data)
-                })
-              }
+              this.$message({
+                message: '用户名或密码错误！',
+                type: 'error'
+              })
+              getCodeApi().then(res => {
+                this.codeImg = window.URL.createObjectURL(res.data)
+              })
             }
           })
         }

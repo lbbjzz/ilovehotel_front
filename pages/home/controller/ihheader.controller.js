@@ -4,6 +4,8 @@ import {mapGetters} from "vuex";
 export default {
   data() {
     return {
+      isLogin: false,
+      avatar: '',
       imgList: [
         {
           key: 1,
@@ -20,9 +22,17 @@ export default {
       ]
     }
   },
+  mounted() {
+    if (localStorage.getItem('loginData')) {
+      this.isLogin = true
+    } else {
+      this.isLogin = false
+    }
+    this.avatar = JSON.parse(localStorage.getItem('loginData')).avatar
+  },
   computed: {
-    ...mapGetters(['isLogin']),
-    ...mapGetters(['avatar'])
+    // ...mapGetters(['isLogin']),
+    // ...mapGetters(['avatar'])
   },
   methods: {
     toLogin() {
