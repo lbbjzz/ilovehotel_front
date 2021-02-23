@@ -2,9 +2,13 @@ import '@/styles/pages/home/ihheader.scss'
 import {mapGetters} from "vuex";
 import {logout} from "@/api/home/ihheader";
 
+const date = new Date()
+const hours = date.getHours()
 export default {
+
   data() {
     return {
+      hours: hours,
       isLogin: false,
       username: '',
       avatar: 'https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png',
@@ -51,6 +55,12 @@ export default {
     userInfo() {
       this.$router.push({
         name: 'user-info-user-info'
+      })
+    },
+
+    toRegister() {
+      this.$router.push({
+        name: 'register-register'
       })
     },
 
