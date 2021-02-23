@@ -42,6 +42,18 @@ export default {
       })
     },
 
+    toHome(){
+      this.$router.push({
+        name: 'index'
+      })
+    },
+
+    userInfo() {
+      this.$router.push({
+        name: 'user-info-user-info'
+      })
+    },
+
     logoutM() {
       logout().then(res => {
         // console.log(res)

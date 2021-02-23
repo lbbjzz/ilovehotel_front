@@ -2,6 +2,10 @@
   <div class="ih-head">
     <div class="ih-nav">
       <!--      <nuxt-link to="/login/Login">登录</nuxt-link>-->
+      <div class="logo">
+        <img src="../../static/img/logo-pic.png" alt="" @click="toHome">
+        <img src="../../static/img/logo-title.png" alt="" @click="toHome">
+      </div>
       <div class="log-in">
         <p @click="toLogin" v-if="!isLogin">登录</p>
         <div class="avatar" v-if="isLogin">
@@ -12,7 +16,7 @@
               <div class="user-info-title">
                 {{ username }}会员,欢迎您!
               </div>
-              <div class="user-info-profile">
+              <div class="user-info-profile" @click="userInfo">
                 <i class="el-icon-user-solid"></i>
                 个人信息
               </div>
@@ -26,11 +30,11 @@
         </div>
       </div>
     </div>
-    <el-carousel :interval="4000" type="card" height="500px" autoplay interval="3000" loop>
-      <el-carousel-item v-for="item in imgList" :key="item.key">
-        <img :src="item.url" width="100%" height="100%">
-      </el-carousel-item>
-    </el-carousel>
+    <!--    <el-carousel :interval="4000" type="card" height="500px" autoplay interval="3000" loop>-->
+    <!--      <el-carousel-item v-for="item in imgList" :key="item.key">-->
+    <!--        <img :src="item.url" width="100%" height="100%">-->
+    <!--      </el-carousel-item>-->
+    <!--    </el-carousel>-->
   </div>
 </template>
 

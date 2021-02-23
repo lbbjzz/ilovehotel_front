@@ -2,11 +2,24 @@
   width: 100%;
 
   .ih-nav {
-    height: 80px;
-    background-color: deepskyblue;
+    height: 60px;
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .logo {
+      margin: 0 20px;
+      img {
+        width: 60px;
+        height: 60px;
+      }
+      img:hover{
+        cursor: pointer;
+      }
+    }
 
     .log-in {
-      float: right;
       margin-top: 8px;
       margin-right: 20px;
 

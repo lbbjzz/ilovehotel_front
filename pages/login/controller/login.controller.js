@@ -59,7 +59,7 @@ export default {
         } else {
           login(this.form.username, this.form.password, this.code).then(res => {
             // console.log(res, 'login_log')
-            if (res.data.code === 80301) {
+            if (res.data.code === 80500) {
               this.$message({
                 message: '验证码错误！',
                 type: 'error'
