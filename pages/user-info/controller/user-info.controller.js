@@ -9,6 +9,7 @@ export default {
   data() {
     return {
       editShow: false,
+      uploadItem: false,
       userInfo: {
         id: '',
         //身份证
@@ -35,6 +36,9 @@ export default {
     },
     notShowEdit() {
       this.editShow = false
+    },
+    uploadAvatar() {
+      this.uploadItem = true
     }
   }
 }

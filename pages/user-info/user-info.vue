@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="user-info">
     <ih-header></ih-header>
     <div class="main-content">
       <div class="main-content-left">
@@ -18,7 +18,8 @@
       </div>
       <div class="main-content-right">
         <div class="right-info-header">
-          <el-avatar icon="el-icon-user-solid" :size="60" :src="userInfo.avatar"></el-avatar>
+          <el-avatar icon="el-icon-user-solid" :size="60" :src="userInfo.avatar"
+                     @click.native="uploadAvatar"></el-avatar>
           <div class="right-info-header-content">注册时间: {{ userInfo.createTime }}</div>
         </div>
         <div class="right-info-edit">
@@ -29,8 +30,8 @@
               编辑
             </div>
             <pre class="edit-user name">用户昵称：  {{ userInfo.username }}</pre>
-            <pre class="edit-user id"  >用  户 ID：  {{ userInfo.id }}</pre>
-            <pre class="edit-user age" >年       龄：  {{ userInfo.age }}</pre>
+            <pre class="edit-user id">用  户 ID：  {{ userInfo.id }}</pre>
+            <pre class="edit-user age">年       龄：  {{ userInfo.age }}</pre>
           </div>
         </div>
       </div>
