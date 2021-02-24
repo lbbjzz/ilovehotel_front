@@ -39,6 +39,12 @@ export default {
     },
     uploadAvatar() {
       this.uploadItem = true
+    },
+    avatarChange() {
+      this.userInfo.avatar = 'https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png'
+    },
+    showAvatar() {
+      this.userInfo = JSON.parse(localStorage.getItem('loginData'))
     }
   }
 }
