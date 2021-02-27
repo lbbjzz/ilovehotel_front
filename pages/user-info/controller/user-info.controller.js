@@ -1,6 +1,5 @@
 import '@/styles/pages/user-info/user-info.scss'
 import ihHeader from "@/pages/home/ihheader";
-import fa from "element-ui/src/locale/lang/fa";
 
 export default {
   components: {
