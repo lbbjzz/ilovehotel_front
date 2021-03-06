@@ -7,7 +7,15 @@ export default {
   },
   data() {
     return {
-      editShow: false,
+      infoEditShow: true,
+      accountEditShow: false,
+      identifyEditShow: false,
+      editFormIsShow: false,
+      infoShow: true,
+      editForm:{
+        username: '',
+      },
+      editShow: true,
       uploadItem: false,
       userInfo: {
         id: '',
@@ -44,6 +52,6 @@ export default {
     },
     showAvatar() {
       this.userInfo = JSON.parse(localStorage.getItem('loginData'))
-    }
+    },
   }
 }
