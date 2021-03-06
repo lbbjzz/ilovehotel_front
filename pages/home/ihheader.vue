@@ -14,27 +14,27 @@
             placement="bottom"
             trigger="hover">
             <div class="user-info">
-              <div class="user-info-title" v-if="hours<=8&&hours>=5">
+              <div class="user-info-title" v-if="hours<8&&hours>=5">
                 <i class="el-icon-sunrise"></i>
                 {{ username }}会员,早上好!
               </div>
-              <div class="el-icon-sunrise-1" v-if="hours<=11&&hours>=8">
+              <div class="el-icon-sunrise-1" v-if="hours<11&&hours>=8">
                 <i class="el-icon-sunny"></i>
                 {{ username }}会员,上午好!
               </div>
-              <div class="user-info-title" v-if="hours<=13&&hours>=11">
+              <div class="user-info-title" v-if="hours<13&&hours>=11">
                 <i class="el-icon-sunny"></i>
                 {{ username }}会员,中午好!
               </div>
-              <div class="user-info-title" v-if="hours<=18&&hours>=13">
+              <div class="user-info-title" v-if="hours<18&&hours>=13">
                 <i class="el-icon-sunset"></i>
                 {{ username }}会员,下午好!
               </div>
-              <div class="user-info-title" v-if="hours<=24&&hours>=18">
+              <div class="user-info-title" v-if="hours<24&&hours>=18">
                 <i class="el-icon-moon"></i>
                 {{ username }}会员,晚上好!
               </div>
-              <div class="user-info-title" v-if="hours<=5&&hours>=0">
+              <div class="user-info-title" v-if="hours<5&&hours>=0">
                 <i class="el-icon-moon-night"></i>
                 {{ username }}会员,晚上好!
               </div>
