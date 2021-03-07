@@ -1,7 +1,7 @@
 import axios from 'axios'
 import store from "@/store";
 
-axios.defaults.baseURL = "https://www.leejaycee.top:9000/"
+axios.defaults.baseURL = "http://8.135.35.123:9000"
 axios.defaults.withCredentials = true
 
 export function request(config) {
