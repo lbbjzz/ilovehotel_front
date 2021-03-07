@@ -1,9 +1,11 @@
 import '@/styles/pages/user-info/user-info.scss'
-import ihHeader from "@/pages/home/ihheader";
+import ihHeader from "@/components/common/ihheader";
+import upload from "@/components/upload/upload";
 
 export default {
   components: {
-    ihHeader
+    ihHeader,
+    upload,
   },
   data() {
     return {
@@ -12,11 +14,12 @@ export default {
       identifyEditShow: false,
       editFormIsShow: false,
       infoShow: true,
-      editForm:{
+      editShow: true,
+      dialogVisible: false,
+      editForm: {
         username: '',
       },
-      editShow: true,
-      uploadItem: false,
+
       userInfo: {
         id: '',
         //身份证
@@ -29,6 +32,9 @@ export default {
         avatar: 'https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png',
       }
     }
+  },
+  created() {
+
   },
   mounted() {
     // console.log(JSON.parse(localStorage.getItem('loginData')))
@@ -44,14 +50,15 @@ export default {
     notShowEdit() {
       this.editShow = false
     },
-    uploadAvatar() {
-      this.uploadItem = true
-    },
     avatarChange() {
       this.userInfo.avatar = 'https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png'
     },
     showAvatar() {
       this.userInfo = JSON.parse(localStorage.getItem('loginData'))
     },
+    getMsg(val) {
+      console.log(val, 'val')
+      this.dialogVisible = val
+    }
   }
 }

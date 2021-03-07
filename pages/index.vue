@@ -6,8 +6,8 @@
 </template>
 <script>
 
-import ihFooter from "@/pages/home/ihfooter"
-import ihHeader from "@/pages/home/ihheader";
+import ihFooter from "@/components/common/ihfooter"
+import ihHeader from "@/components/common/ihheader";
 import home from "@/pages/home/home";
 
 export default {

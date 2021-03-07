@@ -21,7 +21,7 @@
       <div class="main-content-right">
         <div class="right-info-header">
           <el-avatar icon="el-icon-user-solid" :size="60" :src="userInfo.avatar"
-                     @click.native="uploadAvatar"
+                     @click.native="dialogVisible = true"
                      @mouseover.native="avatarChange"
                      @mouseleave.native="showAvatar"></el-avatar>
           <div class="right-info-header-content">注册时间: {{ userInfo.createTime }}</div>
@@ -56,6 +56,7 @@
         </div>
       </div>
     </div>
+    <upload :dialog-is-show="dialogVisible" @sendMsg="getMsg"></upload>
   </div>
 
 </template>

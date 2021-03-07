@@ -1,4 +1,4 @@
-import '@/styles/pages/home/ihheader.scss'
+import '@/styles/components/common/ihheader.scss'
 import {mapGetters} from "vuex";
 import {logout} from "@/api/home/ihheader";
 
@@ -15,15 +15,15 @@ export default {
       imgList: [
         {
           key: 1,
-          url: require('@/static/img/common.jpg')
+          url: require('static/img/common.jpg')
         },
         {
           key: 2,
-          url: require('@/static/img/better.jpg')
+          url: require('static/img/better.jpg')
         },
         {
           key: 3,
-          url: require('@/static/img/best.jpg')
+          url: require('static/img/best.jpg')
         }
       ]
     }
