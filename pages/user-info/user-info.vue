@@ -28,13 +28,16 @@
         </div>
         <div class="right-info-edit" id="info" v-if="infoEditShow">
           <h3>个人资料</h3>
-          <div class="right-info-edit-content" @mouseover="showEdit" @mouseleave="notShowEdit" v-if="infoShow">
+          <div class="right-info-edit-content" @mouseover="editShow = true" @mouseleave="editShow = false"
+               v-if="infoShow">
             <div class="edit-user edit" v-if="editShow">
               <i class="el-icon-edit" @click="editFormIsShow = true; infoShow = false">编辑</i>
             </div>
             <pre class="edit-user name">用户昵称：  {{ userInfo.username }}</pre>
             <pre class="edit-user id">用  户 ID：  {{ userInfo.id }}</pre>
+            <pre class="edit-user sex">性       别：  {{ userInfo.sex }}</pre>
             <pre class="edit-user age">年       龄：  {{ userInfo.age }}</pre>
+            <pre class="edit-user birthday">生       日：  {{ userInfo.birthday }}</pre>
           </div>
           <el-form v-if="editFormIsShow" :model="userInfo">
             <el-form-item label="用户昵称：" label-width="100px">
@@ -50,6 +53,14 @@
         </div>
         <div class="right-account-edit" v-if="accountEditShow">
           <h3>账号设置</h3>
+          <div class="right-account-edit-content" @mouseover="editShow = true" @mouseleave="editShow = false"
+               v-if="infoShow">
+            <div class="edit-account edit" v-if="editShow">
+              <i class="el-icon-edit" @click="editFormIsShow = true; infoShow = false">编辑</i>
+            </div>
+            <pre class="edit-account phone">手机号：  {{ userInfo.phone }}</pre>
+            <pre class="edit-account email">邮   箱：  {{ userInfo.email }}</pre>
+          </div>
         </div>
         <div class="right-identify-edit" v-if="identifyEditShow">
           <h3>信息认证</h3>

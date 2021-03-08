@@ -27,6 +27,8 @@ export default {
         phone: '',
         email: '',
         age: '',
+        sex: '',
+        birthday: '',
         createTime: '',
         username: '',
         avatar: 'https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png',
@@ -44,12 +46,6 @@ export default {
     }
   },
   methods: {
-    showEdit() {
-      this.editShow = true
-    },
-    notShowEdit() {
-      this.editShow = false
-    },
     avatarChange() {
       this.userInfo.avatar = 'https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png'
     },
@@ -57,7 +53,6 @@ export default {
       this.userInfo = JSON.parse(localStorage.getItem('loginData'))
     },
     getMsg(val) {
-      console.log(val, 'val')
       this.dialogVisible = val
     }
   }

@@ -4,7 +4,7 @@ export default {
   props: ['dialogIsShow'],
   data() {
     return {
-      dialogVisible: '',
+      dialogVisible: false,
     }
   },
 

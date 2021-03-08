@@ -74,6 +74,7 @@
       display: flex;
       justify-content: space-between;
       background-color: #fff;
+      border-radius: 5px;
 
       .el-avatar {
         width: 15%;
@@ -97,6 +98,8 @@
     .right-info-edit {
       margin-top: 20px;
       background-color: #fff;
+      padding-bottom: 20px;
+      border-radius: 5px;
 
       h3 {
         margin-left: 25px;
@@ -105,13 +108,15 @@
 
       .right-info-edit-content {
         width: 96%;
-        height: 200px;
+        height: 100%;
         margin-top: 10px;
         margin-left: 50%;
+        padding-bottom: 20px;
         transform: translateX(-50%);
+        border-radius: 5px;
 
         .edit-user {
-          padding-left: 5px;
+          padding-left: 20px;
           font-family: 微軟正黑體;
           font-weight: bold;
         }
@@ -138,6 +143,14 @@
         .edit-user.age {
           margin-top: 20px;
         }
+
+        .edit-user.sex {
+          margin-top: 20px;
+        }
+
+        .edit-user.birthday {
+          margin-top: 20px;
+        }
       }
 
       .right-info-edit-content:hover {
@@ -148,14 +161,57 @@
 
     .right-account-edit {
       margin-top: 20px;
-      height: 300px;
       background-color: #fff;
+      padding-bottom: 20px;
+      border-radius: 5px;
 
       h3 {
         margin-left: 25px;
         padding-top: 10px;
       }
+
+      .right-account-edit-content {
+        width: 96%;
+        height: 100%;
+        margin-top: 10px;
+        margin-left: 50%;
+        padding-bottom: 20px;
+        transform: translateX(-50%);
+        border-radius: 5px;
+
+        .edit-account {
+          padding-left: 20px;
+          font-family: 微軟正黑體;
+          font-weight: bold;
+        }
+
+        .edit-account.edit {
+          margin-right: 10px;
+          padding-top: 10px;
+          float: right;
+          color: #0397e6;
+
+          .el-icon-edit {
+            margin: 0 2px;
+          }
+        }
+
+        .edit-account.phone {
+          padding-top: 20px;
+        }
+
+        .edit-account.email {
+          margin-top: 20px;
+        }
+
+      }
+
+      .right-account-edit-content:hover {
+        cursor: pointer;
+        background-color: #f0f0f5;
+      }
     }
+
 
     .right-identify-edit {
       margin-top: 20px;
