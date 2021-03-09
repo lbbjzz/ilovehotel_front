@@ -8,6 +8,7 @@ export default {
 
   data() {
     return {
+      id: '',
       hours: hours,
       isLogin: false,
       username: '',
@@ -28,6 +29,9 @@ export default {
       ]
     }
   },
+  created() {
+    this.id = this.$route.query.id
+  },
   mounted() {
     if (localStorage.getItem('loginData')) {
       this.isLogin = true
@@ -46,15 +50,19 @@ export default {
       })
     },
 
-    toHome(){
+    toHome() {
       this.$router.push({
         name: 'index'
       })
     },
 
     userInfo() {
+      console.log(this.id)
       this.$router.push({
-        name: 'user-info-user-info'
+        name: 'user-info-user-info',
+        query: {
+          id: this.id
+        }
       })
     },
 
@@ -73,7 +81,13 @@ export default {
             type: 'success',
             message: '注销成功'
           })
-          location.reload()
+          if (this.$route.name === 'index') {
+            location.reload()
+          } else {
+            this.$router.push({
+              name: 'index'
+            })
+          }
         } else {
           this.$message({
             type: 'error',

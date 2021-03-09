@@ -1,6 +1,7 @@
 import '@/styles/pages/user-info/user-info.scss'
 import ihHeader from "@/components/common/ihheader";
 import upload from "@/components/upload/upload";
+import {userDetail} from "@/api/user-info/user-info";
 
 export default {
   components: {
@@ -19,7 +20,9 @@ export default {
       editForm: {
         username: '',
       },
-
+      imgLink: {
+        url: require('@/static/img/edit.png')
+      },
       userInfo: {
         id: '',
         //身份证
@@ -36,24 +39,26 @@ export default {
     }
   },
   created() {
-
-  },
-  mounted() {
-    // console.log(JSON.parse(localStorage.getItem('loginData')))
-    if (localStorage.getItem('loginData')) {
-      this.isLogin = true
-      this.userInfo = JSON.parse(localStorage.getItem('loginData'))
-    }
+    this.getUserDetail()
   },
   methods: {
+    getUserDetail() {
+      userDetail(this.$route.query.id).then(res => {
+        this.userInfo = res.data.data
+        console.log(res, 'userInfo')
+      })
+    },
     avatarChange() {
-      this.userInfo.avatar = 'https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png'
+      this.userInfo.avatar = this.imgLink.url
     },
     showAvatar() {
       this.userInfo = JSON.parse(localStorage.getItem('loginData'))
     },
     getMsg(val) {
       this.dialogVisible = val
+    },
+    getImgUrl(val) {
+      this.userInfo.avatar = val.data
     }
   }
 }

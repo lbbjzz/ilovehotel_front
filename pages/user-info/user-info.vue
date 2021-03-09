@@ -67,7 +67,8 @@
         </div>
       </div>
     </div>
-    <upload :dialog-is-show="dialogVisible" @sendMsg="getMsg"></upload>
+    <upload :dialog-is-show="dialogVisible" @sendMsg="getMsg" :img="userInfo.avatar" @uploadSuccess="getImgUrl"
+            :ids="userInfo.id"></upload>
   </div>
 
 </template>
