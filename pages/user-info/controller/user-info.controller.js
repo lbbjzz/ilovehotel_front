@@ -10,6 +10,7 @@ export default {
   },
   data() {
     return {
+      id: '',
       infoEditShow: true,
       accountEditShow: false,
       identifyEditShow: false,
@@ -39,11 +40,14 @@ export default {
     }
   },
   created() {
+  },
+  mounted() {
+    this.id = JSON.parse(localStorage.getItem('loginData')).id
     this.getUserDetail()
   },
   methods: {
     getUserDetail() {
-      userDetail(this.$route.query.id).then(res => {
+      userDetail(this.id).then(res => {
         this.userInfo = res.data.data
         console.log(res, 'userInfo')
       })

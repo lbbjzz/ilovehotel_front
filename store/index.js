@@ -15,7 +15,10 @@ const store = () => {
       },
       avatar(state) {
         return state.loginData.avatar || ''
-      }
+      },
+      // userId(state) {
+      //   return state.loginData.id
+      // }
     },
     mutations: {
 

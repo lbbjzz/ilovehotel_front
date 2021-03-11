@@ -60,9 +60,6 @@ export default {
       console.log(this.id)
       this.$router.push({
         name: 'user-info-user-info',
-        query: {
-          id: this.id
-        }
       })
     },
 

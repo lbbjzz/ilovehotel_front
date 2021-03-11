@@ -18,7 +18,7 @@
                 <i class="el-icon-sunrise"></i>
                 {{ username }}会员,早上好!
               </div>
-              <div class="el-icon-sunrise-1" v-if="hours<11&&hours>=8">
+              <div class="el-info-title" v-if="hours<11&&hours>=8">
                 <i class="el-icon-sunny"></i>
                 {{ username }}会员,上午好!
               </div>

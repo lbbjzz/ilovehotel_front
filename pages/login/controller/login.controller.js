@@ -75,9 +75,6 @@ export default {
               this.loginSuccess(res.data.data)
               this.$router.push({
                 name: 'index',
-                query: {
-                  id: res.data.data.id
-                }
               })
               setTimeout(this.toHome, 1000)
             } else {
