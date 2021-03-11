@@ -1,12 +1,14 @@
 import '@/styles/pages/user-info/user-info.scss'
 import ihHeader from "@/components/common/ihheader";
 import upload from "@/components/upload/upload";
-import {userDetail} from "@/api/user-info/user-info";
+import percentage from "@/components/percentage/percentage";
+import {userDetail, updateInfo} from "@/api/user-info/user-info";
 
 export default {
   components: {
     ihHeader,
     upload,
+    percentage
   },
   data() {
     return {
@@ -16,8 +18,12 @@ export default {
       identifyEditShow: false,
       editFormIsShow: false,
       infoShow: true,
+      editFormIsShow1: false,
+      infoShow1: true,
       editShow: true,
       dialogVisible: false,
+      per: 25,
+      sta: '',
       editForm: {
         username: '',
       },
@@ -36,10 +42,16 @@ export default {
         createTime: '',
         username: '',
         avatar: 'https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png',
+      },
+      userInfoRules: {
+        username: [
+          {required: true, message: '请输入昵称', trigger: 'blur'},
+        ],
       }
     }
   },
   created() {
+
   },
   mounted() {
     this.id = JSON.parse(localStorage.getItem('loginData')).id
@@ -63,6 +75,18 @@ export default {
     },
     getImgUrl(val) {
       this.userInfo.avatar = val.data
-    }
+    },
+    userInfoSubmit() {
+      this.$refs.userInfoRef.validate(async val => {
+        if (!val) return
+        updateInfo(this.userInfo).then(res => {
+          console.log(res, '123')
+          this.getUserDetail()
+          if (res.data.code === 80200) {
+
+          }
+        })
+      })
+    },
   }
 }

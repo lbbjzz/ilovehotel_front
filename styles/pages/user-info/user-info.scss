@@ -102,14 +102,14 @@
       border-radius: 5px;
 
       h3 {
-        margin-left: 25px;
-        padding-top: 10px;
+        margin-left: 30px;
+        padding-top: 20px;
       }
 
       .right-info-edit-content {
         width: 96%;
         height: 100%;
-        margin-top: 10px;
+        //margin-top: 30px;
         margin-left: 50%;
         padding-bottom: 20px;
         transform: translateX(-50%);
@@ -151,11 +151,24 @@
         .edit-user.birthday {
           margin-top: 20px;
         }
+
       }
 
       .right-info-edit-content:hover {
         cursor: pointer;
         background-color: #f0f0f5;
+      }
+
+      .edit-form {
+        width: 96%;
+        height: 100%;
+        margin-top: 30px;
+        margin-left: 50%;
+        padding-bottom: 20px;
+        transform: translateX(-50%);
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 20px;
       }
     }
 
@@ -166,8 +179,8 @@
       border-radius: 5px;
 
       h3 {
-        margin-left: 25px;
-        padding-top: 10px;
+        margin-left: 30px;
+        padding-top: 20px;
       }
 
       .right-account-edit-content {
@@ -219,8 +232,8 @@
       background-color: #fff;
 
       h3 {
-        margin-left: 25px;
-        padding-top: 10px;
+        margin-left: 30px;
+        padding-top: 20px;
       }
     }
 
