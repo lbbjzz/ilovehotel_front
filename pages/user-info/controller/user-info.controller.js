@@ -1,6 +1,7 @@
 import '@/styles/pages/user-info/user-info.scss'
 import ihHeader from "@/components/common/ihheader";
 import upload from "@/components/upload/upload";
+import uploadInfo from "@/components/upload/upload-info"
 import percentage from "@/components/percentage/percentage";
 import {userDetail, updateInfo} from "@/api/user-info/user-info";
 
@@ -8,7 +9,8 @@ export default {
   components: {
     ihHeader,
     upload,
-    percentage
+    uploadInfo,
+    percentage,
   },
   data() {
     return {
@@ -24,6 +26,7 @@ export default {
       dialogVisible: false,
       per: 25,
       sta: '',
+      idCardImg: '',
       editForm: {
         username: '',
       },
@@ -39,14 +42,17 @@ export default {
         age: '',
         sex: '',
         birthday: '',
-        createTime: '',
         username: '',
+        createTime: '',
         avatar: 'https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png',
       },
       userInfoRules: {
         username: [
           {required: true, message: '请输入昵称', trigger: 'blur'},
         ],
+        email: [
+          {required: true, message: '请输入昵称', trigger: 'blur'}
+        ]
       }
     }
   },
@@ -61,6 +67,7 @@ export default {
     getUserDetail() {
       userDetail(this.id).then(res => {
         this.userInfo = res.data.data
+        this.createTime = res.data.data.createTime
         console.log(res, 'userInfo')
       })
     },
@@ -75,6 +82,11 @@ export default {
     },
     getImgUrl(val) {
       this.userInfo.avatar = val.data
+    },
+    getIdCardDetail(val) {
+      console.log(val, 'get')
+      this.userInfo.idcard = val.idCard
+      // this.userInfo.birthday =
     },
     userInfoSubmit() {
       this.$refs.userInfoRef.validate(async val => {

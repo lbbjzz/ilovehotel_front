@@ -2,7 +2,7 @@ import '@/styles/components/upload/upload.scss';
 import {updateAvatar} from "@/api/user-info/user-info";
 
 export default {
-  props: ['dialogIsShow', 'img', 'ids'],
+  props: ['dialogIsShow', 'ids'],
   data() {
     return {
       dialogVisible: false,
