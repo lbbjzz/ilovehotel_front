@@ -13,20 +13,6 @@ export default {
       isLogin: false,
       username: '',
       avatar: 'https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png',
-      imgList: [
-        {
-          key: 1,
-          url: require('static/img/common.jpg')
-        },
-        {
-          key: 2,
-          url: require('static/img/better.jpg')
-        },
-        {
-          key: 3,
-          url: require('static/img/best.jpg')
-        }
-      ]
     }
   },
   created() {

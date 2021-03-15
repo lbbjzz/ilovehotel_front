@@ -116,11 +116,6 @@
         padding-top: 20px;
       }
 
-      .upload-info {
-        width: 300px;
-        margin-top: 20px;
-        margin-left: 30px;
-      }
 
       .right-info-edit-content {
         width: 96%;
@@ -156,6 +151,10 @@
           margin-top: 20px;
         }
 
+        .edit-user.phone {
+          padding-top: 20px;
+        }
+
         .edit-user.age {
           margin-top: 20px;
         }
@@ -185,6 +184,12 @@
         border-radius: 5px;
         font-weight: bold;
         font-size: 20px;
+
+        .upload-info {
+          width: 300px;
+          margin-top: 20px;
+          margin-left: 100px;
+        }
       }
     }
 
@@ -207,6 +212,8 @@
         padding-bottom: 20px;
         transform: translateX(-50%);
         border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
 
         .edit-account {
           padding-left: 20px;
@@ -216,17 +223,12 @@
 
         .edit-account.edit {
           margin-right: 10px;
-          padding-top: 10px;
-          float: right;
           color: #0397e6;
 
           .el-icon-edit {
             margin: 0 2px;
+            padding-top: 20px;
           }
-        }
-
-        .edit-account.phone {
-          padding-top: 20px;
         }
 
         .edit-account.email {
@@ -235,34 +237,22 @@
 
       }
 
+      .edit-form {
+        width: 96%;
+        height: 100%;
+        margin-top: 30px;
+        margin-left: 50%;
+        padding-bottom: 20px;
+        transform: translateX(-50%);
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 20px;
+      }
+
       .right-account-edit-content:hover {
         cursor: pointer;
         background-color: #f0f0f5;
       }
-    }
-
-
-    .right-identify-edit {
-      margin-top: 20px;
-      background-color: #fff;
-
-      h3 {
-        margin-left: 30px;
-        padding-top: 20px;
-      }
-
-      .content {
-        display: flex;
-        justify-content: space-between;
-        padding-bottom: 20px;
-      }
-
-      .upload-info {
-        width: 300px;
-        margin-top: 20px;
-        margin-left: 30px;
-      }
-
     }
 
   }
