@@ -43,6 +43,7 @@ export default {
         email: '',
         age: '',
         sex: '',
+        sexText: '',
         birthday: '',
         username: '',
         createTime: '',
@@ -87,7 +88,9 @@ export default {
     },
     getIdCardDetail(val) {
       console.log(val, 'get')
-      this.userInfo.idcard = val.idCard
+      this.userInfo.idcard = val.idcard
+      this.userInfo.sexText = val.sexText
+      this.userInfo.birthday = val.birthday
       // this.userInfo.birthday =
     },
     userInfoSubmit() {
@@ -95,9 +98,10 @@ export default {
         if (!val) return
         updateInfo(this.userInfo).then(res => {
           console.log(res, '123')
-          this.getUserDetail()
           if (res.data.code === 80200) {
-
+            this.getUserDetail()
+            this.editFormIsShow = false
+            this.infoShow = true
           }
         })
       })

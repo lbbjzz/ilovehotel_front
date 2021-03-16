@@ -93,8 +93,8 @@
             <pre class="edit-user id">用  户 ID：  {{ userInfo.id }}</pre>
             <pre class="edit-user phone">手  机  号：  {{ userInfo.phone }}</pre>
             <div class="edit-user sex">性&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别：
-              <i class="el-icon-male" v-if="userInfo.sex === 1"></i>
-              <i class="el-icon-female" v-if="userInfo.sex === 0"></i>
+              <i class="el-icon-male" v-if="userInfo.sexText === '男'"></i>
+              <i class="el-icon-female" v-if="userInfo.sexText === '女'"></i>
             </div>
             <pre class="edit-user age">年       龄：  {{ userInfo.age }}</pre>
             <pre class="edit-user birthday">生       日：  {{ userInfo.birthday }}</pre>
@@ -117,11 +117,11 @@
             <el-form-item label="身份证号：" label-width="100px" prop="idcard">
               <el-input v-model="userInfo.idcard" size="medium" style="width: 300px"></el-input>
             </el-form-item>
-            <el-form-item label="性别：" label-width="100px" prop="sex">
-              <el-radio v-model="userInfo.sex" label="1" @change="userInfo.sex === 1">
+            <el-form-item label="性别：" label-width="100px" prop="sexText">
+              <el-radio v-model="userInfo.sexText" label="男" @change="userInfo.sexText === '男'">
                 <i class="el-icon-male"></i>
               </el-radio>
-              <el-radio v-model="userInfo.sex" label="0" @change="userInfo.sex === 0">
+              <el-radio v-model="userInfo.sexText" label="女" @change="userInfo.sexText === '女'">
                 <i class="el-icon-female"></i>
               </el-radio>
             </el-form-item>
