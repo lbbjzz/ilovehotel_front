@@ -2,7 +2,7 @@ export default {
   props: ['per', 'sta'],
   data() {
     return {
-      percent: '',
+      percent: 0,
       pStatus: ''
     }
   },

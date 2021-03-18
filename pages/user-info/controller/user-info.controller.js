@@ -26,9 +26,8 @@ export default {
       editShow: false,
       editShow1: false,
       dialogVisible: false,
-      per: 25,
+      per: 0,
       sta: '',
-      idCardImg: '',
       editForm: {
         username: '',
       },
@@ -60,18 +59,38 @@ export default {
     }
   },
   created() {
-
   },
   mounted() {
     this.id = JSON.parse(localStorage.getItem('loginData')).id
     this.getUserDetail()
   },
+  computed: {
+    splitCreateTime() {
+      let newCreateTime1 = this.userInfo.createTime.substr(0, 4)
+      let newCreateTime2 = this.userInfo.createTime.substr(4, 2)
+      let newCreateTime3 = this.userInfo.createTime.substr(6, 2)
+      let newCreateTime = newCreateTime1 + '-' + newCreateTime2 + '-' + newCreateTime3
+      return newCreateTime
+    },
+    splitBirthday() {
+      let newBirthday1 = this.userInfo.birthday.substr(0, 4)
+      let newBirthday2 = this.userInfo.birthday.substr(4, 2)
+      let newBirthday3 = this.userInfo.birthday.substr(6, 2)
+      let newBirthday = newBirthday1 + '-' + newBirthday2 + '-' + newBirthday3
+      return newBirthday
+    },
+  },
   methods: {
     getUserDetail() {
       userDetail(this.id).then(res => {
         this.userInfo = res.data.data
-        this.createTime = res.data.data.createTime
-        console.log(res, 'userInfo')
+        // console.log(res, 'userInfo')
+        for (let i in this.userInfo) {
+          // console.log(i, 'percent')
+          if (this.userInfo[i]) {
+            this.per += 10
+          }
+        }
       })
     },
     avatarChange() {
