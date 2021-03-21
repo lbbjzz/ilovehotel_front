@@ -38,14 +38,21 @@
           <div style="display: flex;justify-content: space-between">
             <h3>账号设置</h3>
           </div>
-          <div class="right-account-edit-content" @mouseover="editShow1 = true" @mouseleave="editShow1 = false"
-               v-if="infoShow1">
-            <pre class="edit-account email">邮   箱：  {{ userInfo.email }}</pre>
-            <div class="edit-account edit" v-if="editShow1">
-              <i class="el-icon-edit" @click="editFormIsShow1 = true; infoShow1 = false">编辑</i>
+          <div class="right-account-edit-content" v-if="infoShow1">
+            <div style="display: flex;justify-content: space-between">
+              <pre class="edit-account email">邮   箱：  {{ userInfo.email }}</pre>
+              <p class="edit-account email-button" @click="editFormIsShow1 = true; infoShow1 = false">修改邮箱</p>
+            </div>
+            <div style="display: flex;justify-content: space-between">
+              <pre class="edit-account pwd">密   码</pre>
+              <p class="edit-account pwd-button" @click="editFormIsShow4 = true; infoShow1 = false">修改密码</p>
             </div>
           </div>
-          <el-form class="edit-form" v-if="editFormIsShow1" :model="userInfo" :rules="userInfoRules" ref="userInfoRef">
+          <!--          组件-->
+          <reset :email-data="userInfo.email" :step-is-show="editFormIsShow1" @cancel="getCancel"></reset>
+          <!--          修改邮箱-->
+          <el-form class="edit-form" v-if="editFormIsShow2" :model="userInfo" :rules="userInfoRules"
+                   ref="secondEmailRef">
             <el-form-item label="邮箱：" label-width="100px" prop="email">
               <el-input type="email" v-model="userInfo.email" size="medium" style="width: 300px" disabled></el-input>
             </el-form-item>
@@ -63,7 +70,9 @@
               </el-button>
             </el-form-item>
           </el-form>
-          <el-form class="edit-form" v-if="editFormIsShow2" :model="userInfo" :rules="userInfoRules" ref="userInfoRef">
+          <!--          修改密码-->
+          <el-form class="edit-form" v-if="editFormIsShow4" :model="userInfo" :rules="userInfoRules"
+                   ref="firstEmailRef">
             <el-form-item label="邮箱：" label-width="100px" prop="email">
               <el-input type="email" v-model="userInfo.email" size="medium" style="width: 300px" disabled></el-input>
             </el-form-item>
@@ -75,9 +84,36 @@
               <el-button @click="infoShow1 = true;editFormIsShow1 = false"
                          style="margin-left: 10%;margin-top: 3%;width: 80px">取消
               </el-button>
-              <el-button @click="userInfoSubmit"
+              <el-button @click="getEmailCodeM"
                          style="margin-left: 5%;margin-top: 3%;width: 80px"
                          type="primary">下一步
+              </el-button>
+            </el-form-item>
+          </el-form>
+          <el-form class="edit-form" v-if="editFormIsShow3" :rules="pwdRules" ref="pwdRef">
+            <el-form-item label="输入新密码：" label-width="115px" prop="pwd">
+              <el-input :type="pwdType" v-model="pwd" style="width: 300px" maxlength="14" size="medium"
+                        placeholder="请输入密码(8~14位字符)"
+                        clearable>
+                <i slot="prefix" class="el-icon-lock input-icon"></i>
+                <i slot="suffix" v-if="this.pwd!==''" :class="iconType" @click="showPwd"></i>
+              </el-input>
+            </el-form-item>
+            <el-form-item label="确认新密码：" label-width="115px" prop="rePwd">
+              <el-input :type="pwdType" v-model="rePwd" style="width: 300px" maxlength="14" size="medium"
+                        placeholder="请输入密码(8~14位字符)"
+                        clearable>
+                <i slot="prefix" class="el-icon-lock input-icon"></i>
+                <i slot="suffix" v-if="this.rePwd!==''" :class="iconType" @click="showPwd"></i>
+              </el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-button @click="infoShow1 = true;editFormIsShow3 = false"
+                         style="margin-left: 10%;margin-top: 3%;width: 80px">取消
+              </el-button>
+              <el-button @click="changePwd"
+                         style="margin-left: 5%;margin-top: 3%;width: 80px"
+                         type="primary">确认
               </el-button>
             </el-form-item>
           </el-form>

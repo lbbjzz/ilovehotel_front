@@ -1,6 +1,7 @@
 import '@/styles/components/common/ihheader.scss'
 import {mapGetters} from "vuex";
 import {logout} from "@/api/home/ihheader";
+import {userDetail} from "@/api/user-info/user-info";
 
 const date = new Date()
 const hours = date.getHours()

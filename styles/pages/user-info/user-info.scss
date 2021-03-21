@@ -212,8 +212,8 @@
         padding-bottom: 20px;
         transform: translateX(-50%);
         border-radius: 5px;
-        display: flex;
-        justify-content: space-between;
+        //display: flex;
+        //justify-content: space-between;
 
         .edit-account {
           padding-left: 20px;
@@ -235,6 +235,23 @@
           margin-top: 20px;
         }
 
+        .edit-account.email-button {
+          margin-top: 20px;
+          color: #0397e6;
+          cursor: pointer;
+        }
+
+        .edit-account.pwd {
+          margin-top: 30px;
+        }
+
+        .edit-account.pwd-button {
+          margin-top: 30px;
+          color: #0397e6;
+          cursor: pointer;
+        }
+
+
       }
 
       .edit-form {
@@ -249,10 +266,6 @@
         font-size: 20px;
       }
 
-      .right-account-edit-content:hover {
-        cursor: pointer;
-        background-color: #f0f0f5;
-      }
     }
 
   }

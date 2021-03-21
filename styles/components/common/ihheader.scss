@@ -7,14 +7,17 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    box-shadow: 2px 2px 2px #d3dce6;
 
     .logo {
       margin: 0 20px;
+
       img {
         width: 60px;
         height: 60px;
       }
-      img:hover{
+
+      img:hover {
         cursor: pointer;
       }
     }

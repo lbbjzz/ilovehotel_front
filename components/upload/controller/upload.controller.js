@@ -1,5 +1,5 @@
 import '@/styles/components/upload/upload.scss';
-import {updateAvatar} from "@/api/user-info/user-info";
+import {updateAvatar, userDetail} from "@/api/user-info/user-info";
 
 export default {
   props: ['dialogIsShow', 'ids'],
@@ -24,6 +24,14 @@ export default {
   },
 
   methods: {
+    setLocalStorage(loginData) {
+      this.$store.commit('login', loginData)
+    },
+    getUserDetail() {
+      userDetail(this.id).then(res => {
+        this.setLocalStorage(res.data.data)
+      })
+    },
     handleClose(done) {
       this.$confirm('确认关闭？')
         .then(_ => {
@@ -41,6 +49,7 @@ export default {
             type: 'success',
             message: '修改成功'
           })
+          this.getUserDetail()
         }
       })
     },
