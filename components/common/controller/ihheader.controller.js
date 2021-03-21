@@ -6,7 +6,7 @@ import {userDetail} from "@/api/user-info/user-info";
 const date = new Date()
 const hours = date.getHours()
 export default {
-
+  props: ['letName', 'letAvatar'],
   data() {
     return {
       id: '',
@@ -14,6 +14,22 @@ export default {
       isLogin: false,
       username: '',
       avatar: 'https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png',
+    }
+  },
+  watch: {
+    letName: {
+      handler(val) {
+        this.username = val
+      },
+      immediate: true,
+      deep: true
+    },
+    letAvatar: {
+      handler(val) {
+        this.avatar = val
+      },
+      immediate: true,
+      deep: true
     }
   },
   created() {

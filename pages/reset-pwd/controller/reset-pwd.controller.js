@@ -126,7 +126,12 @@ export default {
               message: '验证码错误，请重新输入！',
               type: 'error'
             })
-          } else {
+          } else if (res.data.code === 80704) {
+            this.$message({
+              message: '请先获取邮箱验证码！',
+              type: 'error'
+            })
+          } else if (res.data.code === 80200) {
             this.$message({
               message: '验证成功',
               type: 'success'

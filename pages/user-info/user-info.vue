@@ -1,6 +1,6 @@
 <template>
   <div class="user-info">
-    <ih-header style="position: fixed; top: 0;z-index: 1"></ih-header>
+    <ih-header style="position: fixed; top: 0;z-index: 1" :let-name="letName" :let-avatar="temp"></ih-header>
     <div class="main-content">
       <!--      <div class="main-content-left">-->
       <!--        <div class="inner">-->
@@ -49,70 +49,55 @@
             </div>
           </div>
           <!--          组件-->
-          <reset :email-data="userInfo.email" :step-is-show="editFormIsShow1" @cancel="getCancel"></reset>
+          <reset :email-data="userInfo.email" :step-is-show="editFormIsShow1" @cancel="getCancel"
+                 @nextStep="getNextStep"></reset>
           <!--          修改邮箱-->
           <el-form class="edit-form" v-if="editFormIsShow2" :model="userInfo" :rules="userInfoRules"
                    ref="secondEmailRef">
-            <el-form-item label="邮箱：" label-width="100px" prop="email">
-              <el-input type="email" v-model="userInfo.email" size="medium" style="width: 300px" disabled></el-input>
+            <el-form-item label="输入新邮箱：" label-width="115px" prop="email">
+              <el-input type="email" v-model="userInfo.email" size="medium" style="width: 300px"></el-input>
             </el-form-item>
-            <el-form-item label="验证码" label-width="100px">
+            <el-form-item label="验证码：" label-width="115px">
               <el-input type="text" size="medium" style="width: 180px"></el-input>
               <el-button type="primary" style="width: 110px;margin-left: 10px">获取验证码</el-button>
             </el-form-item>
             <el-form-item>
-              <el-button @click="infoShow1 = true;editFormIsShow1 = false"
-                         style="margin-left: 10%;margin-top: 3%;width: 80px">取消
+              <el-button @click="infoShow1 = true;editFormIsShow2 = false"
+                         style="margin-left: 20%;margin-top: 3%;width: 100px">取消
               </el-button>
               <el-button @click="userInfoSubmit"
-                         style="margin-left: 5%;margin-top: 3%;width: 80px"
-                         type="primary">下一步
+                         style="margin-left: 5%;margin-top: 3%;width: 100px"
+                         type="primary">确认
               </el-button>
             </el-form-item>
           </el-form>
+          <!--          组件-->
+          <reset :email-data="userInfo.email" :step-is-show="editFormIsShow4" @cancel="getCancel1"
+                 @nextStep="getNextStep1"></reset>
           <!--          修改密码-->
-          <el-form class="edit-form" v-if="editFormIsShow4" :model="userInfo" :rules="userInfoRules"
-                   ref="firstEmailRef">
-            <el-form-item label="邮箱：" label-width="100px" prop="email">
-              <el-input type="email" v-model="userInfo.email" size="medium" style="width: 300px" disabled></el-input>
-            </el-form-item>
-            <el-form-item label="验证码" label-width="100px">
-              <el-input type="text" size="medium" style="width: 180px"></el-input>
-              <el-button type="primary" style="width: 110px;margin-left: 10px">获取验证码</el-button>
-            </el-form-item>
-            <el-form-item>
-              <el-button @click="infoShow1 = true;editFormIsShow1 = false"
-                         style="margin-left: 10%;margin-top: 3%;width: 80px">取消
-              </el-button>
-              <el-button @click="getEmailCodeM"
-                         style="margin-left: 5%;margin-top: 3%;width: 80px"
-                         type="primary">下一步
-              </el-button>
-            </el-form-item>
-          </el-form>
-          <el-form class="edit-form" v-if="editFormIsShow3" :rules="pwdRules" ref="pwdRef">
+          <el-form class="edit-form" v-if="editFormIsShow3" :model="resetPwd" :rules="pwdRules" ref="passwordRef">
             <el-form-item label="输入新密码：" label-width="115px" prop="pwd">
-              <el-input :type="pwdType" v-model="pwd" style="width: 300px" maxlength="14" size="medium"
+              <el-input :type="pwdType" v-model="resetPwd.pwd" style="width: 300px" maxlength="14" size="medium"
                         placeholder="请输入密码(8~14位字符)"
                         clearable>
                 <i slot="prefix" class="el-icon-lock input-icon"></i>
-                <i slot="suffix" v-if="this.pwd!==''" :class="iconType" @click="showPwd"></i>
+                <i slot="suffix" v-if="this.resetPwd.pwd!==''" :class="iconType" @click="showPwd"></i>
               </el-input>
             </el-form-item>
             <el-form-item label="确认新密码：" label-width="115px" prop="rePwd">
-              <el-input :type="pwdType" v-model="rePwd" style="width: 300px" maxlength="14" size="medium"
+              <el-input :type="pwdType" v-model="resetPwd.rePwd" style="width: 300px" maxlength="14" size="medium"
                         placeholder="请输入密码(8~14位字符)"
                         clearable>
                 <i slot="prefix" class="el-icon-lock input-icon"></i>
-                <i slot="suffix" v-if="this.rePwd!==''" :class="iconType" @click="showPwd"></i>
+                <i slot="suffix" v-if="this.resetPwd.rePwd!==''" :class="iconType" @click="showPwd"></i>
               </el-input>
             </el-form-item>
             <el-form-item>
               <el-button @click="infoShow1 = true;editFormIsShow3 = false"
-                         style="margin-left: 10%;margin-top: 3%;width: 80px">取消
+                         style="margin-left: 20%;margin-top: 3%;width: 100px">取消
               </el-button>
               <el-button @click="changePwd"
-                         style="margin-left: 5%;margin-top: 3%;width: 80px"
+                         style="margin-left: 5%;margin-top: 3%;width: 100px"
                          type="primary">确认
               </el-button>
             </el-form-item>
@@ -171,10 +156,10 @@
             </el-form-item>
             <el-form-item>
               <el-button @click="infoShow = true;editFormIsShow = false"
-                         style="margin-left: 10%;margin-top: 3%;width: 80px">取消
+                         style="margin-left: 20%;margin-top: 3%;width: 100px">取消
               </el-button>
               <el-button @click="userInfoSubmit"
-                         style="margin-left: 5%;margin-top: 3%;width: 80px"
+                         style="margin-left: 5%;margin-top: 3%;width: 100px"
                          type="primary">提交
               </el-button>
             </el-form-item>

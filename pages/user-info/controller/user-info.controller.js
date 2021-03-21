@@ -5,7 +5,7 @@ import uploadInfo from "@/components/upload/upload-info"
 import percentage from "@/components/percentage/percentage";
 import reset from "@/components/reset/reset";
 import {userDetail, updateInfo} from "@/api/user-info/user-info";
-import {getEmailCode} from "@/api/reset-pwd/reset-pwd";
+import {getEmailCode, resetPwd} from "@/api/reset-pwd/reset-pwd";
 
 export default {
   components: {
@@ -33,10 +33,9 @@ export default {
       per: 0,
       sta: '',
       temp: '',
-      pwd: '',
-      rePwd: '',
       pwdType: 'password',
       iconType: 'iconfont icon-browse',
+      letName: '',
       editForm: {
         username: '',
       },
@@ -57,35 +56,30 @@ export default {
         createTime: '',
         avatar: 'https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png',
       },
+      resetPwd: {
+        pwd: '',
+        rePwd: '',
+      },
       userInfoRules: {
         username: [
           {required: true, message: '请输入昵称', trigger: 'blur'},
         ],
         email: [
-          {required: true, message: '请输入昵称', trigger: 'blur'}
+          {required: true, message: '请输入邮箱', trigger: 'blur'}
         ]
       },
       pwdRules: {
         pwd: [
-          {
-            min: 8,
-            required: true,
-            message: "请输入密码！",
-            trigger: 'blur'
-          },
+          {min: 8, required: true, message: "请输入密码！", trigger: 'blur'},
         ],
         rePwd: [
-          {
-            min: 8,
-            required: true,
-            message: "请输入密码！",
-            trigger: 'blur'
-          },
+          {min: 8, required: true, message: "请输入密码！", trigger: 'blur'},
         ]
       }
     }
   },
   created() {
+
   },
   mounted() {
     this.id = JSON.parse(localStorage.getItem('loginData')).id
@@ -110,6 +104,7 @@ export default {
         return newBirthday
       }
     },
+
   },
   methods: {
     setLocalStorage(loginData) {
@@ -120,13 +115,14 @@ export default {
         this.userInfo = res.data.data
         this.temp = res.data.data.avatar
         this.setLocalStorage(res.data.data)
-        // console.log(res, 'userInfo')
+        this.per = 0
         for (let i in this.userInfo) {
           // console.log(i, 'percent')
           if (this.userInfo[i]) {
             this.per += 10
           }
         }
+        // console.log(res, 'userInfo')
       })
     },
     showPwd() {
@@ -153,20 +149,47 @@ export default {
       this.userInfo.sexText = val.sexText
       this.userInfo.birthday = val.birthday
     },
-    getEmailCodeM() {
-      this.$refs.firstEmailRef.validate(async val => {
-        if (!val) return
-        getEmailCode()
-      })
-    },
-    changePwd() {
-      this.$refs.pwdRef.validate(async val => {
-        if (!val) return
-      })
-    },
     getCancel(val) {
       this.editFormIsShow1 = val
       this.infoShow1 = !val
+    },
+    getCancel1(val) {
+      this.editFormIsShow4 = val
+      this.infoShow1 = !val
+    },
+    getNextStep(val) {
+      this.editFormIsShow2 = val
+    },
+    getNextStep1(val) {
+      this.editFormIsShow3 = val
+    },
+    toLogin() {
+      this.$router.push({
+        name: 'login-login'
+      })
+    },
+    changePwd() {
+      this.$refs.passwordRef.validate(async val => {
+        if (!val) return
+        console.log(123123)
+        if (this.resetPwd.pwd !== this.resetPwd.rePwd) {
+          this.$message({
+            type: 'error',
+            message: '两次输入的密码不一致'
+          })
+        } else {
+          resetPwd(this.userInfo.email, this.resetPwd.pwd).then(res => {
+            if (res.data.code === 80200) {
+              this.$message({
+                type: 'success',
+                message: '修改成功,请重新登录！'
+              })
+              localStorage.removeItem('loginData')
+              setTimeout(this.toLogin, 2000)
+            }
+          })
+        }
+      })
     },
     userInfoSubmit() {
       this.$refs.userInfoRef.validate(async val => {
@@ -174,6 +197,7 @@ export default {
         updateInfo(this.userInfo).then(res => {
           console.log(res, '123')
           if (res.data.code === 80200) {
+            this.letName = this.userInfo.username
             this.getUserDetail()
             this.editFormIsShow = false
             this.infoShow = true

@@ -1,5 +1,5 @@
 import getCode from '@/components/get-code/get-code'
-import {getEmailCode} from "@/api/reset-pwd/reset-pwd";
+import {emailCodeVerify, getEmailCode} from "@/api/reset-pwd/reset-pwd";
 import {getCodeApi} from "@/api/get-code/get-code";
 
 export default {
@@ -15,7 +15,6 @@ export default {
       codeImg: '',
       emailCode: '',
       step1: true,
-      step2: false
     }
   },
   watch: {
@@ -46,7 +45,7 @@ export default {
       // console.log(this.emailForm.email,'email')
       if (this.code === '') {
         this.$message({
-          message: '请输入验证码！',
+          message: '请输入图形验证码！',
           type: 'error'
         })
       } else {
@@ -70,19 +69,37 @@ export default {
                 message: '邮件发送成功,有效时间三分钟',
                 type: 'success'
               })
-              this.step1 = false
-              this.step2 = true
             } else if (res.data.code === 80702) {
               this.$message({
                 message: '邮件已发送',
                 type: 'success'
               })
-              this.step1 = false
-              this.step2 = true
             }
           }
         })
       }
-    }
+    },
+    emailVerify() {
+      emailCodeVerify(this.emailCode, this.email).then(res => {
+        if (res.data.code === 80703) {
+          this.$message({
+            message: '邮箱验证码错误，请重新输入！',
+            type: 'error'
+          })
+        } else if (res.data.code === 80704) {
+          this.$message({
+            message: '请先获取邮箱验证码！',
+            type: 'error'
+          })
+        } else if (res.data.code === 80200) {
+          this.$message({
+            message: '验证成功',
+            type: 'success'
+          })
+          this.step1 = false
+          this.$emit('nextStep', true)
+        }
+      })
+    },
   }
 }
