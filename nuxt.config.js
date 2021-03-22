@@ -39,7 +39,8 @@ export default {
   },
 
   server: {
-    port: 5200
+    port: 5200,
+    host: '127.0.0.1',
   }
 
 }
