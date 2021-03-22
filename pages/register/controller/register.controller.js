@@ -1,8 +1,12 @@
 import '@/styles/pages/register/register.scss'
 import {getEmailCode, emailCodeVerify, register} from "~/api/register/register";
 import {getCodeApi} from "~/api/get-code/get-code";
+import ihFooter from "@/components/common/ihfooter"
 
 export default {
+  components: {
+    ihFooter
+  },
   data() {
     return {
       step1: true,

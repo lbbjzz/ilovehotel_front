@@ -1,8 +1,12 @@
 import '@/styles/pages/reset-pwd/reset-pwd.scss'
 import {getCodeApi} from "@/api/get-code/get-code";
 import {getEmailCode, emailCodeVerify, resetPwd} from "@/api/reset-pwd/reset-pwd";
+import ihFooter from "@/components/common/ihfooter"
 
 export default {
+  components: {
+    ihFooter
+  },
   data() {
     return {
       step1: true,

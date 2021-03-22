@@ -7,6 +7,7 @@
         </a>
       </el-carousel-item>
     </el-carousel>
+    <hotel-class style="margin-top: 50px"></hotel-class>
   </div>
 </template>
 

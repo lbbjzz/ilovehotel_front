@@ -3,11 +3,13 @@ import getCode from "~/components/get-code/get-code";
 import {login} from "@/api/login/login";
 import {getCodeApi} from "~/api/get-code/get-code";
 import {mapGetters} from "vuex";
+import ihFooter from "@/components/common/ihfooter"
 
 export default {
   name: "Login",
   components: {
-    getCode
+    getCode,
+    ihFooter
   },
   data() {
     return {

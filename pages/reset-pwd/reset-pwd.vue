@@ -85,6 +85,7 @@
         <span class="toRegister" @click="toLogin">登录 ></span>
       </p>
     </el-form>
+    <ih-footer></ih-footer>
   </div>
 </template>
 

@@ -1,9 +1,13 @@
 import '@/styles/pages/home/home.scss'
 import {getCarousel} from "@/api/home";
+import hotelClass from '@/components/home/hotel-class'
 
 
 export default {
   name: "home",
+  components: {
+    hotelClass
+  },
   data() {
     return {
       imgList: []
