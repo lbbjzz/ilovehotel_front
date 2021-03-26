@@ -113,7 +113,7 @@
             <pre class="edit-user name">用户昵称：  {{ userInfo.username }}</pre>
             <pre class="edit-user id">用  户 ID：  {{ userInfo.id }}</pre>
             <pre class="edit-user phone">手  机  号：  {{ userInfo.phone }}</pre>
-            <div class="edit-user sex">性&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别：
+            <div class="edit-user sex">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：
               <i class="el-icon-male" v-if="userInfo.sex === 1"></i>
               <i class="el-icon-female" v-if="userInfo.sex === 0"></i>
             </div>

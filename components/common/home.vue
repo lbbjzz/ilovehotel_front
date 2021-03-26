@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-carousel :interval="4000" type="card" height="500px" autoplay interval="3000" loop>
+    <el-carousel :interval="4000" type="card" height="500px" autoplay loop>
       <el-carousel-item v-for="item in imgList" :key="item.id">
         <a>
           <img :src="item.pictureUrl" width="100%" height="100%">
