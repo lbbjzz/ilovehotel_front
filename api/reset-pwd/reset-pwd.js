@@ -1,13 +1,14 @@
 import {request} from "@/api/request";
 
 //获取验证码
-export function getEmailCode(email, imageCode) {
+export function getEmailCode(email, imageCode ,type) {
   return request({
     url: '/hotelsystem/email/sendPassworEmail',
     method: 'post',
     params: {
       email,
       imageCode,
+      type
     }
   })
 }

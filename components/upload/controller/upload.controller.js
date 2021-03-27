@@ -7,7 +7,9 @@ export default {
     return {
       dialogVisible: false,
       avatar: '',
-      id: ''
+      id: '',
+      per: 0,
+      userInfo: {}
     }
   },
 
@@ -30,6 +32,15 @@ export default {
     getUserDetail() {
       userDetail(this.id).then(res => {
         this.setLocalStorage(res.data.data)
+        this.userInfo = res.data.data
+        this.per = 0
+        for (let i in this.userInfo) {
+          // console.log(i, 'percent')
+          if (this.userInfo[i] !== undefined && this.userInfo[i] !== null && this.userInfo[i] !== '') {
+            this.per += 10
+          }
+          this.$emit('getPer', this.per)
+        }
       })
     },
     handleClose(done) {

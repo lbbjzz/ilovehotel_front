@@ -32,13 +32,6 @@ export function userDetail(id) {
   })
 }
 
-//orc
-// export function getIdCardDetail(file){
-//   return request({
-//     url: '/hotelsystem/ocr/aiCheck',
-//     method: 'post',
-//     params: {
-//       file
-//     }
-//   })
-// }
+
+
+

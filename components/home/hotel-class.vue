@@ -2,14 +2,14 @@
   <div>
     <p>酒店简介</p>
     <el-row>
-      <el-col :span="5" v-for="(o, index) in 4" :key="o" :offset="index > 0 ? 1 : 0">
+      <el-col :span="5" v-for="(item, index) in floorList" :offset="index > 0 ? 1 : 0">
         <el-card :body-style="{ padding: '0px' }" shadow="hover">
-          <img src="../../static/img/room.jpg"
+          <img :src="item.url"
                class="image">
           <div style="padding: 14px;">
             <span>酒店楼层</span>
             <div class="bottom clearfix">
-              <time class="time">{{ currentDate }}</time>
+              <time class="time">{{ item.floorName }}</time>
               <el-button type="text" class="button">操作按钮</el-button>
             </div>
           </div>

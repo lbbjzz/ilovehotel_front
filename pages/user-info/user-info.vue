@@ -59,7 +59,7 @@
             </el-form-item>
             <el-form-item label="验证码：" label-width="115px">
               <el-input type="text" size="medium" style="width: 180px"></el-input>
-              <el-button type="primary" style="width: 110px;margin-left: 10px">获取验证码</el-button>
+              <el-button type="primary" style="width: 110px;margin-left: 10px" @click="getEmailCodeM">获取验证码</el-button>
             </el-form-item>
             <el-form-item>
               <el-button @click="infoShow1 = true;editFormIsShow2 = false"
@@ -139,10 +139,10 @@
               <el-input v-model="userInfo.idcard" size="medium" style="width: 300px"></el-input>
             </el-form-item>
             <el-form-item label="性别：" label-width="100px" prop="sexText">
-              <el-radio v-model="userInfo.sex" label="1" @change="userInfo.sex === 1">
+              <el-radio v-model="userInfo.sex" :label='1' @change="userInfo.sex === 1">
                 <i class="el-icon-male"></i>
               </el-radio>
-              <el-radio v-model="userInfo.sex" label="0" @change="userInfo.sex === 0">
+              <el-radio v-model="userInfo.sex" :label='0' @change="userInfo.sex === 0">
                 <i class="el-icon-female"></i>
               </el-radio>
             </el-form-item>
@@ -168,7 +168,7 @@
       </div>
     </div>
     <upload :dialog-is-show="dialogVisible" @sendMsg="getMsg" @uploadSuccess="getImgUrl"
-            :ids="userInfo.id"></upload>
+            :ids="userInfo.id" @getPer="getUploadPer"></upload>
   </div>
 
 </template>

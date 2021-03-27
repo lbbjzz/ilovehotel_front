@@ -50,7 +50,6 @@ export default {
         email: '',
         age: '',
         sex: '',
-        sexText: '',
         birthday: '',
         username: '',
         createTime: '',
@@ -65,7 +64,11 @@ export default {
           {required: true, message: '请输入昵称', trigger: 'blur'},
         ],
         email: [
-          {required: true, message: '请输入邮箱', trigger: 'blur'}
+          {required: true, message: '请输入邮箱', trigger: 'blur'},
+          {message: '请输入正确的邮箱', pattern: /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/}
+        ],
+        phone: [
+          {message: '请输入正确的手机号', pattern: /^1[3456789]\d{9}$/}
         ]
       },
       pwdRules: {
@@ -118,7 +121,7 @@ export default {
         this.per = 0
         for (let i in this.userInfo) {
           // console.log(i, 'percent')
-          if (this.userInfo[i]) {
+          if (this.userInfo[i] !== undefined && this.userInfo[i] !== null && this.userInfo[i] !== '') {
             this.per += 10
           }
         }
@@ -141,12 +144,14 @@ export default {
     getImgUrl(val) {
       this.userInfo.avatar = val.data
       this.temp = val.data
-      // setTimeout(this.getUserDetail, 2000)
+    },
+    getUploadPer(val) {
+      this.per = val
     },
     getIdCardDetail(val) {
       console.log(val, 'get')
       this.userInfo.idcard = val.idcard
-      this.userInfo.sexText = val.sexText
+      this.userInfo.sex = val.sex
       this.userInfo.birthday = val.birthday
     },
     getCancel(val) {
@@ -166,6 +171,11 @@ export default {
     toLogin() {
       this.$router.push({
         name: 'login-login'
+      })
+    },
+    getEmailCodeM() {
+      getEmailCode(this.userInfo.email,'',1).then(res => {
+        console.log(res)
       })
     },
     changePwd() {
@@ -197,6 +207,10 @@ export default {
         updateInfo(this.userInfo).then(res => {
           console.log(res, '123')
           if (res.data.code === 80200) {
+            this.$message({
+              message: '修改成功！',
+              type: 'success'
+            })
             this.letName = this.userInfo.username
             this.getUserDetail()
             this.editFormIsShow = false
@@ -205,6 +219,5 @@ export default {
         })
       })
     },
-
   }
 }

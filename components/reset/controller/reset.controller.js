@@ -49,7 +49,7 @@ export default {
           type: 'error'
         })
       } else {
-        getEmailCode(this.email, this.code).then(res => {
+        getEmailCode(this.email, this.code,0).then(res => {
           if (res.data.code === 80300) {
             this.$message({
               message: '验证码错误！',
