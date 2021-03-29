@@ -5,7 +5,7 @@ import uploadInfo from "@/components/upload/upload-info"
 import percentage from "@/components/percentage/percentage";
 import reset from "@/components/reset/reset";
 import {userDetail, updateInfo} from "@/api/user-info/user-info";
-import {getEmailCode, resetPwd} from "@/api/reset-pwd/reset-pwd";
+import {getEmailCode, resetPwd, emailCodeVerify} from "@/api/reset-pwd/reset-pwd";
 
 export default {
   components: {
@@ -176,7 +176,17 @@ export default {
     },
     getEmailCodeM() {
       getEmailCode(this.userInfo.email, '', 1).then(res => {
-        console.log(res)
+        if (res.data.code === 80200) {
+          this.$message({
+            message: '邮件发送成功,有效时间三分钟',
+            type: 'success'
+          })
+        } else {
+          this.$message({
+            message: '出错了 请稍后重试',
+            type: 'error'
+          })
+        }
       })
     },
     changePwd() {
@@ -208,7 +218,6 @@ export default {
       this.$refs.userInfoRef.validate(async val => {
         if (!val) return
         updateInfo(this.userInfo).then(res => {
-          console.log(res, '123')
           if (res.data.code === 80200) {
             this.$message({
               message: '修改成功！',
@@ -223,8 +232,36 @@ export default {
       })
     },
 
-    //Todo: 1.next step; 2.verify code; 3.change email;
     userInfoSubmitWithCode() {
+      emailCodeVerify(this.resetEmailCode, this.userInfo.email).then(res => {
+        if (res.data.code === 80200) {
+          updateInfo(this.userInfo).then(res => {
+            if (res.data.code === 80200) {
+              this.$message({
+                message: res.data.data.msg,
+                type: 'success'
+              })
+              this.editFormIsShow2 = false
+              this.infoShow1 = true
+            } else if (res.data.code === 80400) {
+              this.$message({
+                message: res.data.msg,
+                type: 'error'
+              })
+            } else {
+              this.$message({
+                message: res.data.msg,
+                type: 'error'
+              })
+            }
+          })
+        } else {
+          this.$message({
+            message: res.data.msg,
+            type: 'error'
+          })
+        }
+      })
     }
   }
 }

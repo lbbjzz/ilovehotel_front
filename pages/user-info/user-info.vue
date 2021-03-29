@@ -58,7 +58,7 @@
               <el-input type="email" v-model="userInfo.email" size="medium" style="width: 300px"></el-input>
             </el-form-item>
             <el-form-item label="验证码：" label-width="115px">
-              <el-input type="text" size="medium" style="width: 180px" v-model="resetEmailCode"></el-input>
+              <el-input type="text" size="medium" style="width: 180px" v-model="resetEmailCode" maxlength="4"></el-input>
               <el-button type="primary" style="width: 110px;margin-left: 10px" @click="getEmailCodeM">获取验证码</el-button>
             </el-form-item>
             <el-form-item>

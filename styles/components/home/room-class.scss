@@ -1,6 +1,6 @@
 .main-content {
   width: 80%;
-  margin: 0 auto;
+  margin: 0 auto 80px;
 
   .room-title {
     text-align: center;
@@ -10,10 +10,15 @@
     font-family: "Maiandra GD";
   }
 
+  .destination {
+    margin-left: 2%;
+  }
+
   .room-list {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
+
 
     .item {
       border-radius: 3px;
@@ -48,6 +53,14 @@
         font-size: 15px;
         margin-top: 2px;
       }
+    }
+
+    .room-type {
+      width: 96%;
+      margin: 5px auto;
+      font-family: "JetBrains Mono";
+      font-size: 14px;
+      font-weight: bold;
     }
 
   }
