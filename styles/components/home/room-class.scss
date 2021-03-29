@@ -1,0 +1,56 @@
+.main-content {
+  width: 80%;
+  margin: 0 auto;
+
+  .room-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 50px;
+    font-weight: bold;
+    font-family: "Maiandra GD";
+  }
+
+  .room-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+
+    .item {
+      border-radius: 3px;
+      margin-top: 20px;
+      width: 22%;
+      height: 300px;
+      border: 1px solid #EBEEF5;
+      flex: 0 0 21%;
+      box-shadow: none;
+      transition: box-shadow .5s;
+    }
+
+    .item:hover {
+      box-shadow: 0 0 18px rgba(0, 0, 0, .1);
+      transition: box-shadow .8s;
+    }
+
+    .hotel-title {
+      width: 96%;
+      margin: 8px auto;
+      display: flex;
+      justify-content: space-between;
+
+      .hotel-name {
+        font-family: "JetBrains Mono";
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .el-icon-location.location {
+        color: #999;
+        font-size: 15px;
+        margin-top: 2px;
+      }
+    }
+
+  }
+
+}
+

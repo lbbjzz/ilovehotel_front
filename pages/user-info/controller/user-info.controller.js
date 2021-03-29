@@ -36,6 +36,7 @@ export default {
       pwdType: 'password',
       iconType: 'iconfont icon-browse',
       letName: '',
+      resetEmailCode: '',
       editForm: {
         username: '',
       },
@@ -174,7 +175,7 @@ export default {
       })
     },
     getEmailCodeM() {
-      getEmailCode(this.userInfo.email,'',1).then(res => {
+      getEmailCode(this.userInfo.email, '', 1).then(res => {
         console.log(res)
       })
     },
@@ -201,6 +202,8 @@ export default {
         }
       })
     },
+
+    //Todo: save notice: success or fail;
     userInfoSubmit() {
       this.$refs.userInfoRef.validate(async val => {
         if (!val) return
@@ -219,5 +222,9 @@ export default {
         })
       })
     },
+
+    //Todo: 1.next step; 2.verify code; 3.change email;
+    userInfoSubmitWithCode() {
+    }
   }
 }

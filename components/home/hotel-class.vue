@@ -7,10 +7,10 @@
           <img :src="item.url"
                class="image">
           <div style="padding: 14px;">
-            <span>酒店楼层</span>
+            <span>{{ item.floorName }}</span>
             <div class="bottom clearfix">
-              <time class="time">{{ item.floorName }}</time>
-              <el-button type="text" class="button">操作按钮</el-button>
+              <time class="time">{{ item.content }}</time>
+              <el-button type="text" class="button">查看详情</el-button>
             </div>
           </div>
         </el-card>
@@ -42,12 +42,16 @@ p {
   margin: 0 auto;
 }
 
+.el-col {
+  height: 350px;
+}
+
 .el-card {
-  cursor: pointer;
+  /*cursor: pointer;*/
 }
 
 .el-card:hover {
-  padding-bottom: -5px;
+  /*padding-bottom: -5px;*/
 }
 
 .time {
@@ -68,6 +72,7 @@ p {
 .image {
   width: 100%;
   display: block;
+  height: 240px;
 }
 
 .clearfix:before,

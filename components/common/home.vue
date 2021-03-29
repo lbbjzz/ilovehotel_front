@@ -8,6 +8,7 @@
       </el-carousel-item>
     </el-carousel>
     <hotel-class style="margin-top: 50px"></hotel-class>
+    <room-class></room-class>
   </div>
 </template>
 

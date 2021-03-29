@@ -58,14 +58,14 @@
               <el-input type="email" v-model="userInfo.email" size="medium" style="width: 300px"></el-input>
             </el-form-item>
             <el-form-item label="验证码：" label-width="115px">
-              <el-input type="text" size="medium" style="width: 180px"></el-input>
+              <el-input type="text" size="medium" style="width: 180px" v-model="resetEmailCode"></el-input>
               <el-button type="primary" style="width: 110px;margin-left: 10px" @click="getEmailCodeM">获取验证码</el-button>
             </el-form-item>
             <el-form-item>
               <el-button @click="infoShow1 = true;editFormIsShow2 = false"
                          style="margin-left: 20%;margin-top: 3%;width: 100px">取消
               </el-button>
-              <el-button @click="userInfoSubmit"
+              <el-button @click="userInfoSubmitWithCode"
                          style="margin-left: 5%;margin-top: 3%;width: 100px"
                          type="primary">确认
               </el-button>
