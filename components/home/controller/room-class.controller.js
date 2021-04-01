@@ -1,28 +1,35 @@
 import '@/styles/components/home/room-class.scss'
-import {getRoom, getCity} from "@/api/home/room-class";
+import {getRoom, getCity, getRoomType} from "@/api/home/room-class";
 
 export default {
   name: "room-class",
   data() {
     return {
       loading: '',
-      roomList: [],
+      roomTypeList: [],
       cityList: [],
       value: ''
     }
   },
   created() {
-    this.getRoomM()
+    // this.getRoomM()
     this.getCityM()
+    this.getRoomTypeM()
   },
   methods: {
-    getRoomM() {
-      getRoom().then(res => {
-        if (res.data.code === 80200) {
-          this.roomList = res.data.data
-        } else {
-          this.loading = true
-        }
+    // getRoomM() {
+    //   getRoom().then(res => {
+    //     if (res.data.code === 80200) {
+    //       this.roomList = res.data.data
+    //     } else {
+    //       this.loading = true
+    //     }
+    //   })
+    // },
+    getRoomTypeM() {
+      getRoomType().then(res => {
+        console.log(res, 'RoomType')
+        this.roomTypeList = res.data.data
       })
     },
     getCityM() {
@@ -44,6 +51,15 @@ export default {
             message: '出错啦！请稍后重试',
             type: 'error'
           })
+        }
+      })
+    },
+    roomOrder(val) {
+      // console.log(val, 'id')
+      this.$router.push({
+        name: 'details-room-details',
+        query: {
+          id: val
         }
       })
     }

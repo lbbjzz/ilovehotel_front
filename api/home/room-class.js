@@ -19,3 +19,14 @@ export function getCity(cityName) {
     }
   })
 }
+
+
+export function getRoomType(cityId) {
+  return request({
+    url: '/hotelsystem/tHomePicture/roomTypeCard',
+    method: 'post',
+    params: {
+      cityId
+    }
+  })
+}

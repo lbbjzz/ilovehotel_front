@@ -56,12 +56,39 @@
     }
 
     .room-type {
-      width: 96%;
-      margin: 5px auto;
-      font-family: "JetBrains Mono";
-      font-size: 14px;
+      width: 90%;
+      margin: 10px auto;
+      display: flex;
+      align-items: start;
+      font-size: 15px;
       font-weight: bold;
     }
+
+    .room-intro {
+      width: 90%;
+      margin: 5px auto;
+      display: flex;
+      justify-content: space-between;
+
+      .room-price {
+        font-family: "JetBrains Mono";
+        font-size: 14px;
+        font-weight: bold;
+        color: orangered;
+      }
+
+      .room-order {
+        border: none;
+        font-size: 14px;
+        color: #66B1FF;
+        font-weight: bold;
+      }
+
+      .room-order:hover {
+        cursor: pointer;
+      }
+    }
+
 
   }
 

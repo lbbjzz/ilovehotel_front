@@ -14,8 +14,9 @@
       </el-select>
     </div>
 
+
     <div class="room-list" v-loading="loading">
-      <div class="item" v-for="item in roomList" :key="item.roomId">
+      <div class="item" v-for="(item,index) in roomTypeList" :key="index">
         <el-carousel trigger="click" height="200px" :autoplay="false">
 
           <!--        Todo: Array url list -->
@@ -24,12 +25,16 @@
           </el-carousel-item>
         </el-carousel>
         <div class="hotel-title">
-          <p class="hotel-name">{{ item.hotelName }}</p>
-          <i class="el-icon-location location"><span>{{ item.cityName }}</span></i>
+<!--          <p class="hotel-name">{{ item.hotelName }}</p>-->
+<!--          <i class="el-icon-location location"><span>{{ item.cityName }}</span></i>-->
         </div>
         <p class="room-type">{{ item.roomTypeName }}</p>
+        <div class="room-intro">
+          <p class="room-price">￥{{ item.price }}</p>
+          <p class="room-order" @click="roomOrder(item.roomId)">立即预定</p>
+        </div>
       </div>
-      <p style="color: #999; margin-top: 20px" v-if="roomList.length === 0">当前地区暂未开通服务~~~</p>
+<!--      <p style="color: #999; margin-top: 20px" v-if="roomList.length === 0">当前地区暂未开通服务~~~</p>-->
     </div>
   </div>
 
