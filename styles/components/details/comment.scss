@@ -1,31 +1,49 @@
 $fontSize: (s: 12px, m: 14px, l: 16px);
-$fontColor: (g: gray);
+$fontColor: (g: gray, b: black);
 
 .comment {
-  width: 70%;
-
   .comment-header {
-    //width: 15%;
+    width: 500px;
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
 
     .user-detail {
-      //width: 40%;
-      display: flex;
-      justify-content: space-between;
+      width: 300px;
+      margin-left: 20px;
 
-      .username {
-        font-size: map-get($fontSize, l);
-        font-weight: bold;
+      .user-detail-header {
+        display: flex;
+        justify-content: space-between;
         margin-top: 10px;
+
+        .username {
+          font-size: map-get($fontSize, l);
+          font-weight: bold;
+        }
+
+        .user-time {
+          font-size: map-get($fontSize, m);
+          color: map-get($fontColor, g);
+          margin-left: 50px;
+          margin-top: 2px;
+        }
+      }
+
+      .el-rate {
+        margin-top: 20px;
       }
     }
 
-    .user-time {
-      font-size: map-get($fontSize, m);
-      color: map-get($fontColor, g);
-      margin-top: 12px;
-    }
   }
 
+  .el-textarea {
+    width: 500px;
+    margin-left: 60px;
+    margin-top: 20px;
+
+    .el-textarea__inner {
+      color: map-get($fontColor, b);
+      font-weight: bold;
+    }
+  }
 }
