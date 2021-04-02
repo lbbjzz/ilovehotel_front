@@ -17,6 +17,8 @@ export default {
       code: '',
       pwdType: 'password',
       iconType: 'iconfont icon-browse',
+      //标识符，解决SameSite问题
+      only: '',
       form: {
         username: '',
         password: '',
@@ -59,7 +61,7 @@ export default {
             type: 'error'
           })
         } else {
-          login(this.form.username, this.form.password, this.code).then(res => {
+          login(this.form.username, this.form.password, this.code, this.only).then(res => {
             // console.log(res, 'login_log')
             if (res.data.code === 80500) {
               this.$message({
@@ -112,11 +114,17 @@ export default {
       this.code = code
     },
 
+    getOnly(val) {
+      this.only = val
+      console.log(val, 'getOnly')
+    },
+
     //Vuex
     loginSuccess(loginData) {
       this.$store.commit('login', loginData)
     }
   },
   created() {
+    this.getOnly()
   }
 }

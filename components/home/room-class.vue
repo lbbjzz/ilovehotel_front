@@ -31,7 +31,7 @@
         <p class="room-type">{{ item.roomTypeName }}</p>
         <div class="room-intro">
           <p class="room-price">￥{{ item.price }}</p>
-          <p class="room-order" @click="roomOrder(item.roomId)">立即预定</p>
+          <p class="room-order" @click="roomOrder(item.roomTypeId)">立即预定</p>
         </div>
       </div>
 <!--      <p style="color: #999; margin-top: 20px" v-if="roomList.length === 0">当前地区暂未开通服务~~~</p>-->

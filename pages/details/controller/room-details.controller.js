@@ -1,12 +1,14 @@
 import '@/styles/pages/details/room-details.scss'
-import {getRoomDetails} from "@/api/details/room-details";
+import {getRoomTypeDetails} from "../../../api/details/room-details";
+import Comment from "../../../components/details/comment";
 
 export default {
   name: "room-details",
+  components: {Comment},
   data() {
     return {
       roomId: null,
-      roomDetails: '',
+      roomTypeDetails: {},
       commentList: [],
       //详情
       imageList: [],
@@ -20,11 +22,12 @@ export default {
   methods: {
     getRoomDetailsM() {
       // console.log(this.roomId, 'id')
-      getRoomDetails(this.roomId).then(res => {
-        console.log(res, 'roomDetails')
-        this.roomDetails = res.data.data
+      getRoomTypeDetails(this.roomId).then(res => {
+        console.log(res, 'roomTypeDetails')
+        this.roomTypeDetails = res.data.data
         this.commentList = res.data.data.commentList
         this.imageList = res.data.data.imageList
+        // console.log(this.commentList, 'comment')
       })
     }
   }

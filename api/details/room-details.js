@@ -1,11 +1,11 @@
-import {request} from "@/api/request";
+import {request} from "../request";
 
-export function getRoomDetails(id) {
+export function getRoomTypeDetails(roomTypeId) {
   return request({
-    url: '/hotelsystem/room/view',
+    url: '/hotelsystem/RoomType/view',
     method: 'post',
     params: {
-      id
+      roomTypeId
     }
   })
 }

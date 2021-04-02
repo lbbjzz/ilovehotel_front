@@ -1,6 +1,6 @@
 <template>
   <div>
-    你好
+    <Comment :comment-list="commentList"></Comment>
   </div>
 </template>
 

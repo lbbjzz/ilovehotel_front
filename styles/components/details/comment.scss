@@ -1,0 +1,31 @@
+$fontSize: (s: 12px, m: 14px, l: 16px);
+$fontColor: (g: gray);
+
+.comment {
+  width: 70%;
+
+  .comment-header {
+    //width: 15%;
+    display: flex;
+    justify-content: space-between;
+
+    .user-detail {
+      //width: 40%;
+      display: flex;
+      justify-content: space-between;
+
+      .username {
+        font-size: map-get($fontSize, l);
+        font-weight: bold;
+        margin-top: 10px;
+      }
+    }
+
+    .user-time {
+      font-size: map-get($fontSize, m);
+      color: map-get($fontColor, g);
+      margin-top: 12px;
+    }
+  }
+
+}

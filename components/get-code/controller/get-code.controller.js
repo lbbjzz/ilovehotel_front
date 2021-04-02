@@ -3,11 +3,13 @@ import {getCodeApi} from "@/api/get-code/get-code";
 
 export default {
   name: "get-code",
-  props:['newCode'],
+  props: ['newCode'],
   data() {
     return {
       codeImg: '',
-      code: ''
+      code: '',
+      //标识符，解决SameSite问题
+      only: ''
     }
   },
   methods: {
@@ -15,17 +17,17 @@ export default {
       getCodeApi().then(res => {
         console.log(res)
         this.codeImg = window.URL.createObjectURL(res.data)
+        this.only = res.headers.only
+        console.log(this.only, 'headers')
+        this.$emit('only', this.only)
       })
     },
-    codeTrans(){
-      this.$emit('code',this.code)
+    codeTrans() {
+      this.$emit('code', this.code)
       // console.log(this.code)
     }
   },
   created() {
-    getCodeApi().then(res => {
-      this.codeImg = window.URL.createObjectURL(res.data)
-      // console.log(res.data)
-    })
+    this.getCodeTest()
   }
 }

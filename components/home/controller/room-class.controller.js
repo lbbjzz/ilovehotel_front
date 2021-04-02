@@ -55,7 +55,7 @@ export default {
       })
     },
     roomOrder(val) {
-      // console.log(val, 'id')
+      console.log(val, 'id')
       this.$router.push({
         name: 'details-room-details',
         query: {
