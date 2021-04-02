@@ -37,7 +37,7 @@
     }
 
     .hotel-title {
-      width: 96%;
+      width: 90%;
       margin: 8px auto;
       display: flex;
       justify-content: space-between;
@@ -56,23 +56,21 @@
     }
 
     .room-type {
-      width: 90%;
-      margin: 10px auto;
       display: flex;
       align-items: flex-start;
-      font-size: 15px;
+      font-size: 18px;
       font-weight: bold;
     }
 
     .room-intro {
       width: 90%;
-      margin: 5px auto;
+      margin: 20px auto;
       display: flex;
       justify-content: space-between;
 
       .room-price {
         font-family: "JetBrains Mono";
-        font-size: 14px;
+        font-size: 18px;
         font-weight: bold;
         color: orangered;
       }

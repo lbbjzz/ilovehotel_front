@@ -1,4 +1,4 @@
-import {request} from "@/api/request";
+import {request} from "/api/request";
 
 export function getRoom(cityId) {
   return request({
@@ -22,6 +22,17 @@ export function getCity(cityName) {
 
 
 export function getRoomType(cityId) {
+  return request({
+    url: '/hotelsystem/tHomePicture/roomTypeCard',
+    method: 'post',
+    params: {
+      cityId
+    }
+  })
+}
+
+
+export function getRoomTypeByCityId(cityId) {
   return request({
     url: '/hotelsystem/tHomePicture/roomTypeCard',
     method: 'post',

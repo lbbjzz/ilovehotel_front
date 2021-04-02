@@ -2,10 +2,11 @@ import '@/styles/pages/details/room-details.scss'
 import {getRoomTypeDetails} from "../../../api/details/room-details";
 import Comment from "../../../components/details/comment";
 import Images from '/components/details/images'
+import IhHeader from '/components/common/ihheader'
 
 export default {
   name: "room-details",
-  components: {Comment, Images},
+  components: {Comment, Images, IhHeader},
   data() {
     return {
       roomId: null,

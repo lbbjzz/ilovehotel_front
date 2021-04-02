@@ -1,5 +1,5 @@
-import '@/styles/components/home/room-class.scss'
-import {getRoom, getCity, getRoomType} from "@/api/home/room-class";
+import '/styles/components/home/room-class.scss'
+import {getRoomTypeByCityId, getCity, getRoomType} from "/api/home/room-class";
 
 export default {
   name: "room-class",
@@ -12,20 +12,10 @@ export default {
     }
   },
   created() {
-    // this.getRoomM()
     this.getCityM()
     this.getRoomTypeM()
   },
   methods: {
-    // getRoomM() {
-    //   getRoom().then(res => {
-    //     if (res.data.code === 80200) {
-    //       this.roomList = res.data.data
-    //     } else {
-    //       this.loading = true
-    //     }
-    //   })
-    // },
     getRoomTypeM() {
       getRoomType().then(res => {
         console.log(res, 'RoomType')
@@ -38,14 +28,15 @@ export default {
       })
     },
     cityChange(val) {
-      this.loading = true
-
-      getRoom(val).then(res => {
+      // this.loading = true
+      console.log(val)
+      getRoomTypeByCityId(val).then(res => {
+        console.log(res)
         if (res.data.code === 80200) {
-          this.roomList = res.data.data
-          setTimeout(() => {
-            this.loading = false
-          }, 800)
+          this.roomTypeList = res.data.data
+          // setTimeout(() => {
+          //   this.loading = false
+          // }, 800)
         } else {
           this.$message({
             message: '出错啦！请稍后重试',

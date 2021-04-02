@@ -1,0 +1,35 @@
+.content {
+  width: 60%;
+  margin: 20px auto;
+  border: 1px solid #E8E8E8;
+
+  .content-order {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    .content-order-left {
+      margin-top: 40px;
+      width: 40%;
+      height: 300px;
+    }
+
+    .content-order-right {
+      margin-top: 40px;
+      width: 50%;
+      height: 600px;
+      border: 1px solid darkcyan;
+
+      .title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .content-tab {
+    width: 80%;
+    margin: 50px auto;
+  }
+}
