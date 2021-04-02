@@ -5,7 +5,7 @@ $fontColor: (g: gray, b: black);
   .comment-header {
     width: 500px;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
 
     .user-detail {
       width: 300px;
