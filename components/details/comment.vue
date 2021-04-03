@@ -24,9 +24,14 @@
         disabled
         type="textarea"
         :rows="2"
-        placeholder="请输入内容"
         v-model="item.content">
       </el-input>
+    </div>
+    <div v-if="comment.length !== 0">
+      <p style="margin-top: 30px;font-weight: bold;color: #6C7084;font-size: 15px;text-align: center">暂无更多评论~~~</p>
+    </div>
+    <div v-if="comment.length === 0">
+      <p style="font-weight: bold;color: #6C7084;font-size: 15px;text-align: center">暂无评论~~~</p>
     </div>
   </div>
 </template>

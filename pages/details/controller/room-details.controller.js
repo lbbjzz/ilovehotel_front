@@ -28,6 +28,7 @@ export default {
       //订单ID
       orderId: null,
       activeName: 'first',
+      iconClasses: ['icon-rate-face-1', 'icon-rate-face-2', 'icon-rate-face-3'], // 等同于 { 2: 'icon-rate-face-1', 4: { value: 'icon-rate-face-2', excluded: true }, 5: 'icon-rate-face-3' }
       pickerOptions: {
         disabledDate(time) {
           return time.getTime() < Date.now() - 8.64e7;
@@ -92,15 +93,29 @@ export default {
       this.roomId = val
     },
 
+    toLogin() {
+      this.$router.push({name: 'login-login'})
+    },
+
     makeOrder() {
       getOrder(this.timeRange[0], this.timeRange[1], this.roomId).then(res => {
         console.log(res, 'roomOrder')
         if (res.data.code === 80200) {
           this.orderId = res.data.data.id
-          alert(this.orderId)
+          this.$message({
+            message: '预定成功，即将跳往支付界面...',
+            type: 'success'
+          })
           // alert('订单已生成')
         } else {
-          alert(res.data.msg)
+          this.$message({
+            message: `未登录或登录状态已过期，请重新登录`,
+            type: 'warning'
+          })
+          setTimeout(
+            this.toLogin, 1300
+          )
+
         }
       })
     },
