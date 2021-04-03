@@ -10,7 +10,6 @@
             <span>{{ item.floorName }}</span>
             <div class="bottom clearfix">
               <time class="time">{{ item.content }}</time>
-              <el-button type="text" class="button">查看详情</el-button>
             </div>
           </div>
         </el-card>
@@ -47,7 +46,7 @@ p {
 }
 
 .el-card {
-  /*cursor: pointer;*/
+  cursor: pointer;
 }
 
 .el-card:hover {

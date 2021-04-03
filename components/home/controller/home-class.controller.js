@@ -1,4 +1,4 @@
-import {getClass} from "@/api/home/hotel-class";
+import {getClass} from "/api/home/hotel-class";
 
 export default {
   name: "hotel-class",
