@@ -75,7 +75,7 @@
                 font-size: 14px;" v-if="timeRange.length === 0 ">{{ info }}</p>
               <span style="font-weight: bold;
                 color: #6C7084;
-                font-size: 14px;" v-if="timeRange.length !== 0 ">请选择您的房间：</span>
+                font-size: 14px;" v-if="timeRange.length !== 0 && roomList.length !== 0">请选择您的房间：</span>
               <el-button v-for="item in roomList" :key="item.id" @click="chooseRoom(item.id)">
                 {{ item.number }}
               </el-button>
