@@ -12,6 +12,7 @@
         </div>
         <div class="content-order-right">
           <p class="title">{{ roomTypeDetails.type }}</p>
+          <p>￥{{ roomTypeDetails.price }}</p>
           <el-date-picker
             v-model="timeRange"
             type="daterange"
@@ -31,8 +32,8 @@
               <p v-if="roomList.length===0 && timeRange.length!==0">当前城市暂无此房型！</p>
             </el-tab-pane>
           </el-tabs>
-
           <el-button type="primary" @click="makeOrder">立即预定</el-button>
+          <el-button @click="payM">立即支付</el-button>
         </div>
       </div>
       <el-tabs v-model="activeName" type="border-card" class="content-tab">

@@ -1,5 +1,5 @@
 import '@/styles/pages/details/room-details.scss'
-import {getRoomTypeDetails, getRoom, getOrder} from "../../../api/details/room-details";
+import {getRoomTypeDetails, getRoom, getOrder, pay} from "../../../api/details/room-details";
 import {getCity} from "../../../api/home/room-class";
 import Comment from "../../../components/details/comment";
 import Images from '/components/details/images'
@@ -25,6 +25,8 @@ export default {
       //房间提示
       info: '',
       roomList: [],
+      //订单ID
+      orderId: null,
       activeName: 'first',
       pickerOptions: {
         disabledDate(time) {
@@ -93,6 +95,22 @@ export default {
     makeOrder() {
       getOrder(this.timeRange[0], this.timeRange[1], this.roomId).then(res => {
         console.log(res, 'roomOrder')
+        if (res.data.code === 80200) {
+          this.orderId = res.data.data.id
+          alert(this.orderId)
+          // alert('订单已生成')
+        } else {
+          alert(res.data.msg)
+        }
+      })
+    },
+
+    payM() {
+      pay(this.orderId).then(res => {
+        alert(res.data)
+        let routerData = this.$router.resolve({name: 'pay-aliPay', query: {htmlData: res.data}})
+        // 打开新页面
+        window.open(routerData.href, '_ blank')
       })
     }
   }

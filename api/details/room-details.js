@@ -35,4 +35,14 @@ export function getOrder(checkinTime, checkoutTime, roomId) {
   })
 }
 
+export function pay(id) {
+  return request({
+    url: '/hotelsystem/order/pay',
+    method: 'post',
+    params: {
+      id
+    }
+  })
+}
+
 
