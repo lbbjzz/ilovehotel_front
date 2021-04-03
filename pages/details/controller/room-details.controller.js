@@ -1,5 +1,6 @@
 import '@/styles/pages/details/room-details.scss'
-import {getRoomTypeDetails} from "../../../api/details/room-details";
+import {getRoomTypeDetails, getRoom, getOrder} from "../../../api/details/room-details";
+import {getCity} from "../../../api/home/room-class";
 import Comment from "../../../components/details/comment";
 import Images from '/components/details/images'
 import IhHeader from '/components/common/ihheader'
@@ -9,32 +10,90 @@ export default {
   components: {Comment, Images, IhHeader},
   data() {
     return {
+      //房间类型ID
+      roomTypeId: null,
+      //房间ID
       roomId: null,
       roomTypeDetails: {},
       commentList: [],
       //详情
+      viewList: [],
       imageList: [],
-      activeName: 'first'
+      cityList: [],
+      timeRange: [],
+      tabModel: null,
+      //房间提示
+      info: '',
+      roomList: [],
+      activeName: 'first',
+      pickerOptions: {
+        disabledDate(time) {
+          return time.getTime() < Date.now() - 8.64e7;
+        }
+      },
     }
   },
   created() {
-    this.roomId = this.$route.query.id
+    this.roomTypeId = this.$route.query.id
     this.getRoomDetailsM()
+    this.getAllCityM()
+    this.getRoomSpecific()
   },
 
   methods: {
     getRoomDetailsM() {
-      // console.log(this.roomId, 'id')
-      getRoomTypeDetails(this.roomId).then(res => {
-        console.log(res, 'roomTypeDetails')
+      // console.log(this.roomTypeId, 'id')
+      getRoomTypeDetails(this.roomTypeId).then(res => {
+        // console.log(res, 'roomTypeDetails')
         this.roomTypeDetails = res.data.data
         this.commentList = res.data.data.commentList
         this.imageList = res.data.data.imageList
-        console.log(this.imageList, 'comment')
+        this.viewList = res.data.data.viewList
+        // console.log(this.imageList, 'comment')
       })
     },
-    handleClick(tab, event) {
-      console.log(tab, event);
+
+    getAllCityM() {
+      getCity().then(res => {
+        // console.log(res, 'city')
+        this.cityList = res.data.data.records
+        this.tabModel = this.cityList[0].id
+        // console.log(this.cityList, 'city')
+      })
+    },
+
+    getRoomSpecific() {
+      if (this.timeRange.length === 0) {
+        this.info = '请选择您的入住时间！'
+      } else {
+        getRoom(this.timeRange[0], this.timeRange[1], this.tabModel, this.roomTypeId).then(res => {
+          console.log(res, 'room')
+          this.roomList = res.data.data.records
+          console.log(this.roomList, 'roomList')
+        })
+      }
+    },
+
+    getCityId(tab) {
+      // console.log(tab, 'getCityId')
+      this.tabModel = tab.name
+      this.getRoomSpecific()
+      // console.log(this.tabModel, 'id')
+    },
+
+    timeRangeChange() {
+      this.getRoomSpecific()
+    },
+
+    chooseRoom(val) {
+      console.log(val, 'roomS')
+      this.roomId = val
+    },
+
+    makeOrder() {
+      getOrder(this.timeRange[0], this.timeRange[1], this.roomId).then(res => {
+        console.log(res, 'roomOrder')
+      })
     }
   }
 }

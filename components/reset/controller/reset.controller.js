@@ -1,6 +1,6 @@
-import getCode from '@/components/get-code/get-code'
-import {emailCodeVerify, getEmailCode} from "@/api/reset-pwd/reset-pwd";
-import {getCodeApi} from "@/api/get-code/get-code";
+import getCode from '/components/get-code/get-code'
+import {emailCodeVerify, getEmailCode} from "/api/reset-pwd/reset-pwd";
+import {getCodeApi} from "/api/get-code/get-code";
 
 export default {
   name: 'reset',
@@ -15,6 +15,7 @@ export default {
       codeImg: '',
       emailCode: '',
       step1: true,
+      only: ''
     }
   },
   watch: {
@@ -49,7 +50,7 @@ export default {
           type: 'error'
         })
       } else {
-        getEmailCode(this.email, this.code,0).then(res => {
+        getEmailCode(this.email, this.code, this.only).then(res => {
           if (res.data.code === 80300) {
             this.$message({
               message: '验证码错误！',
@@ -100,6 +101,11 @@ export default {
           this.$emit('nextStep', true)
         }
       })
+    },
+
+    getOnly(val) {
+      this.only = val
+      console.log(val, 'getOnly')
     },
   }
 }

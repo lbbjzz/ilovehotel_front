@@ -14,13 +14,14 @@ export function register(username, password, email) {
 }
 
 //获取邮箱验证码
-export function getEmailCode(email, imageCode) {
+export function getEmailCode(email, imageCode, only) {
   return request({
     url: '/hotelsystem/email/sendEmail',
     method: 'post',
     params: {
       email,
       imageCode,
+      only
     }
   })
 }

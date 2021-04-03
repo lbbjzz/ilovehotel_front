@@ -1,7 +1,7 @@
 import '@/styles/pages/register/register.scss'
-import {getEmailCode, emailCodeVerify, register} from "~/api/register/register";
+import {getEmailCode, emailCodeVerify, register} from "/api/register/register";
 import {getCodeApi} from "~/api/get-code/get-code";
-import ihFooter from "@/components/common/ihfooter"
+import ihFooter from "/components/common/ihfooter"
 
 export default {
   components: {
@@ -12,6 +12,7 @@ export default {
       step1: true,
       step2: false,
       step3: false,
+      only: '',
       codeImg: '',
       emailForm: {
         email: ''
@@ -93,7 +94,7 @@ export default {
             type: 'error'
           })
         } else {
-          getEmailCode(this.emailForm.email, this.code).then(res => {
+          getEmailCode(this.emailForm.email, this.code, this.only).then(res => {
             if (res.data.code === 80300) {
               this.$message({
                 message: '验证码错误！',
@@ -192,6 +193,11 @@ export default {
       this.$router.push({
         name: 'reset-pwd-reset-pwd'
       })
+    },
+
+    getOnly(val) {
+      this.only = val
+      console.log(val, 'getOnly')
     },
   }
 }

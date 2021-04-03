@@ -14,7 +14,7 @@
         </el-input>
       </el-form-item>
       <el-form-item prop="code">
-        <get-code @code="getCodeInput" :newCode="codeImg" @keyup.enter.native="getEmailCode"></get-code>
+        <get-code @only="getOnly" @code="getCodeInput" :newCode="codeImg" @keyup.enter.native="getEmailCode"></get-code>
       </el-form-item>
       <el-form-item style="margin-top: 18px">
         <el-button style="width: 100%;margin-top: 10px" type="primary" @click="getEmailCode">

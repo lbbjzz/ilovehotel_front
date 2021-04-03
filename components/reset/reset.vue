@@ -7,7 +7,7 @@
         </el-input>
       </el-form-item>
       <el-form-item label="图形验证码：" label-width="100px" style="width: 400px;">
-        <get-code @code="getCodeInput" :newCode="codeImg"></get-code>
+        <get-code @only="getOnly" @code="getCodeInput" :newCode="codeImg"></get-code>
       </el-form-item>
       <el-form-item label="邮箱验证码：" label-width="100px">
         <el-input type="text" v-model="emailCode" auto-complete="off" placeholder="请输入邮箱验证码" maxlength="4"
