@@ -1,4 +1,4 @@
-import '@/styles/components/common/ihheader.scss'
+import '/styles/components/common/ihheader.scss'
 import {mapGetters} from "vuex";
 import {logout} from "@/api/home/ihheader";
 import {userDetail} from "@/api/user-info/user-info";
@@ -69,6 +69,12 @@ export default {
     toRegister() {
       this.$router.push({
         name: 'register-register'
+      })
+    },
+
+    userOrder() {
+      this.$router.push({
+        name: 'order-order',
       })
     },
 

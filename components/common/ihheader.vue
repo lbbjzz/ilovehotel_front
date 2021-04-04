@@ -42,6 +42,10 @@
                 <i class="el-icon-user-solid"></i>
                 个人信息
               </div>
+              <div class="user-info-order" @click="userOrder">
+                <i class="el-icon-s-order"></i>
+                我的订单
+              </div>
               <div class="user-info-logout" @click="logoutM">
                 <i class="el-icon-switch-button"></i>
                 注销

@@ -134,6 +134,25 @@
         }
       }
 
+      .pay-way {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 30px;
+
+        .title {
+          display: block;
+          color: #6C7084;
+          font-size: 13px;
+          margin-left: 10px;
+          font-weight: bold;
+          padding-top: 3px;
+        }
+
+        .pay-choose {
+          display: inline-block;
+        }
+      }
+
       .order-button {
         margin-top: 30px;
         float: right;

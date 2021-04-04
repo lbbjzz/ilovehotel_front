@@ -1,13 +1,15 @@
 import '@/styles/pages/details/room-details.scss'
 import {getRoomTypeDetails, getRoom, getOrder, pay} from "../../../api/details/room-details";
 import {getCity} from "../../../api/home/room-class";
+import 'vue-inner-image-zoom/lib/vue-inner-image-zoom.css';
+import InnerImageZoom from 'vue-inner-image-zoom';
 import Comment from "../../../components/details/comment";
 import Images from '/components/details/images'
 import IhHeader from '/components/common/ihheader'
 
 export default {
   name: "room-details",
-  components: {Comment, Images, IhHeader},
+  components: {Comment, Images, IhHeader, InnerImageZoom},
   data() {
     return {
       //房间类型ID
@@ -28,6 +30,11 @@ export default {
       //订单ID
       orderId: null,
       activeName: 'first',
+      //支付选择
+      pay: 1,
+      payIcon: {
+        url: require('static/img/aliPay.png')
+      },
       iconClasses: ['icon-rate-face-1', 'icon-rate-face-2', 'icon-rate-face-3'], // 等同于 { 2: 'icon-rate-face-1', 4: { value: 'icon-rate-face-2', excluded: true }, 5: 'icon-rate-face-3' }
       pickerOptions: {
         disabledDate(time) {
@@ -98,34 +105,49 @@ export default {
     },
 
     makeOrder() {
-      getOrder(this.timeRange[0], this.timeRange[1], this.roomId).then(res => {
-        console.log(res, 'roomOrder')
-        if (res.data.code === 80200) {
-          this.orderId = res.data.data.id
-          this.$message({
-            message: '预定成功，即将跳往支付界面...',
-            type: 'success'
-          })
-          // alert('订单已生成')
-        } else {
-          this.$message({
-            message: `未登录或登录状态已过期，请重新登录`,
-            type: 'warning'
-          })
-          setTimeout(
-            this.toLogin, 1300
-          )
-
-        }
-      })
+      if (this.roomId === null) {
+        this.$message({
+          message: '您还未选择房间',
+          type: 'error'
+        })
+      } else {
+        getOrder(this.timeRange[0], this.timeRange[1], this.roomId).then(res => {
+          console.log(res, 'roomOrder')
+          if (res.data.code === 80200) {
+            this.orderId = res.data.data.id
+            this.$message({
+              message: '请在15分钟内完成支付，超时订单将会自动取消...',
+              type: 'info'
+            })
+            setTimeout(
+              this.payM, 2000
+            )
+            // alert('订单已生成')
+          } else if (res.data.code === 80400) {
+            this.$message({
+              message: '请先完善用户身份证信息',
+              type: 'warning'
+            })
+          } else {
+            this.$message({
+              message: `未登录或登录状态已过期，请重新登录`,
+              type: 'warning'
+            })
+            setTimeout(
+              this.toLogin, 1300
+            )
+          }
+        })
+      }
     },
 
+    //支付宝
     payM() {
       pay(this.orderId).then(res => {
-        alert(res.data)
+        // alert(res.data)
         let routerData = this.$router.resolve({name: 'pay-aliPay', query: {htmlData: res.data}})
         // 打开新页面
-        window.open(routerData.href, '_ blank')
+        window.open(routerData.href, '_self')
       })
     }
   }

@@ -6,7 +6,8 @@
         <div class="content-order-left">
           <el-carousel indicator-position="outside">
             <el-carousel-item v-for="(item,index) in imageList" :key="index">
-              <el-image :src="item" :preview-src-list="imageList"/>
+              <!--              <el-image :src="item" :preview-src-list="imageList"/>-->
+              <inner-image-zoom :src="item" :zoomSrc="item"/>
             </el-carousel-item>
           </el-carousel>
         </div>
@@ -84,6 +85,13 @@
                 font-size: 14px;" v-if="roomList.length === 0 && timeRange.length !== 0">当前城市暂无此房型！</p>
             </el-tab-pane>
           </el-tabs>
+          <div class="pay-way">
+            <span class="title">支付方式：</span>
+            <div class="pay-choose">
+              <el-radio></el-radio>
+            </div>
+            <img :src="payIcon.url" width="25" height="25" style="">
+          </div>
           <el-button type="primary" @click="makeOrder" class="order-button">立即预定</el-button>
           <!--          <el-button @click="payM">立即支付</el-button>-->
         </div>
