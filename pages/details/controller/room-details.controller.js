@@ -6,10 +6,11 @@ import InnerImageZoom from 'vue-inner-image-zoom';
 import Comment from "../../../components/details/comment";
 import Images from '/components/details/images'
 import IhHeader from '/components/common/ihheader'
+import Wait from "../../../components/order/wait";
 
 export default {
   name: "room-details",
-  components: {Comment, Images, IhHeader, InnerImageZoom},
+  components: {Comment, Images, IhHeader, InnerImageZoom, Wait},
   data() {
     return {
       //房间类型ID
@@ -43,6 +44,7 @@ export default {
       },
     }
   },
+
   created() {
     this.roomTypeId = this.$route.query.id
     this.getRoomDetailsM()
@@ -150,6 +152,8 @@ export default {
         // 打开新页面
         window.open(routerData.href, '_self')
       })
-    }
-  }
+    },
+
+  },
 }
+

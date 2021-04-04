@@ -6,6 +6,8 @@ export default {
   data() {
     return {
       waitList: [],
+      second: null,
+      minute: null
     }
   },
 
@@ -16,8 +18,21 @@ export default {
       },
       deep: true,
       immediate: true
-    }
+    },
   },
 
-  methods: {}
+  methods: {
+    setTime(val) {
+      this.minute = Math.floor(val / 60)
+      this.second = val % 60
+      val--;
+      setTimeout(() => {
+        this.setTime(val)
+      }, 1000)
+    },
+
+    test() {
+      this.second = 12312312
+    }
+  }
 }

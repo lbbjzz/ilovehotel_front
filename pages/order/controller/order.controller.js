@@ -39,6 +39,7 @@ export default {
       this.orderStatus = 1
       this.getOrderM()
     },
+
     wait() {
       this.orderSuccess = false
       this.orderWait = true
@@ -46,6 +47,7 @@ export default {
       this.orderStatus = 0
       this.getOrderM()
     },
+
     failed() {
       this.orderSuccess = false
       this.orderWait = false
@@ -53,6 +55,7 @@ export default {
       this.orderStatus = 2
       this.getOrderM()
     },
+
     getOrderM() {
       console.log(this.orderStatus, 'status')
       getOrderOfCurrentUser(this.orderStatus).then(res => {

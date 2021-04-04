@@ -1,4 +1,5 @@
 import '../../../styles/components/order/success.scss'
+import {checkinIsFalse} from "../../../api/order/success";
 
 export default {
   props: ['successOrder'],
@@ -6,6 +7,7 @@ export default {
   data() {
     return {
       successList: [],
+
     }
   },
 
@@ -19,5 +21,23 @@ export default {
     }
   },
 
-  methods: {}
+  methods: {
+    checkIn(val) {
+      checkinIsFalse(val).then(res => {
+        if (res.data.code === 80200) {
+          this.$router.push({
+            name: 'checkin-checkin',
+            query: {
+              orderId: val
+            }
+          })
+        } else {
+          this.$message({
+            message: res.data.msg,
+            type: 'error'
+          })
+        }
+      })
+    }
+  }
 }
