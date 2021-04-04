@@ -102,6 +102,7 @@ export default {
               })
               getCodeApi().then(res => {
                 this.codeImg = window.URL.createObjectURL(res.data)
+                this.only = res.headers.only
               })
             } else {
               if (res.data.code === 80200) {

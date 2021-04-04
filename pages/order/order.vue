@@ -1,5 +1,10 @@
 <template>
-  <div>订单</div>
+  <div class="order">
+    <IhHeader/>
+    <div class="main-content">
+
+    </div>
+  </div>
 </template>
 
 <script>

@@ -63,13 +63,14 @@ export default {
         } else {
           login(this.form.username, this.form.password, this.code, this.only).then(res => {
             // console.log(res, 'login_log')
-            if (res.data.code === 80500) {
+            if (res.data.code === 80301) {
               this.$message({
                 message: '验证码错误！',
                 type: 'error'
               })
               getCodeApi().then(res => {
                 this.codeImg = window.URL.createObjectURL(res.data)
+                this.only = res.headers.only
               })
             } else if (res.data.code === 80200) {
               this.$message({
