@@ -133,6 +133,7 @@ export default {
               message: `未登录或登录状态已过期，请重新登录`,
               type: 'warning'
             })
+            localStorage.removeItem('loginData')
             setTimeout(
               this.toLogin, 1300
             )
