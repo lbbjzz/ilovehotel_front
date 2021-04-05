@@ -35,8 +35,7 @@
       />
       <h3>注册</h3>
       <el-form-item prop="emailCode">
-        <el-input type="text" v-model="emailCodeForm.emailCode" auto-complete="off" placeholder="请输入邮箱验证码"
-                  @keyup.enter.native="emailVerify" maxlength="4"
+        <el-input type="text" v-model="emailCodeForm.emailCode" auto-complete="off" placeholder="请输入邮箱验证码" maxlength="4"
                   clearable>
           <i slot="prefix" class="el-icon-key"></i>
         </el-input>

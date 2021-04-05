@@ -6,3 +6,11 @@ export function getCarousel() {
     method: 'post',
   })
 }
+
+
+export function getCityList() {
+  return request({
+    url: '/hotelsystem/city/list',
+    method: 'post'
+  })
+}

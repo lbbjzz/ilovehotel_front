@@ -2,7 +2,7 @@
   <div>
     <p class="order-title">已付款订单</p>
     <div v-if="successList.length === 0" class="order-none">当前暂无已付款订单</div>
-    <div v-for="(item,index) in successList" :key="index" class="order-content">
+    <div v-for="(item,index) in successList" :key="index" class="order-content-success">
       <img :src="item.imageList[0]">
       <div class="order-info">
         <div class="order-info-1">

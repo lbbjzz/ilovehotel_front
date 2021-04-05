@@ -2,7 +2,7 @@
   <div>
     <p class="order-title">未付款订单</p>
     <div v-if="waitList.length === 0" class="order-none">当前暂无未付款订单</div>
-    <div v-for="(item,index) in waitList" :key="index" class="order-content">
+    <div v-for="(item,index) in waitList" :key="index" class="order-content-wait">
       <img :src="item.imageList[0]">
       <div class="order-info">
         <div class="order-info-1">
@@ -21,7 +21,7 @@
           </div>
         </div>
         <div style="width: 660px;display: flex;justify-content: flex-end">
-          <el-button type="primary" size="small" style="margin-top: 10px">立即入住</el-button>
+          <el-button type="primary" size="small" style="margin-top: 10px" @click="toPayM(item.id)">立即付款</el-button>
         </div>
       </div>
     </div>

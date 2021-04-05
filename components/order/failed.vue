@@ -2,7 +2,7 @@
   <div>
     <p class="order-title">已取消订单</p>
     <div v-if="failedList.length === 0" class="order-none">当前暂无已取消款订单</div>
-    <div v-for="(item,index) in failedList" :key="index" class="order-content">
+    <div v-for="(item,index) in failedList" :key="index" class="order-content-failed">
       <img class="cancel-order" :src="item.imageList[0]">
       <div class="order-info">
         <div class="order-info-1">

@@ -9,7 +9,7 @@
 
 import ihFooter from "@/components/common/ihfooter"
 import ihHeader from "@/components/common/ihheader";
-import home from "@/components/common/home";
+import home from "~/components/home/home";
 
 export default {
   components: {ihHeader, ihFooter, home},
