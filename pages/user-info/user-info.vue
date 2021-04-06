@@ -124,7 +124,7 @@
           <el-form class="edit-form" v-if="editFormIsShow" :model="userInfo" :rules="userInfoRules" ref="userInfoRef">
             <el-form-item class="upload-info">
               <upload-info @sendUserInfo="getIdCardDetail"></upload-info>
-              <p style="text-align: center;margin-top:10px;font-size: 13px;color: #99a9bf">上传身份证,完善用户信息</p>
+              <p style="text-align: center;margin-top:10px;font-size: 13px;color: #99a9bf">上传身份证,完善用户信息（系统不会保存您的证件照）</p>
             </el-form-item>
             <el-form-item label="用户昵称：" label-width="100px" prop="username">
               <el-input v-model="userInfo.username" size="medium" style="width: 300px"></el-input>

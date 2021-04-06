@@ -21,7 +21,12 @@ export default {
       },
       details: {},
       startTime: '',
-      endTime: ''
+      endTime: '',
+      dateRangeA: '',
+      dateRangeB: '',
+      imageSuccess: {
+        url: require('/static/img/success.png')
+      }
     }
   },
   created() {
@@ -34,7 +39,7 @@ export default {
     dateDis() {
       let timeDis = (new Date(this.endTime).getTime() / 1000 - new Date(this.startTime).getTime() / 1000) / 60 / 60 / 24
       return timeDis
-    }
+    },
   },
 
   methods: {
@@ -50,6 +55,8 @@ export default {
         this.details = res.data.data
         this.startTime = res.data.data.checkinTime
         this.endTime = res.data.data.checkoutTime
+        this.dateRangeA = res.data.data.checkinTime.substring(5, 10)
+        this.dateRangeB = res.data.data.checkoutTime.substring(5, 10)
         // console.log(this.details, 'details')
       })
     },

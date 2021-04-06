@@ -1,21 +1,41 @@
-.content {
+.info-success {
+  width: 450px;
+  margin: 100px auto;
+  display: flex;
+  justify-content: space-between;
+  background-color: #EDFFCC;
+  border-radius: 8px;
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+
+  p {
+    margin-top: 40px;
+    color: #6C7084;
+    font-weight: bold;
+  }
+}
+
+.checkin {
   width: 60%;
-  margin: 80px auto;
+  margin: 20px auto;
   border: 1px solid #E8E8E8;
 
-  .content-order {
+  .checkin-order {
     width: 80%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
 
-    .content-order-left {
+    .checkin-order-left {
       margin-top: 100px;
       width: 40%;
       height: 300px;
     }
 
-    .content-order-right {
+    .checkin-order-right {
       margin-top: 40px;
       width: 50%;
       height: 600px;
@@ -113,6 +133,7 @@
           }
         }
       }
+
     }
   }
 }

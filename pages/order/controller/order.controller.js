@@ -4,23 +4,27 @@ import IhHeader from '/components/common/ihheader'
 import Success from "../../../components/order/success";
 import Wait from "../../../components/order/wait";
 import Failed from "../../../components/order/failed";
-import success from "../../../components/order/success";
+import Comment from "@/components/order/comment";
+import el from "element-ui/src/locale/lang/el";
 
 export default {
   name: "order",
   components: {
     IhHeader,
     Success,
+    Comment,
     Wait,
-    Failed
+    Failed,
   },
   data() {
     return {
       orderSuccess: true,
       orderWait: false,
+      orderComment: false,
       orderFailed: false,
       successOrder: [],
       waitOrder: [],
+      commentOrder: [],
       failedOrder: [],
       //订单状态
       orderStatus: 1
@@ -35,14 +39,25 @@ export default {
     success() {
       this.orderSuccess = true
       this.orderWait = false
+      this.orderComment = false
       this.orderFailed = false
       this.orderStatus = 1
+      this.getOrderM()
+    },
+
+    comment() {
+      this.orderSuccess = false
+      this.orderWait = false
+      this.orderComment = true
+      this.orderFailed = false
+      this.orderStatus = 3
       this.getOrderM()
     },
 
     wait() {
       this.orderSuccess = false
       this.orderWait = true
+      this.orderComment = false
       this.orderFailed = false
       this.orderStatus = 0
       this.getOrderM()
@@ -51,6 +66,7 @@ export default {
     failed() {
       this.orderSuccess = false
       this.orderWait = false
+      this.orderComment = false
       this.orderFailed = true
       this.orderStatus = 2
       this.getOrderM()
@@ -76,10 +92,13 @@ export default {
             this.successOrder = res.data.data.records
           } else if (this.orderStatus === 2) {
             this.failedOrder = res.data.data.records
+          } else if (this.orderStatus === 3) {
+            this.commentOrder = res.data.data.records
           }
           console.log(this.successOrder, 'success')
           console.log(this.waitOrder, 'wait')
           console.log(this.failedOrder, 'failed')
+          console.log(this.commentOrder, 'comment')
         }
       })
     }

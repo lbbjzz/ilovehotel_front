@@ -12,6 +12,10 @@
             <i class="el-icon-document-remove"></i>
             未付款
           </div>
+          <div class="left-info" @click="comment">
+            <i class="el-icon-document"></i>
+            待评价
+          </div>
           <div class="left-check" @click="failed">
             <i class="el-icon-document-delete"></i>
             已取消
@@ -24,6 +28,9 @@
         </div>
         <div v-if="orderWait">
           <Wait :wait-order="waitOrder"/>
+        </div>
+        <div v-if="orderComment">
+          <Comment :comment-order="commentOrder"></Comment>
         </div>
         <div v-if="orderFailed">
           <Failed :failed-order="failedOrder"/>
