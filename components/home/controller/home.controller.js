@@ -36,7 +36,7 @@ export default {
     toDetails(val) {
       // console.log(val, 'id')
       this.$router.push({
-        name: 'details-carousel-detail',
+        name: 'details-carousel-details',
         query: {
           id: val
         }
