@@ -23,6 +23,8 @@
   margin-bottom: 12px;
   display: flex;
   justify-content: flex-start;
+  box-shadow: none;
+  transition: box-shadow .5s;
 
   img {
     width: 160px;
@@ -65,4 +67,9 @@
       margin-top: 15px;
     }
   }
+}
+
+.order-content-success:hover {
+  box-shadow: 0 0 18px rgba(0, 0, 0, .3);
+  transition: box-shadow .8s;
 }

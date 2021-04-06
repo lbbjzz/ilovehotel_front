@@ -31,6 +31,16 @@ export default {
         // console.log(res)
         this.cityList = res.data.data.records
       })
+    },
+
+    toDetails(val) {
+      // console.log(val, 'id')
+      this.$router.push({
+        name: 'details-carousel-detail',
+        query: {
+          id: val
+        }
+      })
     }
   }
 }

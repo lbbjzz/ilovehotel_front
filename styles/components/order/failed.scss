@@ -23,6 +23,8 @@
   margin-bottom: 12px;
   display: flex;
   justify-content: flex-start;
+  box-shadow: none;
+  transition: box-shadow .5s;
 
   .cancel-order {
     width: 120px;
@@ -66,3 +68,9 @@
     }
   }
 }
+
+.order-content-failed:hover {
+  box-shadow: 0 0 18px rgba(0, 0, 0, .3);
+  transition: box-shadow .8s;
+}
+

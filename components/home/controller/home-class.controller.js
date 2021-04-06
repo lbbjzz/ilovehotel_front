@@ -16,6 +16,16 @@ export default {
       getClass().then(res => {
         this.floorList = res.data.data
       })
+    },
+
+    toIntroDetails(val) {
+      console.log(val)
+      this.$router.push({
+        name: 'details-intro-details',
+        query: {
+          floorId: val
+        }
+      })
     }
   }
 }

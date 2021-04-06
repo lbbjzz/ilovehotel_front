@@ -105,6 +105,7 @@
         </el-tab-pane>
       </el-tabs>
     </div>
+    <el-backtop></el-backtop>
   </div>
 </template>
 

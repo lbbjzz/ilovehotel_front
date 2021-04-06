@@ -5,6 +5,7 @@
       <home></home>
     </div>
     <!--    <ih-footer style="margin-left: 50%; transform: translateX(-50%)"></ih-footer>-->
+    <el-backtop></el-backtop>
   </div>
 </template>
 <script>

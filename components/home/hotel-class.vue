@@ -3,7 +3,7 @@
     <p>酒店简介</p>
     <el-row>
       <el-col :span="5" v-for="(item, index) in floorList" :key="item.floorId" :offset="index > 0 ? 1 : 0">
-        <el-card :body-style="{ padding: '0px' }" shadow="hover">
+        <el-card :body-style="{ padding: '0px' }" shadow="hover" @click.native="toIntroDetails(item.floorId)">
           <img :src="item.url"
                class="image">
           <div style="padding: 14px;">
