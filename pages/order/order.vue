@@ -1,6 +1,6 @@
 <template>
   <div class="order">
-    <IhHeader style="position: fixed; top: 0;z-index: 1"/>
+    <IhHeader style="position: fixed; top: 0;z-index: 1000"/>
     <div class="main-content">
       <div class="main-content-left">
         <div class="inner">

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <IhHeader/>
+    <IhHeader style="position:fixed; top: 0; z-index: 1000"/>
     <div class="content">
       <div class="content-order">
         <div class="content-order-left">

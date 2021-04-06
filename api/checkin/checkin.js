@@ -11,3 +11,14 @@ export function checkin(name, idcard, orderId) {
     }
   })
 }
+
+
+export function getOrderDetail(id) {
+  return request({
+    url: '/hotelsystem/order/view',
+    method: 'post',
+    params: {
+      id
+    }
+  })
+}
