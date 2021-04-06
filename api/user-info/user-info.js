@@ -32,6 +32,26 @@ export function userDetail(id) {
   })
 }
 
+export function getNewEmailCode(email) {
+  return request({
+    url: '/hotelsystem/email/sendNewEmail',
+    method: 'post',
+    params: {
+      email
+    }
+  })
+}
+
+export function checkNewEmailCode(email, code) {
+  return request({
+    url: '/hotelsystem/email/checkNewEmail',
+    method: 'post',
+    params: {
+      email,
+      code
+    }
+  })
+}
 
 
 

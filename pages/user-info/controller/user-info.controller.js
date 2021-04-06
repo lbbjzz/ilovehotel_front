@@ -4,8 +4,8 @@ import upload from "@/components/upload/upload";
 import uploadInfo from "@/components/upload/upload-info"
 import percentage from "@/components/percentage/percentage";
 import reset from "@/components/reset/reset";
-import {userDetail, updateInfo} from "@/api/user-info/user-info";
-import {getEmailCode, resetPwd, emailCodeVerify} from "@/api/reset-pwd/reset-pwd";
+import {userDetail, updateInfo, getNewEmailCode, checkNewEmailCode} from "@/api/user-info/user-info";
+import {resetPwd} from "@/api/reset-pwd/reset-pwd";
 
 export default {
   components: {
@@ -174,21 +174,37 @@ export default {
         name: 'login-login'
       })
     },
+
+    // Todo:换新邮箱
     getEmailCodeM() {
-      getEmailCode(this.userInfo.email, '', 1).then(res => {
+      getNewEmailCode(this.userInfo.email).then(res => {
+        console.log(res, 'newCode')
         if (res.data.code === 80200) {
-          this.$message({
-            message: '邮件发送成功,有效时间三分钟',
-            type: 'success'
-          })
+
         } else {
           this.$message({
-            message: '出错了 请稍后重试',
+            message: res.data.msg,
             type: 'error'
           })
         }
       })
     },
+
+    //Todo: 换新邮箱
+    userInfoSubmitWithCode() {
+      checkNewEmailCode(this.userInfo.email, this.resetEmailCode).then(res => {
+        console.log(res)
+        if (res.data.code === 80200) {
+
+        } else {
+          this.$message({
+            message: res.data.msg,
+            type: 'error'
+          })
+        }
+      })
+    },
+
     changePwd() {
       this.$refs.passwordRef.validate(async val => {
         if (!val) return
@@ -231,37 +247,5 @@ export default {
         })
       })
     },
-
-    userInfoSubmitWithCode() {
-      emailCodeVerify(this.resetEmailCode, this.userInfo.email).then(res => {
-        if (res.data.code === 80200) {
-          updateInfo(this.userInfo).then(res => {
-            if (res.data.code === 80200) {
-              this.$message({
-                message: res.data.data.msg,
-                type: 'success'
-              })
-              this.editFormIsShow2 = false
-              this.infoShow1 = true
-            } else if (res.data.code === 80400) {
-              this.$message({
-                message: res.data.msg,
-                type: 'error'
-              })
-            } else {
-              this.$message({
-                message: res.data.msg,
-                type: 'error'
-              })
-            }
-          })
-        } else {
-          this.$message({
-            message: res.data.msg,
-            type: 'error'
-          })
-        }
-      })
-    }
   }
 }
