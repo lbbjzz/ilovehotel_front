@@ -1,5 +1,6 @@
 import '/styles/pages/details/intro-details.scss'
 import {getIntroDetails} from "@/api/details/intro-details";
+import ihHeader from "@/components/common/ihheader";
 
 export default {
   name: "intro-details",
@@ -8,6 +9,10 @@ export default {
       floorId: '',
       intro: {},
     }
+  },
+
+  components:{
+    ihHeader
   },
 
   created() {
