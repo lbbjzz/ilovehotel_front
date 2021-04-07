@@ -9,3 +9,13 @@ export function toPay(id) {
     }
   })
 }
+
+export function toCancel(id) {
+  return request({
+    url: '/hotelsystem/order/kill',
+    method: 'post',
+    params: {
+      id
+    }
+  })
+}

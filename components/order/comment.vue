@@ -21,7 +21,8 @@
           </div>
         </div>
         <div style="width: 660px;display: flex;justify-content: flex-end">
-          <el-button type="primary" size="small" style="margin-top: 10px" @click="">立即评价</el-button>
+          <el-button type="primary" size="small" style="margin-top: 10px" @click="">自主退房</el-button>
+          <el-button type="primary" size="small" style="margin-top: 10px" @click="toComment(item.id)">立即评价</el-button>
         </div>
       </div>
     </div>

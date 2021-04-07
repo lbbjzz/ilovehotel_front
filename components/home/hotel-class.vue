@@ -8,9 +8,9 @@
                class="image">
           <div style="padding: 14px;">
             <span>{{ item.floorName }}</span>
-            <div class="bottom clearfix">
-              <time class="time">{{ item.content }}</time>
-            </div>
+<!--            <div class="bottom clearfix">-->
+<!--              <time class="time">{{ item.content }}</time>-->
+<!--            </div>-->
           </div>
         </el-card>
       </el-col>

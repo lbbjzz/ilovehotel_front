@@ -1,5 +1,5 @@
 import '/styles/components/order/wait.scss'
-import {toPay} from "~/api/order/wait";
+import {toPay, toCancel} from "~/api/order/wait";
 
 export default {
   props: ['waitOrder'],
@@ -40,7 +40,30 @@ export default {
       toPay(val).then(res => {
         let routerData = this.$router.resolve({name: 'pay-aliPay', query: {htmlData: res.data}})
         // 打开新页面
-        window.open(routerData.href, '_self')
+        window.open(routerData.href, '_blank')
+      })
+    },
+
+    toCancelM(val) {
+      toCancel(val).then(res => {
+        if (res.data.code === 80200) {
+          this.$confirm('您确定要取消订单吗?', '提示', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            type: 'warning'
+          }).then(() => {
+            this.$message({
+              type: 'success',
+              message: '取消成功!'
+            });
+            location.reload()
+          }).catch(() => {
+            this.$message({
+              type: 'info',
+              message: '已取消'
+            });
+          });
+        }
       })
     }
   }

@@ -124,6 +124,9 @@ export default {
             setTimeout(
               this.payM, 2000
             )
+            this.$router.push({
+              name: 'order-order'
+            })
             // alert('订单已生成')
           } else if (res.data.code === 80400) {
             this.$message({
@@ -153,7 +156,7 @@ export default {
         // alert(res.data)
         let routerData = this.$router.resolve({name: 'pay-aliPay', query: {htmlData: res.data}})
         // 打开新页面
-        window.open(routerData.href, '_self')
+        window.open(routerData.href, '_blank')
       })
     },
 

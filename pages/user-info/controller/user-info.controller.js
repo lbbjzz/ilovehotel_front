@@ -180,7 +180,10 @@ export default {
       getNewEmailCode(this.userInfo.email).then(res => {
         console.log(res, 'newCode')
         if (res.data.code === 80200) {
-
+          this.$message({
+            message: res.data.msg,
+            type: 'success'
+          })
         } else {
           this.$message({
             message: res.data.msg,
@@ -195,7 +198,11 @@ export default {
       checkNewEmailCode(this.userInfo.email, this.resetEmailCode).then(res => {
         console.log(res)
         if (res.data.code === 80200) {
-
+          this.$message({
+            message: res.data.msg,
+            type: 'success'
+          })
+          setTimeout(location.reload(), 1500)
         } else {
           this.$message({
             message: res.data.msg,
@@ -229,7 +236,6 @@ export default {
       })
     },
 
-    //Todo: save notice: success or fail;
     userInfoSubmit() {
       this.$refs.userInfoRef.validate(async val => {
         if (!val) return

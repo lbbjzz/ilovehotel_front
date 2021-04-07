@@ -1,0 +1,139 @@
+.info-success {
+  width: 450px;
+  margin: 100px auto;
+  display: flex;
+  justify-content: space-between;
+  background-color: #EDFFCC;
+  border-radius: 8px;
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+
+  p {
+    margin-top: 40px;
+    color: #6C7084;
+    font-weight: bold;
+  }
+}
+
+.checkin {
+  width: 60%;
+  margin: 20px auto;
+  border: 1px solid #E8E8E8;
+
+  .checkin-order {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    .checkin-order-left {
+      margin-top: 100px;
+      width: 40%;
+      height: 300px;
+    }
+
+    .checkin-order-right {
+      margin-top: 40px;
+      width: 50%;
+      height: 600px;
+
+      .title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-left: 10px;
+      }
+
+      .order-info {
+        width: 100%;
+        height: 100px;
+        background-color: #FFF2E8;
+        border-radius: 8px;
+        margin-top: 20px;
+
+        .info-info {
+          display: flex;
+          justify-content: space-between;
+
+          .order-info-1 {
+            padding-top: 10px;
+            display: flex;
+            align-items: flex-start;
+
+            .front {
+              color: #6C7084;
+              font-size: 13px;
+              font-weight: bold;
+              margin-left: 10px;
+              margin-top: 12px;
+            }
+
+            .back {
+              color: orangered;
+              font-size: 30px;
+              font-weight: bold;
+            }
+
+            .tips {
+              text-align: center;
+              font-weight: bold;
+              color: #6C7084;
+              font-size: 14px;
+              margin-top: 15px;
+              margin-left: 15px;
+            }
+          }
+
+          .order-rate {
+            display: flex;
+            justify-content: flex-end;
+
+            .order-rate-2 {
+              margin-top: 14px;
+
+              p {
+                text-align: center;
+                font-weight: bold;
+                color: #6C7084;
+                font-size: 12px;
+              }
+            }
+
+
+            .order-rate-1 {
+              margin: 14px 10px 0 20px;
+
+              p {
+                text-align: center;
+                font-weight: bold;
+                color: #6C7084;
+                font-size: 12px;
+              }
+            }
+          }
+        }
+
+
+        .order-tips {
+          margin-top: 18px;
+          display: flex;
+          justify-content: flex-start;
+
+          i {
+            margin-top: 1px;
+            margin-left: 15px;
+          }
+
+          span {
+            font-weight: bold;
+            color: #6C7084;
+            font-size: 12px;
+          }
+        }
+      }
+
+    }
+  }
+}

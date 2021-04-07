@@ -19,5 +19,16 @@ export default {
       immediate: true,
       deep: true
     }
+  },
+
+  methods: {
+    toComment(val) {
+      this.$router.push({
+        name: 'comment-comment',
+        query: {
+          orderId: val
+        }
+      })
+    }
   }
 }

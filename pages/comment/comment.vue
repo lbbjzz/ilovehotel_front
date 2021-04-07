@@ -3,7 +3,7 @@
     <ih-header style="position: fixed; top: 0; z-index: 1000"/>
     <div class="info-success">
       <img :src="imageSuccess.url">
-      <p>您已下单成功,请在预定时间内尽快登记入住！</p>
+      <p>感谢您的入住，请留下您对我们的建议！</p>
     </div>
     <div class="checkin">
       <div class="checkin-order">
@@ -50,29 +50,39 @@
               <i class="el-icon-first-aid-kit"/><span>医疗服务</span>
             </div>
           </div>
-          <UploadInfo @sendUserInfo="getOCRInfo" style="margin-top: 20px;margin-left: 100px"/>
-          <p style="margin-top:10px;font-size: 13px;color: #99a9bf;font-weight: bold;margin-left: 100px">
-            上传身份证,完成入住手续（系统不会保存您的证件照）</p>
-          <el-form v-model="checkinInfo" style="width: 400px">
-            <el-form-item style="margin-top: 20px" label="姓名：" label-width="100px">
-              <el-input v-model="checkinInfo.name" disabled style="width: 300px"></el-input>
-            </el-form-item>
-            <el-form-item label="身份证号：" label-width="100px">
-              <el-input v-model="checkinInfo.idcard" disabled style="width: 300px"></el-input>
-            </el-form-item>
-            <el-form-item>
-              <el-button type="primary" @click="check" style="float:right">入住</el-button>
-            </el-form-item>
-          </el-form>
+          <el-rate
+            style="margin-top: 50px;margin-left: 6px"
+            show-score
+            allow-half
+            v-model="rate"
+            :icon-classes="iconClasses"
+            void-icon-class="icon-rate-face-off"
+            text-color="#ff9900"
+            :colors="['#99A9BF', '#F7BA2A', '#FF9900']"
+            score-template="{value}分">
+          </el-rate>
+          <el-input
+            style="margin-top: 10px"
+            type="textarea"
+            :rows="4"
+            placeholder="请输入评价（100字以内）"
+            maxlength="100"
+            show-word-limit
+            v-model="textarea">
+          </el-input>
+          <el-button type="primary" style="float: right;margin-top: 20px" @click="commentAddM">提交评价</el-button>
         </div>
       </div>
     </div>
-    <el-backtop></el-backtop>
   </div>
 </template>
 
 <script>
-import controller from './controller/checkin.controller'
+import controller from './controller/comment.controller'
 
 export default controller
 </script>
+
+<style scoped>
+
+</style>

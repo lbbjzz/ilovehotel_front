@@ -1,24 +1,20 @@
-import UploadInfo from '/components/upload/upload-info'
-import {checkin, getOrderDetail} from "../../../api/checkin/checkin";
+import {getOrderDetail} from "../../../api/checkin/checkin";
+import {commentAdd} from "@/api/comment/comment";
+import '/styles/pages/comment/comment.scss'
 import ihHeader from "@/components/common/ihheader";
 import InnerImageZoom from 'vue-inner-image-zoom';
-import '/styles/pages/checkin/checkin.scss'
+import 'assets/fonts-ele/style.css'
 
 
 export default {
-  name: "checkin",
+  name: "comment",
   components: {
-    UploadInfo,
     ihHeader,
     InnerImageZoom
   },
   data() {
     return {
-      checkinInfo: {
-        name: '',
-        idcard: '',
-        orderId: ''
-      },
+      orderId: '',
       details: {},
       startTime: '',
       endTime: '',
@@ -26,13 +22,12 @@ export default {
       dateRangeB: '',
       imageSuccess: {
         url: require('/static/img/success.png')
-      }
+      },
+      // 评价
+      textarea: '',
+      rate: null,
+      iconClasses: ['icon-rate-face-1', 'icon-rate-face-2', 'icon-rate-face-3'] // 等同于 { 2: 'icon-rate-face-1', 4: { value: 'icon-rate-face-2', excluded: true }, 5: 'icon-rate-face-3' }
     }
-  },
-  created() {
-    this.checkinInfo.orderId = this.$route.query.orderId
-    // console.log(this.checkinInfo.orderId, 'orderId');
-    this.getOrderDetailM()
   },
 
   computed: {
@@ -42,15 +37,14 @@ export default {
     },
   },
 
+  created() {
+    this.orderId = this.$route.query.orderId
+    // console.log(this.checkinInfo.orderId, 'orderId');
+    this.getOrderDetailM()
+  },
   methods: {
-    getOCRInfo(val) {
-      console.log(val, 'OCR')
-      this.checkinInfo.name = val.name
-      this.checkinInfo.idcard = val.idcard
-    },
-
     getOrderDetailM() {
-      getOrderDetail(this.checkinInfo.orderId).then(res => {
+      getOrderDetail(this.orderId).then(res => {
         // console.log(res, 'details');
         this.details = res.data.data
         this.startTime = res.data.data.checkinTime
@@ -61,14 +55,13 @@ export default {
       })
     },
 
-    //入住
-    check() {
-      checkin(this.checkinInfo.name, this.checkinInfo.idcard, this.checkinInfo.orderId).then(res => {
-        console.log(res, 'info')
+    commentAddM() {
+      commentAdd(this.textarea, this.orderId, this.rate).then(res => {
+        // console.log(res, 'comment')
         if (res.data.code === 80200) {
           this.$message({
             message: res.data.msg,
-            type: 'success'
+            type: "success"
           })
           this.$router.push({
             name: 'order-order'
@@ -76,7 +69,7 @@ export default {
         } else {
           this.$message({
             message: res.data.msg,
-            type: 'error'
+            type: "error"
           })
         }
       })

@@ -21,6 +21,7 @@
           </div>
         </div>
         <div style="width: 660px;display: flex;justify-content: flex-end">
+          <el-button type="primary" size="small" style="margin-top: 10px" @click="toCancelM(item.id)">取消订单</el-button>
           <el-button type="primary" size="small" style="margin-top: 10px" @click="toPayM(item.id)">立即付款</el-button>
         </div>
       </div>
