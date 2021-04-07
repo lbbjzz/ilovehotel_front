@@ -17,8 +17,38 @@ import home from "~/components/home/home";
 export default {
   components: {ihHeader, ihFooter, home},
   data() {
-    return {}
+    return {
+      //窗口大小监听
+      screenWidth: '',
+      screenHeight: '',
+    }
   },
+
+  mounted() {
+    this.screenWidth = document.body.clientWidth;
+    this.screenHeight = document.body.clientHeight;
+    if (this.screenWidth < 1025) {
+      let tip = confirm('您似乎在移动设备上访问此页面，是否前往移动端页面？')
+      if (tip) {
+        window.location.href = 'http://h5.lbbjzz.com'
+      }
+    }
+    window.onresize = () => {
+      return (() => {
+        this.screenWidth = document.body.clientWidth;
+        this.screenHeight = document.body.clientHeight;
+        console.log(this.screenWidth, 'width')
+        console.log(this.screenHeight, 'height')
+        if (this.screenWidth < 1025) {
+          let tip = confirm('您似乎在移动设备上访问此页面，是否前往移动端页面？')
+          if (tip) {
+            window.location.href = 'http://h5.lbbjzz.com'
+          }
+        }
+      })();
+    };
+  },
+
 }
 </script>
 

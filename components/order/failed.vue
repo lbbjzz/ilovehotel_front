@@ -22,6 +22,7 @@
         </div>
       </div>
     </div>
+    <div v-if="failedList.length === 10" class="order-none-noMore">更多订单信息请联系管理员</div>
   </div>
 
 </template>
