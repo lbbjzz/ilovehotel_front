@@ -81,10 +81,9 @@ export default {
             type: 'warning'
           })
           localStorage.removeItem('loginData')
-          setTimeout(
-            this.$router.push({
-              name: 'login-login'
-            }), 2000)
+          this.$router.push({
+            name: 'login-login'
+          })
         } else if (res.data.code === 80200) {
           if (this.orderStatus === 0) {
             this.waitOrder = res.data.data.records

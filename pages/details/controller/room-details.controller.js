@@ -130,6 +130,9 @@ export default {
               message: '请先完善用户身份证信息',
               type: 'warning'
             })
+            this.$router.push({
+              name: 'user-info-user-info'
+            })
           } else {
             this.$message({
               message: `未登录或登录状态已过期，请重新登录`,

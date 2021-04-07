@@ -18,7 +18,7 @@
           </div>
           <div class="left-check" @click="failed">
             <i class="el-icon-document-delete"></i>
-            已取消
+            已结束
           </div>
         </div>
       </div>
