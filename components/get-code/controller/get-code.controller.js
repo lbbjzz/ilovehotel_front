@@ -15,10 +15,10 @@ export default {
   methods: {
     getCodeTest() {
       getCodeApi().then(res => {
-        console.log(res)
+        // console.log(res)
         this.codeImg = window.URL.createObjectURL(res.data)
         this.only = res.headers.only
-        console.log(this.only, 'headers')
+        // console.log(this.only, 'headers')
         this.$emit('only', this.only)
       })
     },

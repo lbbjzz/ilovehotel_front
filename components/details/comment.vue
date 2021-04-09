@@ -37,7 +37,7 @@
 </template>
 1
 <script>
-import controller from './controller/comment.comtroller'
+import controller from './controller/comment.controller'
 
 export default controller
 </script>

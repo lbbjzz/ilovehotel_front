@@ -19,7 +19,7 @@ export default {
     },
 
     toIntroDetails(val) {
-      console.log(val)
+      // console.log(val)
       this.$router.push({
         name: 'details-intro-details',
         query: {

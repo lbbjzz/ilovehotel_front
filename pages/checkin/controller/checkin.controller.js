@@ -44,7 +44,7 @@ export default {
 
   methods: {
     getOCRInfo(val) {
-      console.log(val, 'OCR')
+      // console.log(val, 'OCR')
       this.checkinInfo.name = val.name
       this.checkinInfo.idcard = val.idcard
     },
@@ -64,10 +64,10 @@ export default {
     //入住
     check() {
       checkin(this.checkinInfo.name, this.checkinInfo.idcard, this.checkinInfo.orderId).then(res => {
-        console.log(res, 'info')
+        // console.log(res, 'info')
         if (res.data.code === 80200) {
           this.$message({
-            message: res.data.msg,
+            message: '入住成功，房间密码将发送到您的邮箱，请注意查收',
             type: 'success'
           })
           this.$router.push({

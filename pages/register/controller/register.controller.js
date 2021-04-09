@@ -162,7 +162,7 @@ export default {
           })
         } else {
           register(this.form.username, this.form.password, this.emailForm.email).then(res => {
-            console.log(res, 'register');
+            // console.log(res, 'register');
             if (res.data.code === 81507) {
               this.$message({
                 type: 'error',
@@ -198,7 +198,7 @@ export default {
 
     getOnly(val) {
       this.only = val
-      console.log(val, 'getOnly')
+      // console.log(val, 'getOnly')
     },
   }
 }

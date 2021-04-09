@@ -12,9 +12,9 @@ export default {
   watch: {
     commentOrder: {
       handler(val) {
-        console.log(val, 'val')
+        // console.log(val, 'val')
         this.commentList = val
-        console.log(this.commentList, 'commentList')
+        // console.log(this.commentList, 'commentList')
       },
       immediate: true,
       deep: true

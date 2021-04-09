@@ -18,7 +18,7 @@ export default {
 
   methods: {
     handleAvatarSuccess(res) {
-      console.log(res.data, 'res')
+      // console.log(res.data, 'res')
       this.$emit('sendUserInfo', res.data)
       // this.imageUrl = res.data
 

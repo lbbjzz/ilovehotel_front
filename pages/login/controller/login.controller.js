@@ -117,7 +117,7 @@ export default {
 
     getOnly(val) {
       this.only = val
-      console.log(val, 'getOnly')
+      // console.log(val, 'getOnly')
     },
 
     //Vuex

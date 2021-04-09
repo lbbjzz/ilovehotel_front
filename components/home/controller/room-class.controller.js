@@ -18,7 +18,7 @@ export default {
   methods: {
     getRoomTypeM() {
       getRoomType().then(res => {
-        console.log(res, 'RoomType')
+        // console.log(res, 'RoomType')
         this.roomTypeList = res.data.data
       })
     },
@@ -29,9 +29,9 @@ export default {
     },
     cityChange(val) {
       // this.loading = true
-      console.log(val)
+      // console.log(val)
       getRoomTypeByCityId(val).then(res => {
-        console.log(res)
+        // console.log(res)
         if (res.data.code === 80200) {
           this.roomTypeList = res.data.data
           // setTimeout(() => {
@@ -46,7 +46,7 @@ export default {
       })
     },
     roomOrder(val) {
-      console.log(val, 'id')
+      // console.log(val, 'id')
       this.$router.push({
         name: 'details-room-details',
         query: {

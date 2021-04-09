@@ -60,7 +60,7 @@ export default {
     },
 
     userInfo() {
-      console.log(this.id)
+      // console.log(this.id)
       this.$router.push({
         name: 'user-info-user-info',
       })

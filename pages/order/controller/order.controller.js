@@ -73,7 +73,7 @@ export default {
     },
 
     getOrderM() {
-      console.log(this.orderStatus, 'status')
+      // console.log(this.orderStatus, 'status')
       getOrderOfCurrentUser(this.orderStatus).then(res => {
         if (res.data.code === 80400) {
           this.$message({
@@ -94,10 +94,10 @@ export default {
           } else if (this.orderStatus === 3) {
             this.commentOrder = res.data.data.records
           }
-          console.log(this.successOrder, 'success')
-          console.log(this.waitOrder, 'wait')
-          console.log(this.failedOrder, 'failed')
-          console.log(this.commentOrder, 'comment')
+          // console.log(this.successOrder, 'success')
+          // console.log(this.waitOrder, 'wait')
+          // console.log(this.failedOrder, 'failed')
+          // console.log(this.commentOrder, 'comment')
         }
       })
     }

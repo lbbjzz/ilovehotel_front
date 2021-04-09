@@ -150,7 +150,7 @@ export default {
       this.per = val
     },
     getIdCardDetail(val) {
-      console.log(val, 'get')
+      // console.log(val, 'get')
       this.userInfo.idcard = val.idcard
       this.userInfo.sex = val.sex
       this.userInfo.birthday = val.birthday
@@ -178,7 +178,7 @@ export default {
     // Todo:换新邮箱
     getEmailCodeM() {
       getNewEmailCode(this.userInfo.email).then(res => {
-        console.log(res, 'newCode')
+        // console.log(res, 'newCode')
         if (res.data.code === 80200) {
           this.$message({
             message: res.data.msg,
@@ -196,7 +196,7 @@ export default {
     //Todo: 换新邮箱
     userInfoSubmitWithCode() {
       checkNewEmailCode(this.userInfo.email, this.resetEmailCode).then(res => {
-        console.log(res)
+        // console.log(res)
         if (res.data.code === 80200) {
           this.$message({
             message: res.data.msg,
@@ -215,7 +215,7 @@ export default {
     changePwd() {
       this.$refs.passwordRef.validate(async val => {
         if (!val) return
-        console.log(123123)
+        // console.log(123123)
         if (this.resetPwd.pwd !== this.resetPwd.rePwd) {
           this.$message({
             type: 'error',

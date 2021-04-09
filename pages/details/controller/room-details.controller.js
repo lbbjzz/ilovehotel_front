@@ -79,9 +79,9 @@ export default {
         this.info = '请选择您的入住时间！'
       } else {
         getRoom(this.timeRange[0], this.timeRange[1], this.tabModel, this.roomTypeId).then(res => {
-          console.log(res, 'room')
+          // console.log(res, 'room')
           this.roomList = res.data.data.records
-          console.log(this.roomList, 'roomList')
+          // console.log(this.roomList, 'roomList')
         })
       }
     },
@@ -98,7 +98,7 @@ export default {
     },
 
     chooseRoom(val) {
-      console.log(val, 'roomS')
+      // console.log(val, 'roomS')
       this.roomId = val
     },
 
@@ -114,7 +114,7 @@ export default {
         })
       } else {
         getOrder(this.timeRange[0], this.timeRange[1], this.roomId).then(res => {
-          console.log(res, 'roomOrder')
+          // console.log(res, 'roomOrder')
           if (res.data.code === 80200) {
             this.orderId = res.data.data.id
             this.$message({
