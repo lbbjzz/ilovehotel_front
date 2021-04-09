@@ -3,7 +3,7 @@
     <div v-if="error.statusCode === 404">
       <page404></page404>
     </div>
-    <div v-if="error.statusCode === 500">
+    <div v-if="error.statusCode === 502 || error.statusCode === 500">
       <page500></page500>
     </div>
     <NuxtLink to="/" style="text-decoration: none;">
