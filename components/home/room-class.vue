@@ -12,6 +12,7 @@
           :value="item.id">
         </el-option>
       </el-select>
+      <el-button type="primary" @click="navigate">导航</el-button>
     </div>
 
 

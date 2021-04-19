@@ -53,6 +53,11 @@ export default {
           id: val
         }
       })
+    },
+
+    //导航
+    navigate(){
+      window.location.href = 'http://8.135.35.123:9001/getMap'
     }
   }
 }
